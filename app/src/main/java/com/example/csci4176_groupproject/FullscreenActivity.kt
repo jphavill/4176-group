@@ -1,6 +1,5 @@
 package com.example.csci4176_groupproject
 
-import androidx.appcompat.app.AppCompatActivity
 import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
@@ -12,6 +11,7 @@ import android.view.WindowInsets
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.csci4176_groupproject.databinding.ActivityFullscreenBinding
+import androidx.appcompat.app.AppCompatActivity
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.

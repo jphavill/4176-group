@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/fullscreenBackgroundColor"
+    android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
+    tools:context=".FullscreenActivity">
+
+    <RelativeLayout
+        android:id="@+id/SwipeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".MainActivity">
+
+    </RelativeLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageButton
+                android:id="@+id/BackToHomeButton"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="?attr/homeAsUpIndicator" />
+
+            <TextView
+                android:id="@+id/LevelHeaderTextView"
+                android:layout_width="271dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="Level X"
+                android:textAlignment="center"
+                android:textSize="34sp" />
+
+            <ImageButton
+                android:id="@+id/SettingsButton"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@android:drawable/ic_menu_preferences" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
+</FrameLayout>

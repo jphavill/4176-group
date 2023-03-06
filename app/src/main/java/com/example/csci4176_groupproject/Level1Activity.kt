@@ -1,27 +1,43 @@
 package com.example.csci4176_groupproject
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.GestureDetector.SimpleOnGestureListener
 import android.view.MotionEvent
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import kotlin.math.abs
 
 
-class LevelTestActivity : AppCompatActivity() {
+class Level1Activity : AppCompatActivity() {
     private lateinit var detector: GestureDetectorCompat
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_level_test)
+        setContentView(R.layout.activity_level_1)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.hide()
 
         detector = GestureDetectorCompat(this, GestureListener())
+
+        val backToHomeButton = findViewById<ImageButton>(R.id.BackToHomeButton)
+        backToHomeButton.setOnClickListener {
+            val intent = Intent(this, FullscreenActivity::class.java)
+            startActivity(intent)
+        }
+
+        val groundTile1 = findViewById<ImageView>(R.id.GroundTile1)
+
+        groundTile1.setOnClickListener {
+            groundTile1.setColorFilter(Color.argb(80, 225, 68, 19))
+        }
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
@@ -33,8 +49,8 @@ class LevelTestActivity : AppCompatActivity() {
     }
 
     inner class GestureListener : SimpleOnGestureListener() {
-        private val SwipeThreshold = 100
-        private val SwipeVelocityThreshold = 100
+        private val swipeThreshold = 100
+        private val swipeVelocityThreshold = 100
 
         override fun onFling(
             downEvent: MotionEvent,
@@ -48,12 +64,12 @@ class LevelTestActivity : AppCompatActivity() {
 
             // Check for horizontal or vertical swipe.
             return if(abs(deltaX) > abs(deltaY)) {
-                if(abs(deltaX) > SwipeThreshold && abs(velocityX) > SwipeVelocityThreshold) {
+                if(abs(deltaX) > swipeThreshold && abs(velocityX) > swipeVelocityThreshold) {
                     if(deltaX < 0) {
-                        this@LevelTestActivity.onSwipeLeft()
+                        this@Level1Activity.onSwipeLeft()
                     }
                     else {
-                        this@LevelTestActivity.onSwipeRight()
+                        this@Level1Activity.onSwipeRight()
                     }
                     return true
                 }
@@ -62,12 +78,12 @@ class LevelTestActivity : AppCompatActivity() {
                 }
             }
             else {
-                if(abs(deltaY) > SwipeThreshold && abs(velocityY) > SwipeVelocityThreshold) {
+                if(abs(deltaY) > swipeThreshold && abs(velocityY) > swipeVelocityThreshold) {
                     if(deltaY < 0) {
-                        this@LevelTestActivity.onSwipeUp()
+                        this@Level1Activity.onSwipeUp()
                     }
                     else {
-                        this@LevelTestActivity.onSwipeDown()
+                        this@Level1Activity.onSwipeDown()
                     }
                     return true
                 }

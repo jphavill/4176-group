@@ -6,13 +6,15 @@ import android.os.Build
 import android.os.Bundle
 import android.view.GestureDetector.SimpleOnGestureListener
 import android.view.MotionEvent
+import android.view.View
+import android.view.ViewGroup
 import android.view.WindowInsets
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import com.example.csci4176_groupproject.databinding.ActivityLevel1Binding
 import kotlin.math.abs
-
+import android.util.Log
 
 class Level1Activity : AppCompatActivity() {
     private lateinit var detector: GestureDetectorCompat
@@ -43,7 +45,40 @@ class Level1Activity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        Log.d("START", "Starting search for ground tiles.")
+        val groundTilesImageViews = getViewsByTag(findViewById(R.id.Level1FullscreenContent), "groundTile")
+        val groundTiles: ArrayList<Tile> = ArrayList()
+        Log.d("TILE OBJECTS", "Begin creating tile objects with image views.")
+        if (groundTilesImageViews != null) {
+            for(groundTileImageView in groundTilesImageViews){
+                val groundTile = Tile(groundTileImageView as ImageView, true)
+                groundTileImageView.setOnClickListener {
+                    groundTile.colourTile()
+                }
+                groundTiles.add(groundTile)
+            }
+        }
+
         hide()
+    }
+
+    private fun getViewsByTag(root: ViewGroup, tag: String): ArrayList<View>? {
+        val views: ArrayList<View> = ArrayList<View>()
+        val childCount = root.childCount
+        Log.d("getViewsByTag childCount", childCount.toString())
+
+        for (i in 0 until childCount) {
+            val child: View = root.getChildAt(i)
+            if(child.tag != null)
+                Log.d("getViewsByTag child", child.tag.toString())
+            if (child is ViewGroup) {
+                views.addAll(getViewsByTag(child, tag)!!)
+            }
+            if (child.tag != null && child.tag.toString() == tag) {
+                views.add(child)
+            }
+        }
+        return views
     }
 
     private fun hide() {

@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/Level1FullscreenContent"
+    android:id="@+id/Level10FullscreenContent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/fullscreenBackgroundColor"
@@ -38,7 +38,7 @@
                 android:layout_width="220dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:text="Level 1"
+                android:text="Level 10"
                 android:textAlignment="center"
                 android:textSize="34sp" />
 

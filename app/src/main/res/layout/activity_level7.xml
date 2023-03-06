@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Level7FullscreenContent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/fullscreenBackgroundColor"
@@ -37,7 +38,7 @@
                 android:layout_width="220dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:text="Level 1"
+                android:text="Level 7"
                 android:textAlignment="center"
                 android:textSize="34sp" />
 
@@ -416,13 +417,13 @@
                 android:id="@+id/imageButton"
                 android:layout_width="68dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#C6BCBC"
-                app:tint="#000000"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:adjustViewBounds="true"
+                android:backgroundTint="#C6BCBC"
                 android:scaleType="fitCenter"
-                app:srcCompat="@android:drawable/ic_popup_sync" />
+                app:srcCompat="@android:drawable/ic_popup_sync"
+                app:tint="#000000" />
 
             <Space
                 android:layout_width="wrap_content"

@@ -10,14 +10,14 @@ import android.view.WindowInsets
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
-import com.example.csci4176_groupproject.databinding.ActivityLevel1Binding
+import com.example.csci4176_groupproject.databinding.ActivityLevel2Binding
 import kotlin.math.abs
 
 
-class Level1Activity : AppCompatActivity() {
+class Level2Activity : AppCompatActivity() {
     private lateinit var detector: GestureDetectorCompat
 
-    private lateinit var binding: ActivityLevel1Binding
+    private lateinit var binding: ActivityLevel2Binding
     private lateinit var fullscreenContent: FrameLayout
 
     private var isFullscreen: Boolean = true
@@ -26,14 +26,16 @@ class Level1Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityLevel1Binding.inflate(layoutInflater)
+        binding = ActivityLevel2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         isFullscreen = true
+
         // Set up the user interaction to manually show or hide the system UI.
-        fullscreenContent = binding.Level1FullscreenContent
+        fullscreenContent = binding.Level2FullscreenContent
+
 
         detector = GestureDetectorCompat(this, GestureListener())
 
@@ -82,10 +84,10 @@ class Level1Activity : AppCompatActivity() {
             return if(abs(deltaX) > abs(deltaY)) {
                 if(abs(deltaX) > swipeThreshold && abs(velocityX) > swipeVelocityThreshold) {
                     if(deltaX < 0) {
-                        this@Level1Activity.onSwipeLeft()
+                        this@Level2Activity.onSwipeLeft()
                     }
                     else {
-                        this@Level1Activity.onSwipeRight()
+                        this@Level2Activity.onSwipeRight()
                     }
                     return true
                 }
@@ -96,10 +98,10 @@ class Level1Activity : AppCompatActivity() {
             else {
                 if(abs(deltaY) > swipeThreshold && abs(velocityY) > swipeVelocityThreshold) {
                     if(deltaY < 0) {
-                        this@Level1Activity.onSwipeUp()
+                        this@Level2Activity.onSwipeUp()
                     }
                     else {
-                        this@Level1Activity.onSwipeDown()
+                        this@Level2Activity.onSwipeDown()
                     }
                     return true
                 }

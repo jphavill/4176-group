@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Settings"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="24sp" />
 
         <Switch
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Player Icon"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
             <Spinner
                 android:id="@+id/playerIconSelect"
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Level Theme"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
             <Spinner
                 android:id="@+id/levelThemeSelect"

@@ -49,22 +49,22 @@ class Level1Activity : AppCompatActivity() {
         val settingsButton = findViewById<ImageButton>(R.id.SettingsButton)
         settingsButton.setOnClickListener {
 
-            val builder = AlertDialog.Builder(this,R.style.SettingsDialog)
+            val builder = AlertDialog.Builder(this, R.style.SettingsDialog)
                 .create()
-            val view = layoutInflater.inflate(R.layout.settings_dialog,null)
+            val view = layoutInflater.inflate(R.layout.settings_dialog, null)
             builder.setView(view)
 
-            val  applyButton = view.findViewById<Button>(R.id.applyButton)
+            val applyButton = view.findViewById<Button>(R.id.applyButton)
             applyButton.setOnClickListener {
                 builder.dismiss()
             }
-            val  cancelButton = view.findViewById<Button>(R.id.cancelButton)
+            val cancelButton = view.findViewById<Button>(R.id.cancelButton)
             cancelButton.setOnClickListener {
                 builder.cancel()
             }
             builder.setCanceledOnTouchOutside(false)
             builder.show()
-
+        }
 
         Log.d("START", "Starting search for ground tiles.")
         val groundTilesImageViews = getViewsByTag(findViewById(R.id.Level1FullscreenContent), "groundTile")

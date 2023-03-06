@@ -33,10 +33,12 @@ class Level1Activity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val groundTile1 = findViewById<ImageView>(R.id.GroundTile1)
+        val groundTile1ImageView = findViewById<ImageView>(R.id.GroundTile1)
 
-        groundTile1.setOnClickListener {
-            groundTile1.setColorFilter(Color.argb(80, 225, 68, 19))
+        val groundTile1 = Tile(groundTile1ImageView)
+        groundTile1ImageView.setOnClickListener {
+            groundTile1ImageView.setColorFilter(Color.argb(80, 225, 68, 19))
+            Toast.makeText(this, groundTile1ImageView.id.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 

@@ -8,6 +8,7 @@ import android.view.GestureDetector.SimpleOnGestureListener
 import android.view.MotionEvent
 import android.view.WindowInsets
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import com.example.csci4176_groupproject.databinding.ActivityLevel1Binding
@@ -41,6 +42,28 @@ class Level1Activity : AppCompatActivity() {
         backToHomeButton.setOnClickListener {
             val intent = Intent(this, FullscreenActivity::class.java)
             startActivity(intent)
+        }
+
+        val settingsButton = findViewById<ImageButton>(R.id.SettingsButton)
+        settingsButton.setOnClickListener {
+//builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
+
+            val builder = AlertDialog.Builder(this,R.style.SettingsDialog)
+                .create()
+            val view = layoutInflater.inflate(R.layout.settings_dialog,null)
+            builder.setView(view)
+
+            val  applyButton = view.findViewById<Button>(R.id.applyButton)
+            applyButton.setOnClickListener {
+                builder.dismiss()
+            }
+            val  cancelButton = view.findViewById<Button>(R.id.cancelButton)
+            cancelButton.setOnClickListener {
+                builder.cancel()
+            }
+            builder.setCanceledOnTouchOutside(false)
+            builder.show()
+
         }
 
         hide()

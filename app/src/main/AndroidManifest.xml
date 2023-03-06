@@ -23,6 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Level1Activity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen"
+        />
     </application>
 
 </manifest>

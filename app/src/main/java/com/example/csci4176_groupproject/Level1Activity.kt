@@ -90,10 +90,8 @@ class Level1Activity : AppCompatActivity() {
 
         }
 
-        Log.d("START", "Starting search for ground tiles.")
         val groundTilesImageViews = getViewsByTag(findViewById(R.id.Level1FullscreenContent), "groundTile")
         val groundTiles: ArrayList<Tile> = ArrayList()
-        Log.d("TILE OBJECTS", "Begin creating tile objects with image views.")
         if (groundTilesImageViews != null) {
             for(groundTileImageView in groundTilesImageViews){
                 val groundTile = Tile(groundTileImageView as ImageView, true)

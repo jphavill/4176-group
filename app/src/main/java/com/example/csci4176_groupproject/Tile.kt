@@ -5,6 +5,8 @@ import android.widget.ImageView
 
 class Tile(val tileImageView: ImageView, val isGroundTile: Boolean) {
     private var coloured = false
+    private var xPos = 0
+    private var yPos = 0
 
     fun colourTile(){
         if(!coloured){

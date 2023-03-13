@@ -21,6 +21,7 @@ import kotlin.reflect.typeOf
 
 class Level1Activity : AppCompatActivity() {
     private var player: Player? = null;
+    private var colouredTileCount = 0
     private val wallTiles: ArrayList<Tile> = ArrayList()
     private val groundTiles: ArrayList<Tile> = ArrayList()
     private val tileMap: ArrayList<Pair<Int, ArrayList<Tile>>> = ArrayList()
@@ -190,7 +191,7 @@ class Level1Activity : AppCompatActivity() {
                     if(groundTile.getXPos() == playerLocation[0] &&
                             groundTile.getYPos() == playerLocation[1]){
                         player = Player(playerImageView, playerLocation[0], playerLocation[1], groundTile)
-                        groundTile.colourTile()
+                        colourTile(groundTile)
                     }
                 }
             }
@@ -365,9 +366,20 @@ class Level1Activity : AppCompatActivity() {
                 tile.tileImageView.getLocationInWindow(tileLocation)
                 player?.movePlayerPos(tileLocation[0], tileLocation[1], crossedTiles.last())
                 for(groundTile in crossedTiles){
-                    groundTile.colourTile()
+                    colourTile(groundTile)
                 }
             }
         }
+    }
+
+    private fun colourTile(groundTile: GroundTile){
+        groundTile.colourTile()
+        colouredTileCount += 1;
+        if(colouredTileCount == groundTiles.count())
+            levelComplete()
+    }
+
+    private fun levelComplete(){
+
     }
 }

@@ -200,6 +200,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_weight="0"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
@@ -246,6 +247,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_weight="0"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
@@ -292,6 +294,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_weight="0"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
@@ -335,7 +338,8 @@
                         android:id="@+id/imageView51"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
+                        app:srcCompat="@drawable/wall_tile_foreground"
+                        android:tag="wallTile" />
 
                     <ImageView
                         android:id="@+id/GroundTile11"
@@ -411,6 +415,7 @@
                         android:id="@+id/WallTile19"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
@@ -466,5 +471,18 @@
 
         </TableRow>
     </TableLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/playerImageView"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:translationX="443px"
+            android:translationY="1351px"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
+    </RelativeLayout>
 
 </FrameLayout>

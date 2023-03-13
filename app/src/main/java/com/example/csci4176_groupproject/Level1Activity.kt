@@ -17,7 +17,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import com.example.csci4176_groupproject.databinding.ActivityLevel1Binding
 import kotlin.math.abs
-import kotlin.reflect.typeOf
 
 class Level1Activity : AppCompatActivity() {
     private var player: Player? = null;

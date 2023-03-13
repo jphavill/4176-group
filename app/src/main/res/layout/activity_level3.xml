@@ -72,6 +72,7 @@
                         android:layout_weight="0"
                         android:adjustViewBounds="false"
                         android:cropToPadding="false"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
@@ -81,6 +82,7 @@
                         android:layout_weight="0"
                         android:adjustViewBounds="false"
                         android:cropToPadding="false"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
@@ -90,6 +92,7 @@
                         android:layout_weight="0"
                         android:adjustViewBounds="false"
                         android:cropToPadding="false"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
@@ -99,6 +102,7 @@
                         android:layout_weight="0"
                         android:adjustViewBounds="false"
                         android:cropToPadding="false"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
@@ -108,6 +112,7 @@
                         android:layout_weight="0"
                         android:adjustViewBounds="false"
                         android:cropToPadding="false"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                 </TableRow>
@@ -124,6 +129,7 @@
                         android:layout_weight="0"
                         android:adjustViewBounds="false"
                         android:cropToPadding="false"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
@@ -133,6 +139,7 @@
                         android:layout_weight="0"
                         android:adjustViewBounds="false"
                         android:cropToPadding="false"
+                        android:tag="groundTile"
                         app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
@@ -142,6 +149,7 @@
                         android:layout_weight="0"
                         android:adjustViewBounds="false"
                         android:cropToPadding="false"
+                        android:tag="groundTile"
                         app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
@@ -151,6 +159,7 @@
                         android:layout_weight="0"
                         android:adjustViewBounds="false"
                         android:cropToPadding="false"
+                        android:tag="groundTile"
                         app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
@@ -160,6 +169,7 @@
                         android:layout_weight="0"
                         android:adjustViewBounds="false"
                         android:cropToPadding="false"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                 </TableRow>
@@ -174,20 +184,23 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_weight="0"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
-                        android:id="@+id/GroundTile4"
+                        android:id="@+id/wallTile2"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_weight="0"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
+                        android:tag="wallTile"
+                        app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
                         android:id="@+id/imageView26"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_weight="0"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
@@ -195,6 +208,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_weight="0"
+                        android:tag="groundTile"
                         app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
@@ -202,6 +216,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_weight="0"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                 </TableRow>
@@ -216,6 +231,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_weight="0"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
@@ -223,20 +239,23 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_weight="0"
+                        android:tag="groundTile"
                         app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
-                        android:id="@+id/imageView31"
+                        android:id="@+id/groundTile3"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_weight="0"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
+                        android:tag="groundTile"
+                        app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
                         android:id="@+id/GroundTile7"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_weight="0"
+                        android:tag="groundTile"
                         app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
@@ -244,6 +263,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_weight="0"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                 </TableRow>
@@ -258,6 +278,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_weight="0"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
@@ -265,20 +286,15 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_weight="0"
+                        android:tag="groundTile"
                         app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
-                        android:id="@+id/imageView36"
+                        android:id="@+id/groundTile4"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_weight="0"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:id="@+id/GroundTile9"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_weight="0"
+                        android:tag="groundTile"
                         app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
@@ -286,6 +302,15 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_weight="0"
+                        android:tag="wallTile"
+                        app:srcCompat="@drawable/wall_tile_foreground" />
+
+                    <ImageView
+                        android:id="@+id/wallTile4"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="0"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                 </TableRow>
@@ -299,30 +324,35 @@
                         android:id="@+id/WallTile14"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:id="@+id/GroundTile10"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
                         android:id="@+id/imageView51"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
                         android:id="@+id/GroundTile11"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
+                        android:tag="groundTile"
+                        app:srcCompat="@drawable/ground_tile_foreground" />
+
+                    <ImageView
+                        android:id="@+id/groundTile5"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:tag="groundTileStart"
                         app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
                         android:id="@+id/WallTile15"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                 </TableRow>
@@ -336,30 +366,35 @@
                         android:id="@+id/WallTile16"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
                         android:id="@+id/GroundTile12"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
+                        android:tag="groundTile"
                         app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
                         android:id="@+id/GroundTile13"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
+                        android:tag="groundTile"
                         app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
                         android:id="@+id/GroundTile14"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
+                        android:tag="groundTile"
                         app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
                         android:id="@+id/WallTile17"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                 </TableRow>
@@ -373,30 +408,35 @@
                         android:id="@+id/WallTile18"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
                         android:id="@+id/WallTile19"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
                         android:id="@+id/WallTile20"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
                         android:id="@+id/WallTile21"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
                         android:id="@+id/WallTile22"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
+                        android:tag="wallTile"
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                 </TableRow>
@@ -431,5 +471,18 @@
 
         </TableRow>
     </TableLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/playerImageView"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:translationX="636px"
+            android:translationY="1158px"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
+    </RelativeLayout>
 
 </FrameLayout>

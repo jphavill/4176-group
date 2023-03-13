@@ -187,10 +187,11 @@ class Level1Activity : AppCompatActivity() {
 
                     val playerImageView = findViewById<ImageView>(R.id.playerImageView)
                     val playerLocation = IntArray(2)
-                    playerImageView.getLocationInWindow(playerLocation)
-                    if(groundTile.getXPos() == playerLocation[0] &&
-                            groundTile.getYPos() == playerLocation[1]){
+                    groundTile.tileImageView.getLocationInWindow(playerLocation)
+                    if(groundTile.tileImageView.tag.toString() == "groundTileStart"){
                         player = Player(playerImageView, playerLocation[0], playerLocation[1], groundTile)
+                        player?.getPlayerImageView()?.translationX = playerLocation[0].toFloat()
+                        player?.getPlayerImageView()?.translationY = playerLocation[1].toFloat()
                         colourTile(groundTile)
                     }
                 }
@@ -209,7 +210,7 @@ class Level1Activity : AppCompatActivity() {
             if (child is ViewGroup) {
                 views.addAll(getViewsByTag(child, tag)!!)
             }
-            if (child.tag != null && child.tag.toString() == tag) {
+            if (child.tag != null && child.tag.toString().contains(tag)) {
                 views.add(child)
             }
         }

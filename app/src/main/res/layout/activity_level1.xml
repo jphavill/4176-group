@@ -380,7 +380,7 @@
                         android:id="@+id/GroundTile13"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:tag="groundTile"
+                        android:tag="groundTileStart"
                         app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
@@ -480,8 +480,7 @@
             android:id="@+id/playerImageView"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:translationX="443px"
-            android:translationY="1351px"
+            android:translationY="700px"
             app:srcCompat="@drawable/ic_launcher_foreground" />
     </RelativeLayout>
 

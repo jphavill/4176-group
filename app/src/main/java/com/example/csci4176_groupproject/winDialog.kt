@@ -9,11 +9,9 @@ import android.widget.Switch
 import android.widget.ToggleButton
 import androidx.appcompat.app.AlertDialog
 
-class settingsDialog(context: Context) : AlertDialog.Builder(context)  {
+class winDialog(context: Context) : AlertDialog.Builder(context)  {
 
-    fun showSettings() {
-    //        get a reference to the fragments viewbinding to set the picture and text
-        Log.d("settings", "making settings view:")
+    fun showWin(seconds: Number) {
         val settingPrefs: SharedPreferences = context.applicationContext.getSharedPreferences("settingsPrefs", 0)
 
         val builder = AlertDialog.Builder(context, R.style.SettingsDialog)

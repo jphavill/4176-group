@@ -13,7 +13,5 @@ data class levelActivities(
         Level8Activity::class.java,
         Level9Activity::class.java,
         Level10Activity::class.java,
-    ),
-    val numLevels: Int = 10
-
+    )
 )

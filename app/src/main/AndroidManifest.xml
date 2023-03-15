@@ -28,6 +28,52 @@
             android:exported="false"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
+        <activity
+            android:name=".Level2Activity"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
+        <activity
+            android:name=".Level3Activity"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
+        <activity
+            android:name=".Level4Activity"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
+        <activity
+            android:name=".Level5Activity"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
+        <activity
+            android:name=".Level6Activity"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
+        <activity
+            android:name=".Level7Activity"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
+        <activity
+            android:name=".Level8Activity"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
+        <activity
+            android:name=".Level9Activity"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
+        <activity
+            android:name=".Level10Activity"
+            android:exported="false"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
+
     </application>
 
 </manifest>

@@ -19,7 +19,7 @@ import kotlin.math.abs
 
 
 class Level10Activity : AppCompatActivity() {
-    private var player: Player? = null;
+    private lateinit var player: Player
     private var colouredTileCount = 0
     private val wallTiles: ArrayList<Tile> = ArrayList()
     private val groundTiles: ArrayList<Tile> = ArrayList()
@@ -217,6 +217,7 @@ class Level10Activity : AppCompatActivity() {
             // Swipe deltas
             val deltaX = moveEvent.x.minus(downEvent.x)
             val deltaY = moveEvent.y.minus(downEvent.y)
+
 
             // Check for horizontal or vertical swipe.
             return if(abs(deltaX) > abs(deltaY)) {

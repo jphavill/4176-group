@@ -42,7 +42,7 @@ class FullscreenActivity : AppCompatActivity() {
         val testLevelButton = findViewById<Button>(R.id.ToLevelTest);
 
         testLevelButton.setOnClickListener {
-            val intent = Intent(this, Level1Activity::class.java)
+            val intent = Intent(this, LevelSelect::class.java)
             startActivity(intent)
         }
         hide()

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/fullscreenBackgroundColor"
+    android:background="@drawable/newbackground"
     android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
     tools:context=".FullscreenActivity">
 
@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="80sp"
         android:layout_marginTop="150sp"
-        android:text="To Test Level"
+        android:text="Play"
         android:textSize="24sp" />
 
     <TextView
@@ -28,7 +28,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:keepScreenOn="true"
-        android:text="@string/dummy_content"
+        android:text=""
         android:textColor="?attr/fullscreenTextColor"
         android:textSize="50sp"
         android:textStyle="bold" />

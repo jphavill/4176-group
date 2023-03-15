@@ -248,7 +248,6 @@ class Level1Activity : AppCompatActivity() {
     }
 
     fun onSwipeRight() {
-        Toast.makeText(this, "Swiped Right", Toast.LENGTH_SHORT).show()
         val crossedTiles: ArrayList<GroundTile> = ArrayList()
         val tileRow = tileMap.filter { p -> p.first == player?.getPlayerPosY() }[0]
         val tileRowIndex = tileMap.indexOf(tileRow)
@@ -264,14 +263,14 @@ class Level1Activity : AppCompatActivity() {
                 tile.tileImageView.getLocationInWindow(tileLocation)
                 player?.movePlayerPos(tileLocation[0], tileLocation[1], crossedTiles.last())
                 for(groundTile in crossedTiles){
-                    groundTile.colourTile()
+                    if(!groundTile.getColoured())
+                        colourTile(groundTile)
                 }
             }
         }
     }
 
     fun onSwipeLeft() {
-        Toast.makeText(this, "Swiped Left", Toast.LENGTH_SHORT).show()
         val crossedTiles: ArrayList<GroundTile> = ArrayList()
         val tileRow = tileMap.filter { p -> p.first == player?.getPlayerPosY() }[0]
         val tileRowIndex = tileMap.indexOf(tileRow)
@@ -282,19 +281,19 @@ class Level1Activity : AppCompatActivity() {
                 crossedTiles.add((tileMap[tileRowIndex].second[columnIndex]) as GroundTile)
             }
             if(crossedTiles.isNotEmpty()){
-                val tile = tileMap[tileRowIndex].second[columnIndex]
+                val tile = crossedTiles.last()
                 val tileLocation = IntArray(2)
                 tile.tileImageView.getLocationInWindow(tileLocation)
                 player?.movePlayerPos(tileLocation[0], tileLocation[1], crossedTiles.last())
                 for(groundTile in crossedTiles){
-                    groundTile.colourTile()
+                    if(!groundTile.getColoured())
+                        colourTile(groundTile)
                 }
             }
         }
     }
 
     fun onSwipeDown() {
-        Toast.makeText(this, "Swiped Down", Toast.LENGTH_SHORT).show()
         val crossedTiles: ArrayList<GroundTile> = ArrayList()
         val tileRow = tileMap.filter { p -> p.first == player?.getPlayerPosY() }[0]
         var tileRowIndex = tileMap.indexOf(tileRow)
@@ -310,14 +309,14 @@ class Level1Activity : AppCompatActivity() {
                 tile.tileImageView.getLocationInWindow(tileLocation)
                 player?.movePlayerPos(tileLocation[0], tileLocation[1], crossedTiles.last())
                 for(groundTile in crossedTiles){
-                    groundTile.colourTile()
+                    if(!groundTile.getColoured())
+                        colourTile(groundTile)
                 }
             }
         }
     }
 
     fun onSwipeUp() {
-        Toast.makeText(this, "Swiped Up", Toast.LENGTH_SHORT).show()
         val crossedTiles: ArrayList<GroundTile> = ArrayList()
         val tileRow = tileMap.filter { p -> p.first == player?.getPlayerPosY() }[0]
         var tileRowIndex = tileMap.indexOf(tileRow)
@@ -333,7 +332,8 @@ class Level1Activity : AppCompatActivity() {
                 tile.tileImageView.getLocationInWindow(tileLocation)
                 player?.movePlayerPos(tileLocation[0], tileLocation[1], crossedTiles.last())
                 for(groundTile in crossedTiles){
-                    colourTile(groundTile)
+                    if(!groundTile.getColoured())
+                        colourTile(groundTile)
                 }
             }
         }
@@ -342,7 +342,6 @@ class Level1Activity : AppCompatActivity() {
     private fun colourTile(groundTile: GroundTile){
         groundTile.colourTile()
         colouredTileCount += 1;
-//        Toast.makeText(this, String.format("%d out of %d", colouredTileCount, groundTiles.count()), Toast.LENGTH_SHORT).show()
         if(colouredTileCount == groundTiles.count())
             levelComplete()
     }

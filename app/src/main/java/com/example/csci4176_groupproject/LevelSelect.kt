@@ -1,10 +1,12 @@
 package com.example.csci4176_groupproject
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowInsets
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageButton
@@ -32,7 +34,14 @@ class LevelSelect : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val settingPrefs = applicationContext.getSharedPreferences("settingsPrefs", 0)
 
+        val settingsButton = findViewById<ImageButton>(R.id.SettingsButton)
+        settingsButton.setOnClickListener {
+            settingsDialog(context = this).showSettings()
+        }
+
+        hideAndroidUI()
     }
 
     private fun getViewsByTag(root: ViewGroup, tag: String): List<View> {
@@ -49,6 +58,16 @@ class LevelSelect : AppCompatActivity() {
             }
         }
         return views
+    }
+
+    private fun hideAndroidUI() {
+        // Hide UI first
+        supportActionBar?.hide()
+        isFullscreen = false
+
+        if (Build.VERSION.SDK_INT >= 30) {
+            fullscreenContent.windowInsetsController?.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+        }
     }
 
     private fun updateButtons() {

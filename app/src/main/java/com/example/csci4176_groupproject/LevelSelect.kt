@@ -25,11 +25,37 @@ class LevelSelect : AppCompatActivity() {
         isFullscreen = true
         fullscreenContent = binding.LevelSelectFullscreenContent
 
+        updateButtons()
+        val backToHomeButton = findViewById<ImageButton>(R.id.BackToHomeButton)
+        backToHomeButton.setOnClickListener {
+            val intent = Intent(this, FullscreenActivity::class.java)
+            startActivity(intent)
+        }
+
+
+    }
+
+    private fun getViewsByTag(root: ViewGroup, tag: String): List<View> {
+        val views: ArrayList<View> = ArrayList()
+        val childCount = root.childCount
+
+        for (i in 0 until childCount) {
+            val child: View = root.getChildAt(i)
+            if (child is ViewGroup) {
+                views.addAll(getViewsByTag(child, tag)!!)
+            }
+            if (child.tag != null && child.tag.toString().contains(tag)) {
+                views.add(child)
+            }
+        }
+        return views
+    }
+
+    private fun updateButtons() {
         val fullScreenView: ViewGroup = findViewById(R.id.LevelSelectFullscreenContent)
         val levelButtons = getViewsByTag(fullScreenView, "levelButton")
 
         val levels = levelActivities().levels
-
         var buttonIndex = pageNumber*6
         for (b in levelButtons){
             val button = b as Button
@@ -55,7 +81,10 @@ class LevelSelect : AppCompatActivity() {
 
         val nextView = findViewById<ImageButton>(R.id.levelsNextButton)
         if (pageNumber < floor(levels.size / 6.0)) {
-            nextView.setOnClickListener { pageNumber++ }
+            nextView.setOnClickListener {
+                pageNumber++
+                updateButtons()
+            }
             nextView.isEnabled = true
             nextView.isClickable = true
         } else {
@@ -64,30 +93,15 @@ class LevelSelect : AppCompatActivity() {
         }
         val backView = findViewById<ImageButton>(R.id.levelsBackButton)
         if (pageNumber > 0) {
-            backView.setOnClickListener { pageNumber-- }
+            backView.setOnClickListener {
+                pageNumber--
+                updateButtons()}
             backView.isEnabled = true
             backView.isClickable = true
+
         } else {
             backView.isEnabled = false
             backView.isClickable = false
         }
-
-
-    }
-
-    private fun getViewsByTag(root: ViewGroup, tag: String): List<View> {
-        val views: ArrayList<View> = ArrayList()
-        val childCount = root.childCount
-
-        for (i in 0 until childCount) {
-            val child: View = root.getChildAt(i)
-            if (child is ViewGroup) {
-                views.addAll(getViewsByTag(child, tag)!!)
-            }
-            if (child.tag != null && child.tag.toString().contains(tag)) {
-                views.add(child)
-            }
-        }
-        return views
     }
 }

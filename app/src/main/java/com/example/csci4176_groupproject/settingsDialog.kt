@@ -30,7 +30,7 @@ class settingsDialog(context: Context) : AlertDialog.Builder(context)  {
         val soundView = view.findViewById<ToggleButton>(R.id.soundToggle)
         soundView.isChecked = settingPrefs.getBoolean("sound", false)
 
-        val applyButton = view.findViewById<Button>(R.id.applyButton)
+        val applyButton = view.findViewById<Button>(R.id.mainMenuButton)
         applyButton.setOnClickListener {
 
             // save state of settings
@@ -42,7 +42,7 @@ class settingsDialog(context: Context) : AlertDialog.Builder(context)  {
 
             builder.dismiss()
         }
-        val cancelButton = view.findViewById<Button>(R.id.cancelButton)
+        val cancelButton = view.findViewById<Button>(R.id.nextLevelButton)
         cancelButton.setOnClickListener {
     //              if the cancel button is hit, don't save settings and exit
             builder.cancel()

@@ -63,9 +63,10 @@ class Level9Activity : AppCompatActivity() {
             settingsDialog(context = this).showSettings()
         }
 
+        val fullScreenView: ViewGroup  = findViewById(R.id.Level5FullscreenContent)
         // Setup wall tiles
         val wallTilesImageViews =
-            getViewsByTag(findViewById(R.id.Level1FullscreenContent), "wallTile")
+            getViewsByTag(fullScreenView, "wallTile")
 
         if (wallTilesImageViews != null) {
             for (wallTileImageView in wallTilesImageViews) {
@@ -111,7 +112,7 @@ class Level9Activity : AppCompatActivity() {
 
         // Setup ground tiles
         val groundTilesImageViews =
-            getViewsByTag(findViewById(R.id.Level1FullscreenContent), "groundTile")
+            getViewsByTag(fullScreenView, "groundTile")
 
         if (groundTilesImageViews != null) {
             for (groundTileImageView in groundTilesImageViews) {
@@ -342,12 +343,12 @@ class Level9Activity : AppCompatActivity() {
 
     private fun colourTile(groundTile: GroundTile){
         groundTile.colourTile()
-        colouredTileCount += 1;
+        colouredTileCount += 1
         if(colouredTileCount == groundTiles.count())
             levelComplete()
     }
 
     private fun levelComplete(){
-
+        winDialog(context = this).showWin(6000, 9)
     }
 }

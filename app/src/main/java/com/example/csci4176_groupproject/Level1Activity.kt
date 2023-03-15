@@ -12,7 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowInsets
 import android.widget.*
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import com.example.csci4176_groupproject.databinding.ActivityLevel1Binding
@@ -61,9 +60,10 @@ class Level1Activity : AppCompatActivity() {
             settingsDialog(context = this).showSettings()
         }
 
+        val fullScreenView: ViewGroup  = findViewById(R.id.Level1FullscreenContent)
         // Setup wall tiles
         val wallTilesImageViews =
-            getViewsByTag(findViewById(R.id.Level1FullscreenContent), "wallTile")
+            getViewsByTag(fullScreenView, "wallTile")
 
         if (wallTilesImageViews != null) {
             for (wallTileImageView in wallTilesImageViews) {
@@ -109,7 +109,7 @@ class Level1Activity : AppCompatActivity() {
 
         // Setup ground tiles
         val groundTilesImageViews =
-            getViewsByTag(findViewById(R.id.Level1FullscreenContent), "groundTile")
+            getViewsByTag(fullScreenView, "groundTile")
 
         if (groundTilesImageViews != null) {
             for (groundTileImageView in groundTilesImageViews) {
@@ -342,11 +342,13 @@ class Level1Activity : AppCompatActivity() {
     private fun colourTile(groundTile: GroundTile){
         groundTile.colourTile()
         colouredTileCount += 1;
+//        Toast.makeText(this, String.format("%d out of %d", colouredTileCount, groundTiles.count()), Toast.LENGTH_SHORT).show()
         if(colouredTileCount == groundTiles.count())
             levelComplete()
     }
 
     private fun levelComplete(){
-
+        // update to pass in time
+        winDialog(context = this).showWin(3000, 1)
     }
 }

@@ -63,9 +63,10 @@ class Level7Activity : AppCompatActivity() {
             settingsDialog(context = this).showSettings()
         }
 
+        val fullScreenView: ViewGroup  = findViewById(R.id.Level7FullscreenContent)
         // Setup wall tiles
         val wallTilesImageViews =
-            getViewsByTag(findViewById(R.id.Level1FullscreenContent), "wallTile")
+            getViewsByTag(fullScreenView, "wallTile")
 
         if (wallTilesImageViews != null) {
             for (wallTileImageView in wallTilesImageViews) {
@@ -348,6 +349,6 @@ class Level7Activity : AppCompatActivity() {
     }
 
     private fun levelComplete(){
-
+        winDialog(context = this).showWin(3000, 7)
     }
 }

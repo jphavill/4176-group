@@ -64,8 +64,9 @@ class Level5Activity : AppCompatActivity() {
         }
 
         // Setup wall tiles
+        val fullScreenView: ViewGroup  = findViewById(R.id.Level5FullscreenContent)
         val wallTilesImageViews =
-            getViewsByTag(findViewById(R.id.Level1FullscreenContent), "wallTile")
+            getViewsByTag(fullScreenView, "wallTile")
 
         if (wallTilesImageViews != null) {
             for (wallTileImageView in wallTilesImageViews) {
@@ -111,7 +112,7 @@ class Level5Activity : AppCompatActivity() {
 
         // Setup ground tiles
         val groundTilesImageViews =
-            getViewsByTag(findViewById(R.id.Level1FullscreenContent), "groundTile")
+            getViewsByTag(fullScreenView, "groundTile")
 
         if (groundTilesImageViews != null) {
             for (groundTileImageView in groundTilesImageViews) {
@@ -348,6 +349,6 @@ class Level5Activity : AppCompatActivity() {
     }
 
     private fun levelComplete(){
-
+        winDialog(context = this).showWin(3000, 5)
     }
 }

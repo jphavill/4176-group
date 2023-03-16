@@ -19,7 +19,7 @@ import kotlin.math.abs
 
 
 class Level7Activity : AppCompatActivity() {
-    private var player: Player? = null;
+    private lateinit var player: Player
     private var colouredTileCount = 0
     private val wallTiles: ArrayList<Tile> = ArrayList()
     private val groundTiles: ArrayList<Tile> = ArrayList()

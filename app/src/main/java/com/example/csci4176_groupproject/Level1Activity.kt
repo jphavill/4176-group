@@ -12,17 +12,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowInsets
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import com.example.csci4176_groupproject.databinding.ActivityLevel1Binding
+import java.text.ParseException
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import kotlin.math.abs
 
 class Level1Activity : AppCompatActivity() {
-    private var player: Player? = null;
+    private lateinit var player: Player
     private var colouredTileCount = 0
     private val wallTiles: ArrayList<Tile> = ArrayList()
     private val groundTiles: ArrayList<Tile> = ArrayList()
     private val tileMap: ArrayList<Pair<Int, ArrayList<Tile>>> = ArrayList()
+    @RequiresApi(Build.VERSION_CODES.O)
+    private lateinit var startTime: LocalDateTime
+    private var levelStarted = false
 
     private lateinit var detector: GestureDetectorCompat
 
@@ -31,6 +38,7 @@ class Level1Activity : AppCompatActivity() {
 
     private var isFullscreen: Boolean = true
 
+    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -205,6 +213,7 @@ class Level1Activity : AppCompatActivity() {
         private val swipeThreshold = 100
         private val swipeVelocityThreshold = 100
 
+        @RequiresApi(Build.VERSION_CODES.O)
         override fun onFling(
             downEvent: MotionEvent,
             moveEvent: MotionEvent,
@@ -215,6 +224,10 @@ class Level1Activity : AppCompatActivity() {
             val deltaX = moveEvent.x.minus(downEvent.x)
             val deltaY = moveEvent.y.minus(downEvent.y)
 
+            if(!levelStarted) {
+                levelStarted = true
+                startTime = LocalDateTime.now()
+            }
             // Check for horizontal or vertical swipe.
             return if(abs(deltaX) > abs(deltaY)) {
                 if(abs(deltaX) > swipeThreshold && abs(velocityX) > swipeVelocityThreshold) {
@@ -247,6 +260,7 @@ class Level1Activity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun onSwipeRight() {
         val crossedTiles: ArrayList<GroundTile> = ArrayList()
         val tileRow = tileMap.filter { p -> p.first == player?.getPlayerPosY() }[0]
@@ -270,6 +284,7 @@ class Level1Activity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun onSwipeLeft() {
         val crossedTiles: ArrayList<GroundTile> = ArrayList()
         val tileRow = tileMap.filter { p -> p.first == player?.getPlayerPosY() }[0]
@@ -293,6 +308,7 @@ class Level1Activity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun onSwipeDown() {
         val crossedTiles: ArrayList<GroundTile> = ArrayList()
         val tileRow = tileMap.filter { p -> p.first == player?.getPlayerPosY() }[0]
@@ -316,6 +332,7 @@ class Level1Activity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun onSwipeUp() {
         val crossedTiles: ArrayList<GroundTile> = ArrayList()
         val tileRow = tileMap.filter { p -> p.first == player?.getPlayerPosY() }[0]
@@ -339,6 +356,7 @@ class Level1Activity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun colourTile(groundTile: GroundTile){
         groundTile.colourTile()
         colouredTileCount += 1;
@@ -346,8 +364,34 @@ class Level1Activity : AppCompatActivity() {
             levelComplete()
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun levelComplete(){
         // update to pass in time
-        winDialog(context = this).showWin(3000, 1)
+        val endTime = LocalDateTime.now()
+        val timeToComplete = timeDifference(startTime, endTime)
+        winDialog(context = this).showWin(timeToComplete, 1)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun timeDifference(startTime : LocalDateTime, endTime : LocalDateTime) : Int {
+        var ms = 0
+
+        if(endTime.dayOfYear != startTime.dayOfYear){
+            ms += 1000 * 60 * 60 * 24 * (endTime.dayOfYear - startTime.dayOfYear)
+        }
+        if(endTime.hour != startTime.hour){
+            ms += 1000 * 60 * 60 * (endTime.hour - startTime.hour)
+        }
+        if(endTime.minute != startTime.minute){
+            ms += 1000 * 60 * (endTime.minute - startTime.minute)
+        }
+        if(endTime.second != startTime.second){
+            ms += 1000 * (endTime.second - startTime.second)
+        }
+        if(endTime.nano != startTime.nano){
+            ms += ((endTime.nano - startTime.nano) * 0.000001).toInt()
+        }
+
+        return ms
     }
 }

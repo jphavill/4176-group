@@ -38,6 +38,5 @@ class Player(private val playerImageView: ImageView, private var playerPosX: Int
 
         val location = IntArray(2)
         playerImageView.getLocationInWindow(location)
-        Log.d("PlayerPosition", "Player Location: [${location[0]}, ${location[1]}]\nPlayer New Position: [${newXPos}, ${newYPos}]")
     }
 }

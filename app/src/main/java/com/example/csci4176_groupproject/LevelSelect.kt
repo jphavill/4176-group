@@ -1,16 +1,22 @@
 package com.example.csci4176_groupproject
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowInsets
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.TextView
 import com.example.csci4176_groupproject.databinding.ActivityLevelSelectBinding
+import com.google.gson.Gson
+import org.w3c.dom.Text
 import java.lang.Math.floor
 
 class LevelSelect : AppCompatActivity() {
@@ -34,7 +40,15 @@ class LevelSelect : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val resetLevelData = findViewById<Button>(R.id.resetLevels)
+        resetLevelData.setOnClickListener {
+            resetLevels()
+        }
+
         val settingPrefs = applicationContext.getSharedPreferences("settingsPrefs", 0)
+
+        val starCountView = findViewById<TextView>(R.id.starCount)
+        starCountView.text = settingPrefs.getInt("stars", 0).toString()
 
         val settingsButton = findViewById<ImageButton>(R.id.SettingsButton)
         settingsButton.setOnClickListener {
@@ -42,6 +56,18 @@ class LevelSelect : AppCompatActivity() {
         }
 
         hideAndroidUI()
+    }
+
+    private fun resetLevels(){
+        for (id in 1 until 11){
+            val tempLevel = levelData(id=id, locked = false)
+            val gson = Gson()
+            val settingPrefs: SharedPreferences = this.applicationContext.getSharedPreferences("settingsPrefs", 0)
+            val editor: SharedPreferences.Editor = settingPrefs.edit()
+            editor.putString(String.format("level%d", id), gson.toJson(tempLevel))
+            editor.putInt("stars", 0)
+            editor.apply()
+        }
     }
 
     private fun getViewsByTag(root: ViewGroup, tag: String): List<View> {
@@ -71,9 +97,10 @@ class LevelSelect : AppCompatActivity() {
     }
 
     private fun updateButtons() {
+        updateNavButtons()
         val fullScreenView: ViewGroup = findViewById(R.id.LevelSelectFullscreenContent)
         val levelButtons = getViewsByTag(fullScreenView, "levelButton")
-
+        val levelStars = getViewsByTag(fullScreenView, "levelStar")
         val levels = levelActivities().levels
         var buttonIndex = pageNumber*6
         for (b in levelButtons){
@@ -82,10 +109,15 @@ class LevelSelect : AppCompatActivity() {
                 button.visibility = View.INVISIBLE
                 button.isEnabled = false
                 button.isClickable = false
+
+                updateStars(levelStars, buttonIndex, hide=true)
+
             } else {
                 button.visibility = View.VISIBLE
                 button.isEnabled = true
                 button.isClickable = true
+
+                updateStars(levelStars, buttonIndex)
 
                 val displayIndex = buttonIndex+1
                 val intentIndex = buttonIndex
@@ -97,7 +129,30 @@ class LevelSelect : AppCompatActivity() {
             }
             buttonIndex += 1
         }
+    }
 
+    private fun updateStars(levelStars: List<View>, buttonIndex: Int, hide: Boolean = false) {
+        val firstStar = (buttonIndex%6) * 3
+        val stars = levelStars.subList(firstStar, firstStar+3)
+
+        val settingPrefs = applicationContext.getSharedPreferences("settingsPrefs", 0)
+        val tempLevel = levelData(id=buttonIndex, locked = false)
+        val gson = Gson()
+        val level: levelData = gson.fromJson(settingPrefs.getString(String.format("level%d", buttonIndex+1), gson.toJson(tempLevel)), levelData::class.java)
+        var starIndex = 0
+        for (s in stars){
+            val star = s as ImageView
+            if (!hide && starIndex < level.starsEarned) {
+                star.visibility = View.VISIBLE
+            } else {
+                star.visibility = View.INVISIBLE
+            }
+            starIndex += 1
+        }
+    }
+
+    private fun updateNavButtons(){
+        val levels = levelActivities().levels
         val nextView = findViewById<ImageButton>(R.id.levelsNextButton)
         if (pageNumber < floor(levels.size / 6.0)) {
             nextView.setOnClickListener {

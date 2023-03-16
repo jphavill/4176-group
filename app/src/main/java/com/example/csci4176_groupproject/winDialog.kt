@@ -2,12 +2,12 @@ package com.example.csci4176_groupproject
 
 import android.content.Context
 import android.content.Intent
-import android.content.LocusId
 import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.content.res.AppCompatResources
 import com.google.gson.Gson
@@ -22,8 +22,8 @@ class winDialog(context: Context) : AlertDialog.Builder(context)  {
 
         val tempLevel = levelData(id=levelId, locked = false)
         val gson = Gson()
-        val sp: SharedPreferences = context.applicationContext.getSharedPreferences("settingsPrefs", 0)
-        var level: levelData = gson.fromJson(sp.getString(String.format("level%d", levelId), gson.toJson(tempLevel)), levelData::class.java)
+        val settingPrefs: SharedPreferences = context.applicationContext.getSharedPreferences("settingsPrefs", 0)
+        var level: levelData = gson.fromJson(settingPrefs.getString(String.format("level%d", levelId), gson.toJson(tempLevel)), levelData::class.java)
 
         val builder = AlertDialog.Builder(context, R.style.SettingsDialog).create()
         val li = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -34,6 +34,16 @@ class winDialog(context: Context) : AlertDialog.Builder(context)  {
         val timeView = view.findViewById<TextView>(R.id.timeText)
         timeView.text = String.format("Time: %.2fs", milliseconds.toFloat() / 1000)
 
+
+
+        // update level data stored in persistent memory
+        val newStars = if (level.starsEarned > starCount) 0 else starCount - level.starsEarned
+        level = updateLevel(level, starCount, milliseconds)
+        val editor: SharedPreferences.Editor = settingPrefs.edit()
+        editor.putInt("stars", settingPrefs.getInt("stars", 0) + newStars)
+        editor.putString(String.format("level%d", levelId), gson.toJson(level))
+        editor.apply()
+
         // set state of stars
         val stars: List<ImageView> = listOf(view.findViewById(R.id.star1Image), view.findViewById(R.id.star2Image), view.findViewById(R.id.star3Image))
         while(starCount > 0){
@@ -41,27 +51,18 @@ class winDialog(context: Context) : AlertDialog.Builder(context)  {
             stars[starCount].setImageDrawable(AppCompatResources.getDrawable(context, android.R.drawable.btn_star_big_on))
         }
 
-        // update level data stored in persistent memory
-        level = updateLevel(level, starCount, milliseconds)
-        val editor: SharedPreferences.Editor = sp.edit()
-        val newStars = if (level.starsEarned > starCount) 0 else starCount - level.starsEarned
-        editor.putInt("stars", sp.getInt("stars", 0) + newStars)
-        editor.putString(String.format("level%d", levelId), gson.toJson(level))
-        editor.apply()
-
         val nextLevelView = view.findViewById<Button>(R.id.nextLevelButton)
 
-        val nextLevel: levelData = gson.fromJson(sp.getString(String.format("level%d", levelId+1), gson.toJson((tempLevel))), levelData::class.java)
+        val nextLevel: levelData = gson.fromJson(settingPrefs.getString(String.format("level%d", levelId+1), gson.toJson((tempLevel))), levelData::class.java)
         if (levelId >= 10 || nextLevel.locked) {
             nextLevelView.isEnabled = false
             nextLevelView.isClickable = false
         } else {
             nextLevelView.setOnClickListener {
-                context.startActivity(getNextLevel(levelId))
+                context.startActivity(Intent(context, levelActivities().levels[levelId]))
                 builder.dismiss()
             }
         }
-
 
         val mainMenuView = view.findViewById<Button>(R.id.mainMenuButton)
         mainMenuView.setOnClickListener {
@@ -88,21 +89,5 @@ class winDialog(context: Context) : AlertDialog.Builder(context)  {
         l.starsEarned = if (l.starsEarned > sCount) l.starsEarned else sCount
         l.time = if (l.time > mTime) mTime else l.time
         return l
-    }
-
-    fun getNextLevel(lID: Int): Intent{
-        val levels = listOf(Level1Activity::class.java,
-            Level2Activity::class.java,
-            Level3Activity::class.java,
-            Level4Activity::class.java,
-            Level5Activity::class.java,
-            Level6Activity::class.java,
-            Level7Activity::class.java,
-            Level8Activity::class.java,
-            Level9Activity::class.java,
-            Level10Activity::class.java,
-        )
-
-        return Intent(context, levels[lID])
     }
 }

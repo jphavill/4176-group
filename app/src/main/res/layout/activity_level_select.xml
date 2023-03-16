@@ -43,6 +43,39 @@
 
         <TableRow
             android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                <TextView
+                    android:id="@+id/starCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text=": 5"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal">
 
@@ -56,24 +89,118 @@
                     android:layout_height="match_parent"
                     android:gravity="center_horizontal">
 
-                    <Button
-                        android:id="@+id/button8"
-                        android:layout_width="50dp"
-                        android:layout_height="100dp"
-                        android:layout_marginTop="50dp"
-                        android:layout_marginRight="50dp"
-                        android:width="50dp"
-                        android:height="50dp"
-                        android:tag="levelButton"
-                        android:text="Button" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                    <Button
-                        android:id="@+id/button9"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginTop="50dp"
-                        android:tag="levelButton"
-                        android:text="Button" />
+                        <Button
+                            android:id="@+id/button11"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginRight="50dp"
+                            android:width="50dp"
+                            android:height="50dp"
+                            android:tag="levelButton"
+                            android:text="Button" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imageView111"
+                                android:tag="levelStar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <ImageView
+                                android:id="@+id/imageView112"
+                                android:tag="levelStar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <ImageView
+                                android:id="@+id/imageView113"
+                                android:tag="levelStar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <Space
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <Space
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <Space
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/button12"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="30dp"
+                            android:tag="levelButton"
+                            android:text="Button" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imageView121"
+                                android:tag="levelStar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <ImageView
+                                android:id="@+id/imageView122"
+                                android:tag="levelStar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <ImageView
+                                android:id="@+id/imageView123"
+                                android:tag="levelStar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <Space
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
                 </TableRow>
 
                 <TableRow
@@ -81,45 +208,252 @@
                     android:layout_height="match_parent"
                     android:gravity="center_horizontal">
 
-                    <Button
-                        android:id="@+id/button10"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginTop="50dp"
-                        android:layout_marginRight="50dp"
-                        android:tag="levelButton"
-                        android:text="Button" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                    <Button
-                        android:id="@+id/button11"
+                        <Button
+                            android:id="@+id/button21"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginRight="50dp"
+                            android:width="50dp"
+                            android:height="50dp"
+                            android:tag="levelButton"
+                            android:text="Button" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imageView211"
+                                android:tag="levelStar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <ImageView
+                                android:id="@+id/imageView212"
+                                android:tag="levelStar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <ImageView
+                                android:id="@+id/imageView213"
+                                android:tag="levelStar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <Space
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <Space
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <Space
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/button22"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="30dp"
+                            android:tag="levelButton"
+                            android:text="Button" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imageView221"
+                                android:tag="levelStar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <ImageView
+                                android:id="@+id/imageView222"
+                                android:tag="levelStar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <ImageView
+                                android:id="@+id/imageView223"
+                                android:tag="levelStar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <Space
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/button31"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginRight="50dp"
+                            android:width="50dp"
+                            android:height="50dp"
+                            android:tag="levelButton"
+                            android:text="Button" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imageView311"
+                                android:tag="levelStar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <ImageView
+                                android:id="@+id/imageView312"
+                                android:tag="levelStar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <ImageView
+                                android:id="@+id/imageView313"
+                                android:tag="levelStar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <Space
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <Space
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <Space
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/button32"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="30dp"
+                            android:tag="levelButton"
+                            android:text="Button" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imageView321"
+                                android:tag="levelStar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <ImageView
+                                android:id="@+id/imageView322"
+                                android:tag="levelStar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <ImageView
+                                android:id="@+id/imageView333"
+                                android:tag="levelStar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                            <Space
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Space
                         android:layout_width="wrap_content"
-                        android:layout_height="100dp"
-                        android:layout_marginTop="50dp"
-                        android:tag="levelButton"
-                        android:text="Button" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal">
+                        android:layout_height="wrap_content" />
 
                     <Button
-                        android:id="@+id/button12"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginTop="50dp"
-                        android:layout_marginRight="50dp"
-                        android:tag="levelButton"
-                        android:text="Button" />
-
-                    <Button
-                        android:id="@+id/button13"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginTop="50dp"
-                        android:tag="levelButton"
-                        android:text="Button" />
+                        android:id="@+id/resetLevels"
+                        android:layout_width="69dp"
+                        android:layout_height="wrap_content"
+                        android:text="TESTING reset levels" />
                 </TableRow>
 
             </TableLayout>
@@ -128,7 +462,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="88dp"
+            android:layout_height="match_parent"
             android:gravity="center_horizontal">
 
             <ImageButton
@@ -150,6 +484,7 @@
                 app:srcCompat="@android:drawable/arrow_up_float" />
 
         </TableRow>
+
     </TableLayout>
 
 </FrameLayout>

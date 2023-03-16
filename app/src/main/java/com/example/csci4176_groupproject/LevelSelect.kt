@@ -3,30 +3,30 @@ package com.example.csci4176_groupproject
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowInsets
-import android.widget.Button
-import android.widget.FrameLayout
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.csci4176_groupproject.databinding.ActivityLevelSelectBinding
 import com.google.gson.Gson
-import org.w3c.dom.Text
 import java.lang.Math.floor
 
-class LevelSelect : AppCompatActivity() {
+class LevelSelect : AppCompatActivity(), unlockDialogCallback {
     private lateinit var binding: ActivityLevelSelectBinding
     private lateinit var fullscreenContent: FrameLayout
     private var pageNumber: Int = 0
     private val perPage: Int = 6
 
     private var isFullscreen: Boolean = true
+
+    override fun unlockDialogCallBack(result: Boolean){
+        if (result){
+            updateButtons()
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLevelSelectBinding.inflate(layoutInflater)
@@ -46,11 +46,6 @@ class LevelSelect : AppCompatActivity() {
         resetLevelData.setOnClickListener {
             resetLevels()
         }
-
-        val settingPrefs = applicationContext.getSharedPreferences("settingsPrefs", 0)
-
-        val starCountView = findViewById<TextView>(R.id.starCount)
-        starCountView.text = settingPrefs.getInt("stars", 0).toString()
 
         val settingsButton = findViewById<ImageButton>(R.id.SettingsButton)
         settingsButton.setOnClickListener {
@@ -141,7 +136,8 @@ class LevelSelect : AppCompatActivity() {
                     button.setBackgroundResource(R.drawable.lock)
                     button.background.setTint(ContextCompat.getColor(this, R.color.black))
                     button.setOnClickListener {
-                        unlockLevel()
+                        unlockLevel(level.id)
+                        updateButtons()
                     }
                 } else {
                     button.text = String.format("Level %d", displayIndex)
@@ -170,6 +166,10 @@ class LevelSelect : AppCompatActivity() {
     }
 
     private fun updateStars(levelStars: List<View>, buttonIndex: Int, level: levelData, hide: Boolean = false) {
+        val starCountView = findViewById<TextView>(R.id.starCount)
+        val settingPrefs = applicationContext.getSharedPreferences("settingsPrefs", 0)
+        starCountView.text = settingPrefs.getInt("stars", 0).toString()
+
         val firstStar = (buttonIndex%perPage) * 3
         val stars = levelStars.subList(firstStar, firstStar+3)
 
@@ -213,7 +213,7 @@ class LevelSelect : AppCompatActivity() {
         }
     }
 
-    private fun unlockLevel(){
-
+    private fun unlockLevel(levelId: Int){
+        unlockDialog(context = this).showUnlock(levelId, this)
     }
 }

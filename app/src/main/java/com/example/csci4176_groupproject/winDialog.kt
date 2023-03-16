@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.content.res.AppCompatResources
 import com.google.gson.Gson
@@ -31,7 +30,7 @@ class winDialog(context: Context) : AlertDialog.Builder(context)  {
         builder.setView(view)
 
         // set the seconds
-        val timeView = view.findViewById<TextView>(R.id.timeText)
+        val timeView = view.findViewById<TextView>(R.id.purchaseText)
         timeView.text = String.format("Time: %.2fs", milliseconds.toFloat() / 1000)
 
 

@@ -63,7 +63,7 @@ class Level9Activity : AppCompatActivity() {
             settingsDialog(context = this).showSettings()
         }
 
-        val fullScreenView: ViewGroup  = findViewById(R.id.Level5FullscreenContent)
+        val fullScreenView: ViewGroup  = findViewById(R.id.Level9FullscreenContent)
         // Setup wall tiles
         val wallTilesImageViews =
             getViewsByTag(fullScreenView, "wallTile")

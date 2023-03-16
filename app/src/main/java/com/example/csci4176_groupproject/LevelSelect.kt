@@ -110,35 +110,48 @@ class LevelSelect : AppCompatActivity() {
                 button.isEnabled = false
                 button.isClickable = false
 
-                updateStars(levelStars, buttonIndex, hide=true)
+                val tempLevel =  levelData(id=buttonIndex, locked = pageNumber != 0)
+                updateStars(levelStars, buttonIndex, tempLevel, hide=true)
 
             } else {
+
+                val settingPrefs = applicationContext.getSharedPreferences("settingsPrefs", 0)
+                // levels on the first page are unlocked by default
+                val tempLevel =  levelData(id=buttonIndex, locked = pageNumber != 0)
+
+                val gson = Gson()
+                val level: levelData = gson.fromJson(settingPrefs.getString(String.format("level%d", buttonIndex+1), gson.toJson(tempLevel)), levelData::class.java)
+
                 button.visibility = View.VISIBLE
                 button.isEnabled = true
                 button.isClickable = true
 
-                updateStars(levelStars, buttonIndex)
+                updateStars(levelStars, buttonIndex, level)
 
                 val displayIndex = buttonIndex+1
                 val intentIndex = buttonIndex
-                button.text = String.format("Level %d", displayIndex)
-                button.setOnClickListener {
-                    val intent = Intent(this, levels[intentIndex])
-                    startActivity(intent)
+                if (level.locked){
+                    button.text = ""
+
+                    button.setOnClickListener {
+                        unlockLevel()
+                    }
+                } else {
+                    button.text = String.format("Level %d", displayIndex)
+                    button.setOnClickListener {
+                        val intent = Intent(this, levels[intentIndex])
+                        startActivity(intent)
+                    }
                 }
             }
             buttonIndex += 1
         }
     }
 
-    private fun updateStars(levelStars: List<View>, buttonIndex: Int, hide: Boolean = false) {
+    private fun updateStars(levelStars: List<View>, buttonIndex: Int, level: levelData, hide: Boolean = false) {
         val firstStar = (buttonIndex%6) * 3
         val stars = levelStars.subList(firstStar, firstStar+3)
 
-        val settingPrefs = applicationContext.getSharedPreferences("settingsPrefs", 0)
-        val tempLevel = levelData(id=buttonIndex, locked = false)
-        val gson = Gson()
-        val level: levelData = gson.fromJson(settingPrefs.getString(String.format("level%d", buttonIndex+1), gson.toJson(tempLevel)), levelData::class.java)
         var starIndex = 0
         for (s in stars){
             val star = s as ImageView
@@ -177,5 +190,9 @@ class LevelSelect : AppCompatActivity() {
             backView.isEnabled = false
             backView.isClickable = false
         }
+    }
+
+    private fun unlockLevel(){
+
     }
 }

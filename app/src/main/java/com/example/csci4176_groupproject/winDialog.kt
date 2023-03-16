@@ -87,7 +87,7 @@ class winDialog(context: Context) : AlertDialog.Builder(context)  {
 
     fun updateLevel(l: levelData, sCount: Int, mTime: Int): levelData {
         l.starsEarned = if (l.starsEarned > sCount) l.starsEarned else sCount
-        l.time = if (l.time > mTime) mTime else l.time
+        l.time = if (l.time > mTime || l.time == -1) mTime else l.time
         return l
     }
 }

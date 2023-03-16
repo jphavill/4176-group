@@ -54,13 +54,13 @@ class Level1Activity : AppCompatActivity() {
 
         val settingPrefs = applicationContext.getSharedPreferences("settingsPrefs", 0)
 
-
         val settingsButton = findViewById<ImageButton>(R.id.SettingsButton)
         settingsButton.setOnClickListener {
             settingsDialog(context = this).showSettings()
         }
 
         val fullScreenView: ViewGroup  = findViewById(R.id.Level1FullscreenContent)
+
         // Setup wall tiles
         val wallTilesImageViews =
             getViewsByTag(fullScreenView, "wallTile")

@@ -642,11 +642,11 @@
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
-                        android:id="@+id/groundTile65"
+                        android:id="@+id/wallTile52"
                         android:layout_width="39dp"
                         android:layout_height="39dp"
-                        android:tag="groundTile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
+                        android:tag="wallTile"
+                        app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
                         android:id="@+id/wallTile11"
@@ -677,14 +677,14 @@
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
-                        android:id="@+id/wallTile52"
+                        android:id="@+id/GroundTile12"
                         android:layout_width="39dp"
                         android:layout_height="39dp"
-                        android:tag="wallTile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
+                        android:tag="groundTile"
+                        app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
-                        android:id="@+id/GroundTile12"
+                        android:id="@+id/groundTile104"
                         android:layout_width="39dp"
                         android:layout_height="39dp"
                         android:tag="groundTile"
@@ -757,7 +757,7 @@
                         android:id="@+id/groundTile69"
                         android:layout_width="39dp"
                         android:layout_height="39dp"
-                        android:tag="groundTileStart"
+                        android:tag="groundTile"
                         app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
@@ -771,7 +771,7 @@
                         android:id="@+id/groundTile101"
                         android:layout_width="39dp"
                         android:layout_height="39dp"
-                        android:tag="groundTileStart"
+                        android:tag="groundTile"
                         app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView

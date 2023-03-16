@@ -112,7 +112,7 @@ class Level7Activity : AppCompatActivity() {
 
         // Setup ground tiles
         val groundTilesImageViews =
-            getViewsByTag(findViewById(R.id.Level1FullscreenContent), "groundTile")
+            getViewsByTag(fullScreenView, "groundTile")
 
         if (groundTilesImageViews != null) {
             for (groundTileImageView in groundTilesImageViews) {

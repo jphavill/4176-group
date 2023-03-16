@@ -58,6 +58,10 @@ class winDialog(context: Context) : AlertDialog.Builder(context)  {
             nextLevelView.isClickable = false
         } else {
             nextLevelView.setOnClickListener {
+                var levelNext: levelData = gson.fromJson(settingPrefs.getString(String.format("level%d", levelId+1), gson.toJson(tempLevel)), levelData::class.java)
+                levelNext.tried = true
+                editor.putString(String.format("level%d", levelId+1), gson.toJson(levelNext))
+                editor.apply()
                 context.startActivity(Intent(context, levelActivities().levels[levelId]))
                 builder.dismiss()
             }

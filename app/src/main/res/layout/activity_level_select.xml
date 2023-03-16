@@ -94,7 +94,7 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
-                        <Button
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/button11"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
@@ -156,7 +156,7 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
-                        <Button
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/button12"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
@@ -213,16 +213,16 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
-                        <Button
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/button21"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_marginTop="30dp"
                             android:layout_marginRight="50dp"
-                            android:width="50dp"
-                            android:height="50dp"
-                            android:tag="levelButton"
-                            android:text="Button" />
+                            android:width="100dp"
+                            android:height="100dp"
+                            android:background="@drawable/lock"
+                            android:tag="levelButton" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -275,13 +275,13 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
-                        <Button
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/button22"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_marginTop="30dp"
                             android:tag="levelButton"
-                            android:text="Button" />
+                            android:text="Button"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -332,7 +332,7 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
-                        <Button
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/button31"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
@@ -394,7 +394,7 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
-                        <Button
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/button32"
                             android:layout_width="100dp"
                             android:layout_height="100dp"

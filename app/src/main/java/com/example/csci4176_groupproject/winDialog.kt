@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.content.res.AppCompatResources
 import com.google.gson.Gson
@@ -31,7 +30,7 @@ class winDialog(context: Context) : AlertDialog.Builder(context)  {
         builder.setView(view)
 
         // set the seconds
-        val timeView = view.findViewById<TextView>(R.id.timeText)
+        val timeView = view.findViewById<TextView>(R.id.purchaseText)
         timeView.text = String.format("Time: %.2fs", milliseconds.toFloat() / 1000)
 
 
@@ -71,6 +70,13 @@ class winDialog(context: Context) : AlertDialog.Builder(context)  {
             builder.dismiss()
         }
 
+        val levelSelectView = view.findViewById<Button>(R.id.levelSelectButton)
+        levelSelectView.setOnClickListener {
+            val intent = Intent(context, LevelSelect::class.java)
+            context.startActivity(intent)
+            builder.dismiss()
+        }
+
     //  the user must hit either the cancel or apply button to close the dialog
         builder.setCanceledOnTouchOutside(false)
         builder.show()
@@ -87,7 +93,7 @@ class winDialog(context: Context) : AlertDialog.Builder(context)  {
 
     fun updateLevel(l: levelData, sCount: Int, mTime: Int): levelData {
         l.starsEarned = if (l.starsEarned > sCount) l.starsEarned else sCount
-        l.time = if (l.time > mTime) mTime else l.time
+        l.time = if (l.time > mTime || l.time == -1) mTime else l.time
         return l
     }
 }

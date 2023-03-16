@@ -49,9 +49,9 @@ class Level5Activity : AppCompatActivity() {
 
         detector = GestureDetectorCompat(this, GestureListener())
 
-        val backToHomeButton = findViewById<ImageButton>(R.id.BackToHomeButton)
-        backToHomeButton.setOnClickListener {
-            val intent = Intent(this, FullscreenActivity::class.java)
+        val backToLevelSelectButton = findViewById<ImageButton>(R.id.BackToHomeButton)
+        backToLevelSelectButton.setOnClickListener {
+            val intent = Intent(this, LevelSelect::class.java)
             startActivity(intent)
         }
 

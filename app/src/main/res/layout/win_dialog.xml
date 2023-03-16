@@ -100,7 +100,7 @@
 
             <Button
                 android:id="@+id/nextLevelButton"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Next Level" />
@@ -123,10 +123,33 @@
 
             <Button
                 android:id="@+id/mainMenuButton"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Main Menu" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/levelSelectButton"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Level Select" />
 
             <Space
                 android:layout_width="wrap_content"

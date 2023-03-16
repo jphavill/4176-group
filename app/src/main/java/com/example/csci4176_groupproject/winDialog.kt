@@ -70,6 +70,13 @@ class winDialog(context: Context) : AlertDialog.Builder(context)  {
             builder.dismiss()
         }
 
+        val levelSelectView = view.findViewById<Button>(R.id.levelSelectButton)
+        levelSelectView.setOnClickListener {
+            val intent = Intent(context, LevelSelect::class.java)
+            context.startActivity(intent)
+            builder.dismiss()
+        }
+
     //  the user must hit either the cancel or apply button to close the dialog
         builder.setCanceledOnTouchOutside(false)
         builder.show()

@@ -10,6 +10,7 @@ import android.view.WindowInsets
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import com.example.csci4176_groupproject.databinding.ActivityLevelSelectBinding
 import com.google.gson.Gson
 import java.lang.Math.floor
@@ -45,6 +46,7 @@ class LevelSelect : AppCompatActivity(), unlockDialogCallback {
         val resetLevelData = findViewById<Button>(R.id.resetLevels)
         resetLevelData.setOnClickListener {
             resetLevels()
+            updateButtons()
         }
 
         val settingsButton = findViewById<ImageButton>(R.id.SettingsButton)
@@ -193,23 +195,19 @@ class LevelSelect : AppCompatActivity(), unlockDialogCallback {
                 pageNumber++
                 updateButtons()
             }
-            nextView.isEnabled = true
-            nextView.isClickable = true
+            nextView.visibility = View.VISIBLE
         } else {
-            nextView.isEnabled = false
-            nextView.isClickable = false
+            nextView.visibility = View.INVISIBLE
         }
         val backView = findViewById<ImageButton>(R.id.levelsBackButton)
         if (pageNumber > 0) {
             backView.setOnClickListener {
                 pageNumber--
                 updateButtons()}
-            backView.isEnabled = true
-            backView.isClickable = true
+            backView.visibility = View.VISIBLE
 
         } else {
-            backView.isEnabled = false
-            backView.isClickable = false
+            backView.visibility = View.INVISIBLE
         }
     }
 

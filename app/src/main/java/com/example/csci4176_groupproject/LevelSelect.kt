@@ -2,26 +2,19 @@ package com.example.csci4176_groupproject
 
 import android.content.Intent
 import android.content.SharedPreferences
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowInsets
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import com.example.csci4176_groupproject.databinding.ActivityLevelSelectBinding
 import com.google.gson.Gson
-import java.lang.Math.floor
 
-class LevelSelect : AppCompatActivity(), unlockDialogCallback {
+class LevelSelect : BaseActivity(), unlockDialogCallback {
     private lateinit var binding: ActivityLevelSelectBinding
-    private lateinit var fullscreenContent: FrameLayout
     private var pageNumber: Int = 0
     private val perPage: Int = 6
 
-    private var isFullscreen: Boolean = true
 
     override fun unlockDialogCallBack(result: Boolean){
         if (result){
@@ -70,32 +63,6 @@ class LevelSelect : AppCompatActivity(), unlockDialogCallback {
             editor.putString(String.format("level%d", id), gson.toJson(tempLevel))
             editor.putInt("stars", 0)
             editor.apply()
-        }
-    }
-
-    private fun getViewsByTag(root: ViewGroup, tag: String): List<View> {
-        val views: ArrayList<View> = ArrayList()
-        val childCount = root.childCount
-
-        for (i in 0 until childCount) {
-            val child: View = root.getChildAt(i)
-            if (child is ViewGroup) {
-                views.addAll(getViewsByTag(child, tag)!!)
-            }
-            if (child.tag != null && child.tag.toString().contains(tag)) {
-                views.add(child)
-            }
-        }
-        return views
-    }
-
-    private fun hideAndroidUI() {
-        // Hide UI first
-        supportActionBar?.hide()
-        isFullscreen = false
-
-        if (Build.VERSION.SDK_INT >= 30) {
-            fullscreenContent.windowInsetsController?.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
         }
     }
 
@@ -190,7 +157,7 @@ class LevelSelect : AppCompatActivity(), unlockDialogCallback {
     private fun updateNavButtons(){
         val levels = levelActivities().levels
         val nextView = findViewById<ImageButton>(R.id.levelsNextButton)
-        if (pageNumber < floor(levels.size / perPage.toDouble())) {
+        if (pageNumber < kotlin.math.floor(levels.size / perPage.toDouble())) {
             nextView.setOnClickListener {
                 pageNumber++
                 updateButtons()

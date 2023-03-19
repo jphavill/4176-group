@@ -3,6 +3,7 @@ package com.example.csci4176_groupproject
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
@@ -10,16 +11,24 @@ import androidx.core.content.ContextCompat
 import com.example.csci4176_groupproject.databinding.ActivityLevelSelectBinding
 import com.google.gson.Gson
 
-class LevelSelect : BaseActivity(), dialogCallback {
+class LevelSelect : BaseActivity(), binaryDialogCallback, settingsDialogCallback {
     private lateinit var binding: ActivityLevelSelectBinding
     private var pageNumber: Int = 0
     private val perPage: Int = 6
 
 
-    override fun dialogCallback(result: Boolean){
+    override fun binaryDialogCallback(result: Boolean){
         if (result){
             updateButtons()
         }
+    }
+
+    override fun settingsDialogCallback(settings: settingsData){
+        val changes = settings.changes
+        if (changes["playerIcon"]!!){
+            Log.d("seting change", "changing player icon setting")
+        }
+
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

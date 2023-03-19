@@ -16,7 +16,7 @@ class unlockDialog(context: Context) : AlertDialog.Builder(context) {
      * @param milliseconds the number of miliseconds it took a user to complete a level
      * @param starTime the time in miliseconds a user must beat to earn the first star
      */
-    fun showUnlock(levelId: Int, callback: dialogCallback){
+    fun showUnlock(levelId: Int, callback: binaryDialogCallback){
         val builder = AlertDialog.Builder(context, R.style.SettingsDialog).create()
         val li = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = li.inflate(R.layout.unlock_dialog, null)
@@ -41,7 +41,7 @@ class unlockDialog(context: Context) : AlertDialog.Builder(context) {
                 editor.putInt("stars", totalStars - cost)
                 editor.putString(String.format("level%d", level.id), gson.toJson(level))
                 editor.apply()
-                callback.dialogCallback(true)
+                callback.binaryDialogCallback(true)
                 builder.dismiss()
             }
             purchaseText.text = String.format("Unlock Level %d for %d Star?", levelId, cost)
@@ -53,7 +53,7 @@ class unlockDialog(context: Context) : AlertDialog.Builder(context) {
         cancelButton.setOnClickListener {
             //              if the cancel button is hit, don't save settings and exit
             builder.cancel()
-            callback.dialogCallback(false)
+            callback.binaryDialogCallback(false)
         }
 
         builder.setCanceledOnTouchOutside(false)

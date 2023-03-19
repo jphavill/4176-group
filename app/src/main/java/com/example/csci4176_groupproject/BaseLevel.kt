@@ -2,9 +2,9 @@ package com.example.csci4176_groupproject
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -13,7 +13,7 @@ import androidx.core.view.GestureDetectorCompat
 import java.time.LocalDateTime
 import kotlin.math.abs
 
-abstract class BaseLevel: BaseActivity(), dialogCallback {
+abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
     abstract val levelId: Int
     private lateinit var player: Player
     private var colouredTileCount = 0
@@ -351,8 +351,15 @@ abstract class BaseLevel: BaseActivity(), dialogCallback {
         return ms
     }
 
-    override fun dialogCallback(result: Boolean){
-        resetColorBlind(result)
+    override fun settingsDialogCallback(settings: settingsData){
+        val changes = settings.changes
+        if (changes["colourBlindMode"]!!){
+            resetColorBlind(settings.colourBlindMode)
+        }
+        if (changes["playerIcon"]!!){
+            Log.d("seting change", "changing player icon setting")
+        }
+
     }
 
     private fun resetColorBlind(colorBlindMode: Boolean){

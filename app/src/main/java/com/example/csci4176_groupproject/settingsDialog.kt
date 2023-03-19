@@ -11,8 +11,8 @@ import androidx.appcompat.app.AlertDialog
 
 class settingsDialog(context: Context) : AlertDialog.Builder(context)  {
     private val settingPrefs: SharedPreferences = context.applicationContext.getSharedPreferences("settingsPrefs", 0)
-
-    fun showSettings() {
+    private val initalColourBlindMode = settingPrefs.getBoolean("colorBlind", false)
+    fun showSettings(callback: dialogCallback) {
     //        get a reference to the fragments viewbinding to set the picture and text
         val builder = AlertDialog.Builder(context, R.style.SettingsDialog)
             .create()
@@ -22,7 +22,7 @@ class settingsDialog(context: Context) : AlertDialog.Builder(context)  {
         builder.setView(view)
         // set the state of the settings
         val colorBlindModeView = view.findViewById<Switch>(R.id.colorBlindSwitch)
-        colorBlindModeView.isChecked = settingPrefs.getBoolean("colorBlind", false)
+        colorBlindModeView.isChecked = initalColourBlindMode
         val hapticsSwitchView = view.findViewById<Switch>(R.id.hapticsSwitch)
         hapticsSwitchView.isChecked = settingPrefs.getBoolean("haptics", true)
         val soundView = view.findViewById<ToggleButton>(R.id.soundToggle)
@@ -34,6 +34,9 @@ class settingsDialog(context: Context) : AlertDialog.Builder(context)  {
             // save state of settings
             val editor: SharedPreferences.Editor = settingPrefs.edit()
             editor.putBoolean("colorBlind", colorBlindModeView.isChecked)
+            if (initalColourBlindMode != colorBlindModeView.isChecked) {
+                callback.dialogCallback(colorBlindModeView.isChecked)
+            }
             editor.putBoolean("haptics", hapticsSwitchView.isChecked)
             editor.putBoolean("sound", soundView.isChecked)
             editor.apply()

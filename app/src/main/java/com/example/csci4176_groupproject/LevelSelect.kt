@@ -10,13 +10,13 @@ import androidx.core.content.ContextCompat
 import com.example.csci4176_groupproject.databinding.ActivityLevelSelectBinding
 import com.google.gson.Gson
 
-class LevelSelect : BaseActivity(), unlockDialogCallback {
+class LevelSelect : BaseActivity(), dialogCallback {
     private lateinit var binding: ActivityLevelSelectBinding
     private var pageNumber: Int = 0
     private val perPage: Int = 6
 
 
-    override fun unlockDialogCallBack(result: Boolean){
+    override fun dialogCallback(result: Boolean){
         if (result){
             updateButtons()
         }
@@ -44,7 +44,7 @@ class LevelSelect : BaseActivity(), unlockDialogCallback {
 
         val settingsButton = findViewById<ImageButton>(R.id.SettingsButton)
         settingsButton.setOnClickListener {
-            settingsDialog(context = this).showSettings()
+            settingsDialog(context = this).showSettings(this)
         }
 
         hideAndroidUI()

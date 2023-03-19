@@ -13,7 +13,7 @@ import androidx.core.view.GestureDetectorCompat
 import java.time.LocalDateTime
 import kotlin.math.abs
 
-abstract class BaseLevel: BaseActivity() {
+abstract class BaseLevel: BaseActivity(), dialogCallback {
     abstract val levelId: Int
     private lateinit var player: Player
     private var colouredTileCount = 0
@@ -49,7 +49,7 @@ abstract class BaseLevel: BaseActivity() {
 
         val settingsButton = findViewById<ImageButton>(R.id.SettingsButton)
         settingsButton.setOnClickListener {
-            settingsDialog(context = this).showSettings()
+            settingsDialog(context = this).showSettings(this)
         }
 
         // Setup wall tiles
@@ -351,8 +351,11 @@ abstract class BaseLevel: BaseActivity() {
         return ms
     }
 
-    private fun resetColorBlind(){
-        val colorBlindMode = settingPrefs.getBoolean("colorBlind", false)
+    override fun dialogCallback(result: Boolean){
+        resetColorBlind(result)
+    }
+
+    private fun resetColorBlind(colorBlindMode: Boolean){
         for (tile in groundTiles ){
             if ((tile as GroundTile).getColoured())
                 tile.setColorBlind(colorBlindMode)

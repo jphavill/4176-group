@@ -22,15 +22,18 @@
         <Switch
             android:id="@+id/colorBlindSwitch"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Color Blind Mode" />
+            android:layout_height="50dp"
+            android:text="Color Blind Mode"
+            android:textAlignment="viewStart"
+            android:textSize="16sp" />
 
         <Switch
             android:id="@+id/hapticsSwitch"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:checked="true"
-            android:text="Haptics" />
+            android:text="Haptics"
+            android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,14 +45,17 @@
                 android:id="@+id/playerIconText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
                 android:layout_weight="1"
                 android:text="Player Icon"
-                android:textColor="@color/white" />
+                android:textAlignment="gravity"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
 
             <Spinner
                 android:id="@+id/playerIconSelect"
                 android:layout_width="158dp"
-                android:layout_height="wrap_content" />
+                android:layout_height="50dp" />
 
         </LinearLayout>
 
@@ -62,14 +68,17 @@
                 android:id="@+id/levelThemeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
                 android:layout_weight="1"
                 android:text="Level Theme"
-                android:textColor="@color/white" />
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
 
             <Spinner
                 android:id="@+id/levelThemeSelect"
                 android:layout_width="158dp"
-                android:layout_height="wrap_content" />
+                android:layout_height="50dp" />
 
         </LinearLayout>
 

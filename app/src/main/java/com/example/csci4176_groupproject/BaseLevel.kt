@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -12,7 +13,7 @@ import androidx.core.view.GestureDetectorCompat
 import java.time.LocalDateTime
 import kotlin.math.abs
 
-abstract class BaseLevel: BaseActivity(), dialogCallback {
+abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
     abstract val levelId: Int
     private lateinit var player: Player
     private var colouredTileCount = 0
@@ -142,6 +143,12 @@ abstract class BaseLevel: BaseActivity(), dialogCallback {
                     tileMap.add(Pair(groundTile.getYPos(), ArrayList()))
                     tileMap[0].second.add(groundTile)
                 }
+
+                val playerImageView = findViewById<ImageView>(R.id.playerImageView)
+                val currentPlayerIcon = PLAYER_ICONS[PLAYER_ICONS_MAP[settingPrefs.getString("playerIcon", "Default").toString()]!!]
+                playerImageView.setImageResource(currentPlayerIcon.iconResource)
+                val playerLocation = IntArray(2)
+                groundTile.tileImageView.getLocationInWindow(playerLocation)
                 if(groundTile.tileImageView.tag.toString() == "groundTileStart"){
                     setPlayerStart(groundTile)
                 }
@@ -359,8 +366,18 @@ abstract class BaseLevel: BaseActivity(), dialogCallback {
         return ms
     }
 
-    override fun dialogCallback(result: Boolean){
-        resetColorBlind(result)
+    override fun settingsDialogCallback(settings: settingsData){
+        val changes = settings.changes
+        if (changes["colourBlindMode"]!!){
+            resetColorBlind(settings.colourBlindMode)
+        }
+        if (changes["playerIcon"]!!){
+            val playerImageView = findViewById<ImageView>(R.id.playerImageView)
+            val currentPlayerIcon = PLAYER_ICONS[PLAYER_ICONS_MAP[settings.playerIcon]!!]
+            playerImageView.setImageResource(currentPlayerIcon.iconResource)
+
+        }
+
     }
 
     private fun resetColorBlind(colorBlindMode: Boolean){

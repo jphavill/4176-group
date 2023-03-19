@@ -9,6 +9,7 @@ import android.widget.Spinner
 import android.widget.Switch
 import android.widget.ToggleButton
 import androidx.appcompat.app.AlertDialog
+import com.google.gson.Gson
 
 class settingsDialog(context: Context) : AlertDialog.Builder(context)  {
     private val settingPrefs: SharedPreferences = context.applicationContext.getSharedPreferences("settingsPrefs", 0)
@@ -23,7 +24,9 @@ class settingsDialog(context: Context) : AlertDialog.Builder(context)  {
 
         val initialSettings = settingsData(haptics = settingPrefs.getBoolean("haptics", true),
             colourBlindMode = settingPrefs.getBoolean("colorBlind", false),
-            sound = settingPrefs.getBoolean("sound", false))
+            sound = settingPrefs.getBoolean("sound", false),
+            playerIcon = settingPrefs.getString("playerIcon", "Default").toString()
+        )
         // set the state of the settings
         val colorBlindModeView = view.findViewById<Switch>(R.id.colorBlindSwitch)
         colorBlindModeView.isChecked = initialSettings.colourBlindMode
@@ -32,10 +35,23 @@ class settingsDialog(context: Context) : AlertDialog.Builder(context)  {
         val soundView = view.findViewById<ToggleButton>(R.id.soundToggle)
         soundView.isChecked = initialSettings.sound
 
-        val playerIcons: List<String> =  listOf("icon 1", "icon 2")
+        val playerIcons = mutableListOf<String>()
+
+        for (player in PLAYER_ICONS){
+            // default player icon is always in the list
+            if (player.name == "Default") {
+                playerIcons.add(player.name)
+                continue
+            }
+            // only add the other icons that are also enabled (purchased)
+            // CHANGE BACK AFTER STORE ADDED TO DEFAULT TO FALSE
+            if (settingPrefs.getBoolean(String.format("playerEnabled%d", player.iconResource), true)){
+                    playerIcons.add(player.name)
+            }
+        }
 
         val playerIconView = view.findViewById<Spinner>(R.id.playerIconSelect)
-        ArrayAdapter(
+        val arrayAdapter = ArrayAdapter(
             context,
             android.R.layout.simple_spinner_item,
             playerIcons
@@ -46,11 +62,15 @@ class settingsDialog(context: Context) : AlertDialog.Builder(context)  {
             playerIconView.adapter = adapter
         }
 
+
+        playerIconView.setSelection(arrayAdapter.getPosition(settingPrefs.getString("playerIcon", "Default")))
+
         val applyButton = view.findViewById<Button>(R.id.mainMenuButton)
         applyButton.setOnClickListener {
             val updatedSettings = settingsData(haptics = hapticsSwitchView.isChecked,
                 colourBlindMode = colorBlindModeView.isChecked,
-                sound = soundView.isChecked)
+                sound = soundView.isChecked,
+                playerIcon = playerIconView.selectedItem.toString())
             updatedSettings.changes = mapOf(
                 "haptics" to (initialSettings.haptics != updatedSettings.haptics),
                 "colourBlindMode" to (initialSettings.colourBlindMode != updatedSettings.colourBlindMode),
@@ -61,9 +81,10 @@ class settingsDialog(context: Context) : AlertDialog.Builder(context)  {
             callback.settingsDialogCallback(updatedSettings)
             // save state of settings
             val editor: SharedPreferences.Editor = settingPrefs.edit()
-            editor.putBoolean("colorBlind", colorBlindModeView.isChecked)
-            editor.putBoolean("haptics", hapticsSwitchView.isChecked)
-            editor.putBoolean("sound", soundView.isChecked)
+            editor.putBoolean("colorBlind", updatedSettings.colourBlindMode)
+            editor.putBoolean("haptics", updatedSettings.haptics)
+            editor.putBoolean("sound", updatedSettings.sound)
+            editor.putString("playerIcon", updatedSettings.playerIcon)
             editor.apply()
 
             builder.dismiss()

@@ -2,6 +2,7 @@ package com.example.csci4176_groupproject
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.media.metrics.PlaybackErrorEvent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -140,6 +141,8 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 }
 
                 val playerImageView = findViewById<ImageView>(R.id.playerImageView)
+                val currentPlayerIcon = PLAYER_ICONS[PLAYER_ICONS_MAP[settingPrefs.getString("playerIcon", "Default").toString()]!!]
+                playerImageView.setImageResource(currentPlayerIcon.iconResource)
                 val playerLocation = IntArray(2)
                 groundTile.tileImageView.getLocationInWindow(playerLocation)
                 if(groundTile.tileImageView.tag.toString() == "groundTileStart"){
@@ -357,7 +360,10 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
             resetColorBlind(settings.colourBlindMode)
         }
         if (changes["playerIcon"]!!){
-            Log.d("seting change", "changing player icon setting")
+            val playerImageView = findViewById<ImageView>(R.id.playerImageView)
+            val currentPlayerIcon = PLAYER_ICONS[PLAYER_ICONS_MAP[settings.playerIcon]!!]
+            playerImageView.setImageResource(currentPlayerIcon.iconResource)
+
         }
 
     }

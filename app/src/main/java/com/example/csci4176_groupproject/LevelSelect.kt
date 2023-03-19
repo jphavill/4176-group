@@ -10,13 +10,13 @@ import androidx.core.content.ContextCompat
 import com.example.csci4176_groupproject.databinding.ActivityLevelSelectBinding
 import com.google.gson.Gson
 
-class LevelSelect : BaseActivity(), unlockDialogCallback {
+class LevelSelect : BaseActivity(), dialogCallback {
     private lateinit var binding: ActivityLevelSelectBinding
     private var pageNumber: Int = 0
     private val perPage: Int = 6
 
 
-    override fun unlockDialogCallBack(result: Boolean){
+    override fun dialogCallback(result: Boolean){
         if (result){
             updateButtons()
         }
@@ -44,7 +44,7 @@ class LevelSelect : BaseActivity(), unlockDialogCallback {
 
         val settingsButton = findViewById<ImageButton>(R.id.SettingsButton)
         settingsButton.setOnClickListener {
-            settingsDialog(context = this).showSettings()
+            settingsDialog(context = this).showSettings(this)
         }
 
         hideAndroidUI()
@@ -55,7 +55,6 @@ class LevelSelect : BaseActivity(), unlockDialogCallback {
             // the last level on the first page, and all subsequent levels, are locked by default
             val tempLevel = levelData(id=id, locked = id > perPage-1)
             val gson = Gson()
-            val settingPrefs: SharedPreferences = this.applicationContext.getSharedPreferences("settingsPrefs", 0)
             val editor: SharedPreferences.Editor = settingPrefs.edit()
             tempLevel.starsEarned = 0
             tempLevel.time = -1
@@ -85,7 +84,6 @@ class LevelSelect : BaseActivity(), unlockDialogCallback {
 
             } else {
 
-                val settingPrefs = applicationContext.getSharedPreferences("settingsPrefs", 0)
                 // the last level on the first page, and all subsequent levels, are locked by default
                 val tempLevel =  levelData(id=buttonIndex, locked = buttonIndex > perPage-1)
 
@@ -136,7 +134,6 @@ class LevelSelect : BaseActivity(), unlockDialogCallback {
 
     private fun updateStars(levelStars: List<View>, buttonIndex: Int, level: levelData, hide: Boolean = false) {
         val starCountView = findViewById<TextView>(R.id.starCount)
-        val settingPrefs = applicationContext.getSharedPreferences("settingsPrefs", 0)
         starCountView.text = settingPrefs.getInt("stars", 0).toString()
 
         val firstStar = (buttonIndex%perPage) * 3

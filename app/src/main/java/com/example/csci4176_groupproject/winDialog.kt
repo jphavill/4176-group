@@ -16,12 +16,13 @@ class winDialog(context: Context) : AlertDialog.Builder(context)  {
      * @param milliseconds the number of miliseconds it took a user to complete a level
      * @param starTime the time in miliseconds a user must beat to earn the first star
      */
+    private val settingPrefs: SharedPreferences = context.applicationContext.getSharedPreferences("settingsPrefs", 0)
     fun showWin(milliseconds: Int, levelId: Int) {
         var starCount = calcStars(milliseconds, levelId)
 
         val tempLevel = levelData(id=levelId, locked = false)
         val gson = Gson()
-        val settingPrefs: SharedPreferences = context.applicationContext.getSharedPreferences("settingsPrefs", 0)
+
         var level: levelData = gson.fromJson(settingPrefs.getString(String.format("level%d", levelId), gson.toJson(tempLevel)), levelData::class.java)
 
         val builder = AlertDialog.Builder(context, R.style.SettingsDialog).create()

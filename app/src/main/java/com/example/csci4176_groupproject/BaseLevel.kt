@@ -2,6 +2,7 @@ package com.example.csci4176_groupproject
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.view.*
@@ -12,7 +13,7 @@ import androidx.core.view.GestureDetectorCompat
 import java.time.LocalDateTime
 import kotlin.math.abs
 
-abstract class BaseLevel: BaseActivity() {
+abstract class BaseLevel: BaseActivity(), dialogCallback {
     abstract val levelId: Int
     private lateinit var player: Player
     private var colouredTileCount = 0
@@ -27,10 +28,12 @@ abstract class BaseLevel: BaseActivity() {
 
     lateinit var fullScreenView: ViewGroup
 
+
     @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
     }
 
@@ -46,51 +49,49 @@ abstract class BaseLevel: BaseActivity() {
 
         val settingsButton = findViewById<ImageButton>(R.id.SettingsButton)
         settingsButton.setOnClickListener {
-            settingsDialog(context = this).showSettings()
+            settingsDialog(context = this).showSettings(this)
         }
 
         // Setup wall tiles
         val wallTilesImageViews =
             getViewsByTag(fullScreenView, "wallTile")
 
-        if (wallTilesImageViews != null) {
-            for (wallTileImageView in wallTilesImageViews) {
-                val wallTile = WallTile(wallTileImageView as ImageView)
-                wallTiles.add(wallTile)
+        for (wallTileImageView in wallTilesImageViews) {
+            val wallTile = WallTile(wallTileImageView as ImageView)
+            wallTiles.add(wallTile)
 
-                wallTileImageView.post {
-                    val location = IntArray(2)
-                    wallTileImageView.getLocationInWindow(location)
-                    wallTile.setXPos(location[0])
-                    wallTile.setYPos(location[1])
-                    var tileAdded = false
-                    if(tileMap.isNotEmpty()){
-                        val tileRowList = tileMap.filter { p -> p.first == wallTile.getYPos() }
-                        if(tileRowList.isNotEmpty()){
-                            val tileRow = tileRowList[0]
-                            if(tileRow.second.isNotEmpty()) {
-                                for(tile in tileRow.second){
-                                    if(wallTile.getXPos() < tile.getXPos()) {
-                                        tileAdded = true
-                                        tileRow.second.add(tileRow.second.indexOf(tile), wallTile)
-                                        break
-                                    }
-                                }
-                                if(!tileAdded){
-                                    tileRow.second.add(wallTile)
+            wallTileImageView.post {
+                val location = IntArray(2)
+                wallTileImageView.getLocationInWindow(location)
+                wallTile.setXPos(location[0])
+                wallTile.setYPos(location[1])
+                var tileAdded = false
+                if(tileMap.isNotEmpty()){
+                    val tileRowList = tileMap.filter { p -> p.first == wallTile.getYPos() }
+                    if(tileRowList.isNotEmpty()){
+                        val tileRow = tileRowList[0]
+                        if(tileRow.second.isNotEmpty()) {
+                            for(tile in tileRow.second){
+                                if(wallTile.getXPos() < tile.getXPos()) {
+                                    tileAdded = true
+                                    tileRow.second.add(tileRow.second.indexOf(tile), wallTile)
+                                    break
                                 }
                             }
-                        }
-                        else{
-                            tileMap.add(Pair(wallTile.getYPos(), ArrayList()))
-                            val tileRow = tileMap.filter { p -> p.first == wallTile.getYPos() }[0]
-                            tileRow.second.add(wallTile)
+                            if(!tileAdded){
+                                tileRow.second.add(wallTile)
+                            }
                         }
                     }
                     else{
                         tileMap.add(Pair(wallTile.getYPos(), ArrayList()))
-                        tileMap[0].second.add(wallTile)
+                        val tileRow = tileMap.filter { p -> p.first == wallTile.getYPos() }[0]
+                        tileRow.second.add(wallTile)
                     }
+                }
+                else{
+                    tileMap.add(Pair(wallTile.getYPos(), ArrayList()))
+                    tileMap[0].second.add(wallTile)
                 }
             }
         }
@@ -99,55 +100,53 @@ abstract class BaseLevel: BaseActivity() {
         val groundTilesImageViews =
             getViewsByTag(fullScreenView, "groundTile")
 
-        if (groundTilesImageViews != null) {
-            for (groundTileImageView in groundTilesImageViews) {
-                val groundTile = GroundTile(groundTileImageView as ImageView)
-                groundTiles.add(groundTile)
+        for (groundTileImageView in groundTilesImageViews) {
+            val groundTile = GroundTile(groundTileImageView as ImageView)
+            groundTiles.add(groundTile)
 
-                groundTileImageView.post {
-                    val tileLocation = IntArray(2)
-                    groundTileImageView.getLocationInWindow(tileLocation)
-                    groundTile.setXPos(tileLocation[0])
-                    groundTile.setYPos(tileLocation[1])
+            groundTileImageView.post {
+                val tileLocation = IntArray(2)
+                groundTileImageView.getLocationInWindow(tileLocation)
+                groundTile.setXPos(tileLocation[0])
+                groundTile.setYPos(tileLocation[1])
 
-                    var tileAdded = false
-                    if(tileMap.isNotEmpty()){
-                        val tileRowList = tileMap.filter { p -> p.first == groundTile.getYPos() }
-                        if(tileRowList.isNotEmpty()){
-                            val tileRow = tileRowList[0]
-                            if(tileRow.second.isNotEmpty()) {
-                                for(tile in tileRow.second){
-                                    if(groundTile.getXPos() < tile.getXPos()) {
-                                        tileAdded = true
-                                        tileRow.second.add(tileRow.second.indexOf(tile), groundTile)
-                                        break
-                                    }
-                                }
-                                if(!tileAdded){
-                                    tileRow.second.add(groundTile)
+                var tileAdded = false
+                if(tileMap.isNotEmpty()){
+                    val tileRowList = tileMap.filter { p -> p.first == groundTile.getYPos() }
+                    if(tileRowList.isNotEmpty()){
+                        val tileRow = tileRowList[0]
+                        if(tileRow.second.isNotEmpty()) {
+                            for(tile in tileRow.second){
+                                if(groundTile.getXPos() < tile.getXPos()) {
+                                    tileAdded = true
+                                    tileRow.second.add(tileRow.second.indexOf(tile), groundTile)
+                                    break
                                 }
                             }
-                        }
-                        else{
-                            tileMap.add(Pair(groundTile.getYPos(), ArrayList()))
-                            val tileRow = tileMap.filter { p -> p.first == groundTile.getYPos() }[0]
-                            tileRow.second.add(groundTile)
+                            if(!tileAdded){
+                                tileRow.second.add(groundTile)
+                            }
                         }
                     }
                     else{
                         tileMap.add(Pair(groundTile.getYPos(), ArrayList()))
-                        tileMap[0].second.add(groundTile)
+                        val tileRow = tileMap.filter { p -> p.first == groundTile.getYPos() }[0]
+                        tileRow.second.add(groundTile)
                     }
+                }
+                else{
+                    tileMap.add(Pair(groundTile.getYPos(), ArrayList()))
+                    tileMap[0].second.add(groundTile)
+                }
 
-                    val playerImageView = findViewById<ImageView>(R.id.playerImageView)
-                    val playerLocation = IntArray(2)
-                    groundTile.tileImageView.getLocationInWindow(playerLocation)
-                    if(groundTile.tileImageView.tag.toString() == "groundTileStart"){
-                        player = Player(playerImageView, playerLocation[0], playerLocation[1], groundTile)
-                        player.getPlayerImageView().translationX = playerLocation[0].toFloat()
-                        player.getPlayerImageView().translationY = playerLocation[1].toFloat()
-                        colourTile(groundTile)
-                    }
+                val playerImageView = findViewById<ImageView>(R.id.playerImageView)
+                val playerLocation = IntArray(2)
+                groundTile.tileImageView.getLocationInWindow(playerLocation)
+                if(groundTile.tileImageView.tag.toString() == "groundTileStart"){
+                    player = Player(playerImageView, playerLocation[0], playerLocation[1], groundTile)
+                    player.getPlayerImageView().translationX = playerLocation[0].toFloat()
+                    player.getPlayerImageView().translationY = playerLocation[1].toFloat()
+                    colourTile(groundTile)
                 }
             }
         }
@@ -313,7 +312,9 @@ abstract class BaseLevel: BaseActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun colourTile(groundTile: GroundTile){
+        val colorBlindMode = settingPrefs.getBoolean("colorBlind", false)
         groundTile.colourTile()
+        groundTile.setColorBlind(colorBlindMode)
         colouredTileCount += 1
         if(colouredTileCount == groundTiles.count())
             levelComplete()
@@ -348,5 +349,16 @@ abstract class BaseLevel: BaseActivity() {
         }
 
         return ms
+    }
+
+    override fun dialogCallback(result: Boolean){
+        resetColorBlind(result)
+    }
+
+    private fun resetColorBlind(colorBlindMode: Boolean){
+        for (tile in groundTiles ){
+            if ((tile as GroundTile).getColoured())
+                tile.setColorBlind(colorBlindMode)
+        }
     }
 }

@@ -2,7 +2,6 @@ package com.example.csci4176_groupproject
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.media.metrics.PlaybackErrorEvent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -51,6 +50,11 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
         val settingsButton = findViewById<ImageButton>(R.id.SettingsButton)
         settingsButton.setOnClickListener {
             settingsDialog(context = this).showSettings(this)
+        }
+
+        val resetButton = findViewById<ImageButton>(R.id.resetLevelsButton)
+        resetButton.setOnClickListener{
+            resetLevel()
         }
 
         // Setup wall tiles
@@ -146,15 +150,23 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 val playerLocation = IntArray(2)
                 groundTile.tileImageView.getLocationInWindow(playerLocation)
                 if(groundTile.tileImageView.tag.toString() == "groundTileStart"){
-                    player = Player(playerImageView, playerLocation[0], playerLocation[1], groundTile)
-                    player.getPlayerImageView().translationX = playerLocation[0].toFloat()
-                    player.getPlayerImageView().translationY = playerLocation[1].toFloat()
-                    colourTile(groundTile)
+                    setPlayerStart(groundTile)
                 }
             }
         }
 
         hideAndroidUI()
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun setPlayerStart(groundTile: GroundTile){
+        val playerImageView = findViewById<ImageView>(R.id.playerImageView)
+        val playerLocation = IntArray(2)
+        groundTile.tileImageView.getLocationInWindow(playerLocation)
+        player = Player(playerImageView, playerLocation[0], playerLocation[1], groundTile)
+        player.getPlayerImageView().translationX = playerLocation[0].toFloat()
+        player.getPlayerImageView().translationY = playerLocation[1].toFloat()
+        colourTile(groundTile)
     }
 
 
@@ -373,5 +385,18 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
             if ((tile as GroundTile).getColoured())
                 tile.setColorBlind(colorBlindMode)
         }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun resetLevel(){
+        colouredTileCount = 0
+        for (tile in groundTiles ){
+            val groundTile = (tile as GroundTile)
+            groundTile.uncolourTile()
+            if(groundTile.tileImageView.tag.toString() == "groundTileStart"){
+                setPlayerStart(groundTile)
+            }
+        }
+        levelStarted = false
     }
 }

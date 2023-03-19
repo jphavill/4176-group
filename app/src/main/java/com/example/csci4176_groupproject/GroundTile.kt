@@ -17,6 +17,12 @@ class GroundTile(tileImageView: ImageView) : Tile(tileImageView){
         }
     }
 
+    fun uncolourTile(){
+        coloured = false
+        tileImageView.setImageResource(R.drawable.ground_tile_foreground)
+        tileImageView.setColorFilter(Color.argb(100, 161, 161, 161))
+    }
+
     fun setColorBlind(colorBlindMode: Boolean){
         if(colorBlindMode && coloured){
             tileImageView.setImageResource(android.R.drawable.ic_menu_close_clear_cancel)

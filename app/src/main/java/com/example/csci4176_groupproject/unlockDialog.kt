@@ -13,6 +13,7 @@ import androidx.fragment.app.DialogFragment
 import com.google.gson.Gson
 
 class unlockDialog(context: Context) : AlertDialog.Builder(context) {
+    private val settingPrefs: SharedPreferences = context.applicationContext.getSharedPreferences("settingsPrefs", 0)
 
     /**
      * @param milliseconds the number of miliseconds it took a user to complete a level
@@ -24,7 +25,6 @@ class unlockDialog(context: Context) : AlertDialog.Builder(context) {
         val view = li.inflate(R.layout.unlock_dialog, null)
         builder.setView(view)
 
-        val settingPrefs: SharedPreferences = context.applicationContext.getSharedPreferences("settingsPrefs", 0)
         var totalStars = settingPrefs.getInt("stars", 0)
         val cost = 1
 

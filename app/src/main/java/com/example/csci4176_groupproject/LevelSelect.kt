@@ -55,7 +55,6 @@ class LevelSelect : BaseActivity(), unlockDialogCallback {
             // the last level on the first page, and all subsequent levels, are locked by default
             val tempLevel = levelData(id=id, locked = id > perPage-1)
             val gson = Gson()
-            val settingPrefs: SharedPreferences = this.applicationContext.getSharedPreferences("settingsPrefs", 0)
             val editor: SharedPreferences.Editor = settingPrefs.edit()
             tempLevel.starsEarned = 0
             tempLevel.time = -1
@@ -85,7 +84,6 @@ class LevelSelect : BaseActivity(), unlockDialogCallback {
 
             } else {
 
-                val settingPrefs = applicationContext.getSharedPreferences("settingsPrefs", 0)
                 // the last level on the first page, and all subsequent levels, are locked by default
                 val tempLevel =  levelData(id=buttonIndex, locked = buttonIndex > perPage-1)
 
@@ -136,7 +134,6 @@ class LevelSelect : BaseActivity(), unlockDialogCallback {
 
     private fun updateStars(levelStars: List<View>, buttonIndex: Int, level: levelData, hide: Boolean = false) {
         val starCountView = findViewById<TextView>(R.id.starCount)
-        val settingPrefs = applicationContext.getSharedPreferences("settingsPrefs", 0)
         starCountView.text = settingPrefs.getInt("stars", 0).toString()
 
         val firstStar = (buttonIndex%perPage) * 3

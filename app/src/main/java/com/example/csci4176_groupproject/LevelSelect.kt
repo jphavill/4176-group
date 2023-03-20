@@ -153,6 +153,10 @@ class LevelSelect : BaseActivity(), binaryDialogCallback, settingsDialogCallback
             val star = s as ImageView
             if (!hide && starIndex < level.starsEarned) {
                 star.visibility = View.VISIBLE
+                star.setImageResource(android.R.drawable.btn_star_big_on)
+            } else if (!hide && !level.locked){
+                star.visibility = View.VISIBLE
+                star.setImageResource(android.R.drawable.btn_star_big_off)
             } else {
                 star.visibility = View.INVISIBLE
             }

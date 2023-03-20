@@ -28,13 +28,10 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
 
     lateinit var fullScreenView: ViewGroup
 
-
     @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -241,10 +238,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 crossedTiles.add((tileMap[tileRowIndex].second[columnIndex]) as GroundTile)
             }
             if(crossedTiles.isNotEmpty()){
-                val tile = tileMap[tileRowIndex].second[columnIndex]
-                val tileLocation = IntArray(2)
-                tile.tileImageView.getLocationInWindow(tileLocation)
-                player.movePlayerPos(tileLocation[0], tileLocation[1], crossedTiles.last())
+                player.movePlayerPos(crossedTiles)
                 for(groundTile in crossedTiles){
                     if(!groundTile.getColoured())
                         colourTile(groundTile)
@@ -265,10 +259,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 crossedTiles.add((tileMap[tileRowIndex].second[columnIndex]) as GroundTile)
             }
             if(crossedTiles.isNotEmpty()){
-                val tile = crossedTiles.last()
-                val tileLocation = IntArray(2)
-                tile.tileImageView.getLocationInWindow(tileLocation)
-                player.movePlayerPos(tileLocation[0], tileLocation[1], crossedTiles.last())
+                player.movePlayerPos(crossedTiles)
                 for(groundTile in crossedTiles){
                     if(!groundTile.getColoured())
                         colourTile(groundTile)
@@ -289,10 +280,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 crossedTiles.add((tileMap[tileRowIndex].second[columnIndex]) as GroundTile)
             }
             if(crossedTiles.isNotEmpty()){
-                val tile = tileMap[tileRowIndex].second[columnIndex]
-                val tileLocation = IntArray(2)
-                tile.tileImageView.getLocationInWindow(tileLocation)
-                player.movePlayerPos(tileLocation[0], tileLocation[1], crossedTiles.last())
+                player.movePlayerPos(crossedTiles)
                 for(groundTile in crossedTiles){
                     if(!groundTile.getColoured())
                         colourTile(groundTile)
@@ -313,10 +301,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 crossedTiles.add((tileMap[tileRowIndex].second[columnIndex]) as GroundTile)
             }
             if(crossedTiles.isNotEmpty()){
-                val tile = tileMap[tileRowIndex].second[columnIndex]
-                val tileLocation = IntArray(2)
-                tile.tileImageView.getLocationInWindow(tileLocation)
-                player.movePlayerPos(tileLocation[0], tileLocation[1], crossedTiles.last())
+                player.movePlayerPos(crossedTiles)
                 for(groundTile in crossedTiles){
                     if(!groundTile.getColoured())
                         colourTile(groundTile)

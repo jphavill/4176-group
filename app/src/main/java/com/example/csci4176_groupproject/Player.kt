@@ -3,6 +3,8 @@ package com.example.csci4176_groupproject
 import android.media.Image
 import android.util.Log
 import android.widget.ImageView
+import android.os.Handler
+import android.os.Looper
 
 class Player(private val playerImageView: ImageView, private var playerPosX: Int, private var playerPosY: Int, private var playerGroundTile: Tile) {
     // Getters
@@ -29,14 +31,20 @@ class Player(private val playerImageView: ImageView, private var playerPosX: Int
     private fun setPlayerGroundTile(newPositionGroundTile: GroundTile) {
         playerGroundTile = newPositionGroundTile
     }
-    fun movePlayerPos(newXPos: Int, newYPos: Int, newPositionGroundTile: GroundTile){
-        playerImageView.translationX = newXPos.toFloat()
-        playerImageView.translationY = newYPos.toFloat()
-        setPlayerPosX(newXPos)
-        setPlayerPosY(newYPos)
-        setPlayerGroundTile(newPositionGroundTile)
-
-        val location = IntArray(2)
-        playerImageView.getLocationInWindow(location)
+    fun movePlayerPos(crossedTiles: ArrayList<GroundTile>){
+        val animationDuration: Long = (1000 / crossedTiles.count()).toLong().coerceAtMost(200)
+        for (groundTile in crossedTiles){
+            playerImageView.animate().apply {
+                duration = animationDuration
+                translationX(groundTile.getXPos().toFloat())
+                translationY(groundTile.getYPos().toFloat())
+            }.withEndAction {
+                if(!groundTile.getColoured())
+                    groundTile.colourTile()
+                setPlayerPosX(groundTile.getXPos())
+                setPlayerPosY(groundTile.getYPos())
+                setPlayerGroundTile(groundTile)
+            }
+        }
     }
 }

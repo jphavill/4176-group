@@ -5,6 +5,7 @@ import android.util.Log
 import android.widget.ImageView
 
 class Player(private val playerImageView: ImageView, private var playerPosX: Int, private var playerPosY: Int, private var playerGroundTile: Tile) {
+    public var playerIsMoving: Boolean = false
     // Getters
     fun getPlayerGroundTile(): Tile {
         return playerGroundTile

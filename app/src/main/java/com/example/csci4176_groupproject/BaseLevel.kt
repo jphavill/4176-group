@@ -162,7 +162,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
         player = Player(playerImageView, playerLocation[0], playerLocation[1], groundTile)
         player.getPlayerImageView().translationX = playerLocation[0].toFloat()
         player.getPlayerImageView().translationY = playerLocation[1].toFloat()
-        increaseColouredTiles(groundTile)
+        colourTile(groundTile)
     }
 
 
@@ -240,7 +240,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 player.movePlayerPos(crossedTiles)
                 for(groundTile in crossedTiles){
                     if(!groundTile.getColoured())
-                        increaseColouredTiles(groundTile)
+                        colourTile(groundTile)
                 }
             }
         }
@@ -261,7 +261,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 player.movePlayerPos(crossedTiles)
                 for(groundTile in crossedTiles){
                     if(!groundTile.getColoured())
-                        increaseColouredTiles(groundTile)
+                        colourTile(groundTile)
                 }
             }
         }
@@ -282,7 +282,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 player.movePlayerPos(crossedTiles)
                 for(groundTile in crossedTiles){
                     if(!groundTile.getColoured())
-                        increaseColouredTiles(groundTile)
+                        colourTile(groundTile)
                 }
             }
         }
@@ -303,14 +303,14 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 player.movePlayerPos(crossedTiles)
                 for(groundTile in crossedTiles){
                     if(!groundTile.getColoured())
-                        increaseColouredTiles(groundTile)
+                        colourTile(groundTile)
                 }
             }
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun increaseColouredTiles(groundTile: GroundTile){
+    fun colourTile(groundTile: GroundTile){
         val colourBlindMode = settingPrefs.getBoolean("colorBlind", false)
         groundTile.colourTile()
         groundTile.setColorBlind(colourBlindMode)

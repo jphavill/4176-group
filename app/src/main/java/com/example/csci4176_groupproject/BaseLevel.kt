@@ -175,7 +175,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
     }
 
     inner class GestureListener : GestureDetector.SimpleOnGestureListener() {
-        private val swipeThreshold = 100
+        private val swipeThreshold = 80
         private val swipeVelocityThreshold = 100
 
         @RequiresApi(Build.VERSION_CODES.O)

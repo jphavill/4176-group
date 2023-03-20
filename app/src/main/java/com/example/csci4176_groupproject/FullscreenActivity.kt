@@ -57,4 +57,8 @@ class FullscreenActivity : AppCompatActivity() {
             fullscreenContent.windowInsetsController?.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
         }
     }
+    override fun onResume(){
+        super.onResume()
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+    }
 }

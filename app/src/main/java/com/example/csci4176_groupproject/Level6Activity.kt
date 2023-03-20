@@ -17,7 +17,7 @@ class Level6Activity : BaseLevel() {
         binding = ActivityLevel6Binding.inflate(layoutInflater)
         setContentView(binding.root)
         fullscreenContent = binding.Level6FullscreenContent
-        fullScreenView = findViewById(R.id.Level7FullscreenContent)
+        fullScreenView = findViewById(R.id.Level6FullscreenContent)
         super.levelSetup()
     }
 }

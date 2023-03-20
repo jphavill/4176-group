@@ -46,4 +46,8 @@ abstract class BaseActivity: AppCompatActivity() {
         }
         return views
     }
+    override fun onResume(){
+        super.onResume()
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+    }
 }

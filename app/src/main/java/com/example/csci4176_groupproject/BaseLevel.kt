@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -163,7 +162,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
         player = Player(playerImageView, playerLocation[0], playerLocation[1], groundTile)
         player.getPlayerImageView().translationX = playerLocation[0].toFloat()
         player.getPlayerImageView().translationY = playerLocation[1].toFloat()
-        colourTile(groundTile)
+        increaseColouredTiles(groundTile)
     }
 
 
@@ -241,7 +240,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 player.movePlayerPos(crossedTiles)
                 for(groundTile in crossedTiles){
                     if(!groundTile.getColoured())
-                        colourTile(groundTile)
+                        increaseColouredTiles(groundTile)
                 }
             }
         }
@@ -262,7 +261,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 player.movePlayerPos(crossedTiles)
                 for(groundTile in crossedTiles){
                     if(!groundTile.getColoured())
-                        colourTile(groundTile)
+                        increaseColouredTiles(groundTile)
                 }
             }
         }
@@ -283,7 +282,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 player.movePlayerPos(crossedTiles)
                 for(groundTile in crossedTiles){
                     if(!groundTile.getColoured())
-                        colourTile(groundTile)
+                        increaseColouredTiles(groundTile)
                 }
             }
         }
@@ -304,17 +303,17 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 player.movePlayerPos(crossedTiles)
                 for(groundTile in crossedTiles){
                     if(!groundTile.getColoured())
-                        colourTile(groundTile)
+                        increaseColouredTiles(groundTile)
                 }
             }
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun colourTile(groundTile: GroundTile){
-        val colorBlindMode = settingPrefs.getBoolean("colorBlind", false)
+    fun increaseColouredTiles(groundTile: GroundTile){
+        val colourBlindMode = settingPrefs.getBoolean("colorBlind", false)
         groundTile.colourTile()
-        groundTile.setColorBlind(colorBlindMode)
+        groundTile.setColorBlind(colourBlindMode)
         colouredTileCount += 1
         if(colouredTileCount == groundTiles.count())
             levelComplete()

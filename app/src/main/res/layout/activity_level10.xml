@@ -1179,7 +1179,7 @@
 
         <ImageView
             android:id="@+id/playerImageView"
-            android:layout_width="50dp"
+            android:layout_width="39dp"
             android:layout_height="39dp"
             android:translationY="700px"
             app:srcCompat="@drawable/ic_launcher_foreground" />

@@ -4,6 +4,7 @@ import android.os.Build
 import android.widget.ImageView
 
 class Player(private val playerImageView: ImageView, private var playerPosX: Int, private var playerPosY: Int, private var playerGroundTile: Tile) {
+    var playerIsMoving: Boolean = false
     // Getters
     fun getPlayerGroundTile(): Tile {
         return playerGroundTile
@@ -30,6 +31,7 @@ class Player(private val playerImageView: ImageView, private var playerPosX: Int
     }
 
     fun movePlayerPos(crossedTiles: ArrayList<GroundTile>){
+        playerIsMoving = true
         val animationDuration: Long = (1000 / crossedTiles.count()).toLong().coerceAtMost(200)
         for (groundTile in crossedTiles){
             playerImageView.animate().apply {
@@ -42,6 +44,7 @@ class Player(private val playerImageView: ImageView, private var playerPosX: Int
                 setPlayerPosX(groundTile.getXPos())
                 setPlayerPosY(groundTile.getYPos())
                 setPlayerGroundTile(groundTile)
+                playerIsMoving = false
             }
         }
     }

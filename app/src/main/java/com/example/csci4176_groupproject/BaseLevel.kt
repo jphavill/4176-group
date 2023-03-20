@@ -189,6 +189,8 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
             val deltaX = moveEvent.x.minus(downEvent.x)
             val deltaY = moveEvent.y.minus(downEvent.y)
 
+            if(player.playerIsMoving)
+                return false
             if(!levelStarted) {
                 levelStarted = true
                 startTime = LocalDateTime.now()
@@ -237,11 +239,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 crossedTiles.add((tileMap[tileRowIndex].second[columnIndex]) as GroundTile)
             }
             if(crossedTiles.isNotEmpty()){
-                player.movePlayerPos(crossedTiles)
-                for(groundTile in crossedTiles){
-                    if(!groundTile.getColoured())
-                        colourTile(groundTile)
-                }
+                movePlayer(crossedTiles)
             }
         }
     }
@@ -258,11 +256,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 crossedTiles.add((tileMap[tileRowIndex].second[columnIndex]) as GroundTile)
             }
             if(crossedTiles.isNotEmpty()){
-                player.movePlayerPos(crossedTiles)
-                for(groundTile in crossedTiles){
-                    if(!groundTile.getColoured())
-                        colourTile(groundTile)
-                }
+                movePlayer(crossedTiles)
             }
         }
     }
@@ -279,11 +273,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 crossedTiles.add((tileMap[tileRowIndex].second[columnIndex]) as GroundTile)
             }
             if(crossedTiles.isNotEmpty()){
-                player.movePlayerPos(crossedTiles)
-                for(groundTile in crossedTiles){
-                    if(!groundTile.getColoured())
-                        colourTile(groundTile)
-                }
+                movePlayer(crossedTiles)
             }
         }
     }
@@ -300,12 +290,17 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 crossedTiles.add((tileMap[tileRowIndex].second[columnIndex]) as GroundTile)
             }
             if(crossedTiles.isNotEmpty()){
-                player.movePlayerPos(crossedTiles)
-                for(groundTile in crossedTiles){
-                    if(!groundTile.getColoured())
-                        colourTile(groundTile)
-                }
+                movePlayer(crossedTiles)
             }
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun movePlayer(crossedTiles: ArrayList<GroundTile>){
+        player.movePlayerPos(crossedTiles)
+        for(groundTile in crossedTiles){
+            if(!groundTile.getColoured())
+                colourTile(groundTile)
         }
     }
 

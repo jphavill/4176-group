@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/newbackground"
     android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
-    tools:context=".FullscreenActivity">
+    tools:context=".FullscreenActivity"
+    android:id="@+id/MainFullscreenContent">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
@@ -21,17 +22,6 @@
         android:layout_marginTop="150sp"
         android:text="Play"
         android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/MainFullscreenContent"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:keepScreenOn="true"
-        android:text=""
-        android:textColor="?attr/fullscreenTextColor"
-        android:textSize="50sp"
-        android:textStyle="bold" />
 
     <FrameLayout
         android:layout_width="match_parent"

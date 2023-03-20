@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -28,13 +27,10 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
 
     lateinit var fullScreenView: ViewGroup
 
-
     @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -179,7 +175,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
     }
 
     inner class GestureListener : GestureDetector.SimpleOnGestureListener() {
-        private val swipeThreshold = 100
+        private val swipeThreshold = 80
         private val swipeVelocityThreshold = 100
 
         @RequiresApi(Build.VERSION_CODES.O)
@@ -241,10 +237,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 crossedTiles.add((tileMap[tileRowIndex].second[columnIndex]) as GroundTile)
             }
             if(crossedTiles.isNotEmpty()){
-                val tile = tileMap[tileRowIndex].second[columnIndex]
-                val tileLocation = IntArray(2)
-                tile.tileImageView.getLocationInWindow(tileLocation)
-                player.movePlayerPos(tileLocation[0], tileLocation[1], crossedTiles.last())
+                player.movePlayerPos(crossedTiles)
                 for(groundTile in crossedTiles){
                     if(!groundTile.getColoured())
                         colourTile(groundTile)
@@ -265,10 +258,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 crossedTiles.add((tileMap[tileRowIndex].second[columnIndex]) as GroundTile)
             }
             if(crossedTiles.isNotEmpty()){
-                val tile = crossedTiles.last()
-                val tileLocation = IntArray(2)
-                tile.tileImageView.getLocationInWindow(tileLocation)
-                player.movePlayerPos(tileLocation[0], tileLocation[1], crossedTiles.last())
+                player.movePlayerPos(crossedTiles)
                 for(groundTile in crossedTiles){
                     if(!groundTile.getColoured())
                         colourTile(groundTile)
@@ -289,10 +279,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 crossedTiles.add((tileMap[tileRowIndex].second[columnIndex]) as GroundTile)
             }
             if(crossedTiles.isNotEmpty()){
-                val tile = tileMap[tileRowIndex].second[columnIndex]
-                val tileLocation = IntArray(2)
-                tile.tileImageView.getLocationInWindow(tileLocation)
-                player.movePlayerPos(tileLocation[0], tileLocation[1], crossedTiles.last())
+                player.movePlayerPos(crossedTiles)
                 for(groundTile in crossedTiles){
                     if(!groundTile.getColoured())
                         colourTile(groundTile)
@@ -313,10 +300,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                 crossedTiles.add((tileMap[tileRowIndex].second[columnIndex]) as GroundTile)
             }
             if(crossedTiles.isNotEmpty()){
-                val tile = tileMap[tileRowIndex].second[columnIndex]
-                val tileLocation = IntArray(2)
-                tile.tileImageView.getLocationInWindow(tileLocation)
-                player.movePlayerPos(tileLocation[0], tileLocation[1], crossedTiles.last())
+                player.movePlayerPos(crossedTiles)
                 for(groundTile in crossedTiles){
                     if(!groundTile.getColoured())
                         colourTile(groundTile)
@@ -326,10 +310,10 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun colourTile(groundTile: GroundTile){
-        val colorBlindMode = settingPrefs.getBoolean("colorBlind", false)
+    fun colourTile(groundTile: GroundTile){
+        val colourBlindMode = settingPrefs.getBoolean("colorBlind", false)
         groundTile.colourTile()
-        groundTile.setColorBlind(colorBlindMode)
+        groundTile.setColorBlind(colourBlindMode)
         colouredTileCount += 1
         if(colouredTileCount == groundTiles.count())
             levelComplete()

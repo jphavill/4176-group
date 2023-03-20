@@ -45,10 +45,10 @@ class FullscreenActivity : AppCompatActivity() {
             val intent = Intent(this, LevelSelect::class.java)
             startActivity(intent)
         }
-        hide()
+        hideAndroidUI()
     }
 
-    private fun hide() {
+    fun hideAndroidUI() {
         // Hide UI first
         supportActionBar?.hide()
         isFullscreen = false

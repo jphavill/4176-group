@@ -642,11 +642,11 @@
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
-                        android:id="@+id/groundTile65"
+                        android:id="@+id/wallTile52"
                         android:layout_width="39dp"
                         android:layout_height="39dp"
-                        android:tag="groundTile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
+                        android:tag="wallTile"
+                        app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
                         android:id="@+id/wallTile11"
@@ -677,14 +677,14 @@
                         app:srcCompat="@drawable/wall_tile_foreground" />
 
                     <ImageView
-                        android:id="@+id/wallTile52"
+                        android:id="@+id/GroundTile12"
                         android:layout_width="39dp"
                         android:layout_height="39dp"
-                        android:tag="wallTile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
+                        android:tag="groundTile"
+                        app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
-                        android:id="@+id/GroundTile12"
+                        android:id="@+id/groundTile104"
                         android:layout_width="39dp"
                         android:layout_height="39dp"
                         android:tag="groundTile"
@@ -757,7 +757,7 @@
                         android:id="@+id/groundTile69"
                         android:layout_width="39dp"
                         android:layout_height="39dp"
-                        android:tag="groundTileStart"
+                        android:tag="groundTile"
                         app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
@@ -771,7 +771,7 @@
                         android:id="@+id/groundTile101"
                         android:layout_width="39dp"
                         android:layout_height="39dp"
-                        android:tag="groundTileStart"
+                        android:tag="groundTile"
                         app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView
@@ -1155,7 +1155,7 @@
                 android:layout_height="wrap_content" />
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/resetLevelsButton"
                 android:layout_width="68dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -1179,7 +1179,7 @@
 
         <ImageView
             android:id="@+id/playerImageView"
-            android:layout_width="50dp"
+            android:layout_width="39dp"
             android:layout_height="39dp"
             android:translationY="700px"
             app:srcCompat="@drawable/ic_launcher_foreground" />

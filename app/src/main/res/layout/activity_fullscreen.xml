@@ -2,13 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
+    android:id="@+id/MainFullscreenContent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/newbackground"
     android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
-    tools:context=".FullscreenActivity"
-    android:id="@+id/MainFullscreenContent">
+    tools:context=".FullscreenActivity">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
@@ -19,13 +18,12 @@
 
     <Button
         android:id="@+id/ToLevelTest"
-<<<<<<< HEAD
-        android:layout_width="158dp"
-        android:layout_height="94dp"
-        android:layout_marginStart="126dp"
-        android:layout_marginTop="384dp"
-        android:layout_marginEnd="127dp"
-        android:layout_marginBottom="253dp"
+        android:layout_width="169dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="262dp"
+        android:layout_marginEnd="126dp"
+        android:layout_marginBottom="401dp"
         android:text="Play"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,31 +31,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/MainFullscreenContent"
-        android:layout_width="411dp"
-        android:layout_height="731dp"
-        android:gravity="center"
-        android:keepScreenOn="true"
-        android:textColor="?attr/fullscreenTextColor"
-        android:textSize="50sp"
-        android:textStyle="bold"
+    <Button
+        android:id="@+id/Store"
+        android:layout_width="169dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="119dp"
+        android:layout_marginTop="387dp"
+        android:layout_marginEnd="123dp"
+        android:layout_marginBottom="276dp"
+        android:text="Store"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-=======
-        android:layout_width="match_parent"
-        android:layout_height="80sp"
-        android:layout_marginTop="150sp"
-        android:text="Play"
-        android:textSize="24sp" />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
->>>>>>> a0bca967540e18bbe3288a1f7202361a5e3f253e
 
 </androidx.constraintlayout.widget.ConstraintLayout>

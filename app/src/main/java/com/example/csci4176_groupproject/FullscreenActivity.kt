@@ -36,14 +36,22 @@ class FullscreenActivity : BaseActivity() {
         isFullscreen = true
 
         // Set up the user interaction to manually show or hide the system UI.
-        fullscreenContent = binding.MainFullscreenContent
+
 
         val testLevelButton = findViewById<Button>(R.id.ToLevelTest);
+
 
         testLevelButton.setOnClickListener {
             val intent = Intent(this, LevelSelect::class.java)
             startActivity(intent)
+
         }
         hideAndroidUI()
+        val storeButton = findViewById<Button>(R.id.Store)
+
+        storeButton.setOnClickListener {
+            val intent = Intent(this, Store::class.java)
+            startActivity(intent)
+        }
     }
 }

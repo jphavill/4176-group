@@ -67,7 +67,31 @@ class Store : AppCompatActivity() {
                     // Do nothing
                 }
                 builder.show()
-            } else {
+            }
+            else if(cost==0){
+                // Show a confirmation dialog to the player
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("You got the Default free Skin Item")
+                builder.setMessage("Are you sure you want to purchase ${selectedItem.title} for $cost stars?")
+                builder.setPositiveButton("Yes") { _, _ ->
+                    // Subtract the cost of the item from the total number of stars
+                    val editor = settingPrefs.edit()
+                    editor.putInt("stars", totalStars - cost)
+                    editor.apply()
+
+                    // TODO: Add code to apply the selected item
+
+                    // Update the UI to reflect the new number of stars
+                    starsTextView.text = "Stars: ${totalStars - cost}"
+                }
+                builder.setNegativeButton("No") { _, _ ->
+                    // Do nothing
+                }
+                builder.show()
+            }
+        
+
+            else {
                 // Show an error message to the player
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle("Not Enough Stars")

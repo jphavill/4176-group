@@ -89,7 +89,7 @@ class Store : AppCompatActivity() {
                 }
                 builder.show()
             }
-        
+
 
             else {
                 // Show an error message to the player

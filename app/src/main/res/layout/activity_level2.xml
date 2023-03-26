@@ -44,10 +44,11 @@
 
             <ImageButton
                 android:id="@+id/SettingsButton"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@android:drawable/ic_menu_preferences" />
-
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="33dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/settingsicon" />
         </TableRow>
 
         <TableRow

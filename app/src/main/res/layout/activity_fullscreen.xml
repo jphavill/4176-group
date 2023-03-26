@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/newbackground"
+    android:background="@color/white"
     android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
     tools:context=".FullscreenActivity"
     android:id="@+id/MainFullscreenContent">
@@ -15,18 +16,22 @@
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
 
-    <Button
-        android:id="@+id/ToLevelTest"
-        android:layout_width="match_parent"
-        android:layout_height="80sp"
-        android:layout_marginTop="150sp"
-        android:text="Play"
-        android:textSize="24sp" />
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
+
+        <Button
+            android:id="@+id/ToLevelTest"
+            android:layout_width="209dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="170dp"
+            android:color="@color/lightSky_blue"
+            android:text="Play"
+            android:textStyle="bold|italic"
+            android:typeface="serif"
+            android:textSize="34sp" />
 
         <LinearLayout
             android:id="@+id/fullscreen_content_controls"
@@ -38,5 +43,44 @@
             tools:ignore="UselessParent">
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_marginTop="-249sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="45sp"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:textStyle="bold|italic"
+            android:fontFamily="serif-monospace"
+            android:text="Colour Slide" />
+
+        <ImageButton
+            android:id="@+id/SettingsButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginLeft="335dp"
+            android:background="@drawable/settingsicon" />
+
+        <ImageButton
+            android:id="@+id/shoppingcartButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="462dp"
+            android:layout_marginLeft="120dp"
+            android:color="#FFFFFF"
+            android:background="@drawable/shoppingcart"/>
+
+        <ImageButton
+            android:id="@+id/menuButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="462dp"
+            android:layout_marginLeft="240dp"
+            android:color="#FFFFFF"
+            android:background="@drawable/menuselect"/>
+
     </FrameLayout>
 </FrameLayout>

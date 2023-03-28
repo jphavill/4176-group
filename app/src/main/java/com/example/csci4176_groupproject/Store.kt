@@ -24,11 +24,11 @@ class Store : AppCompatActivity() {
 
         // Load the number of stars from the shared preferences and display it in the text view
         val totalStars = settingPrefs.getInt("stars", 0)
-        starsTextView.text = "Stars: $totalStars"
+        starsTextView.text = "$totalStars"
 
         // Create the list of items to display in the store
         val itemList = mutableListOf(
-            Model("White Ball", "Default Skin", R.drawable.whiteball, 0),
+
             Model("Red Ball", "Normal Skin", R.drawable.redball, 3),
             Model("Blue Ball", "Normal Skin", R.drawable.blueball, 3),
             Model("Devil Ball", "Unique Skin", R.drawable.devil, 7),
@@ -61,28 +61,7 @@ class Store : AppCompatActivity() {
                     // TODO: Add code to apply the selected item
 
                     // Update the UI to reflect the new number of stars
-                    starsTextView.text = "Stars: ${totalStars - cost}"
-                }
-                builder.setNegativeButton("No") { _, _ ->
-                    // Do nothing
-                }
-                builder.show()
-            }
-            else if(cost==0){
-                // Show a confirmation dialog to the player
-                val builder = AlertDialog.Builder(this)
-                builder.setTitle("You got the Default free Skin Item")
-                builder.setMessage("Are you sure you want to purchase ${selectedItem.title} for $cost stars?")
-                builder.setPositiveButton("Yes") { _, _ ->
-                    // Subtract the cost of the item from the total number of stars
-                    val editor = settingPrefs.edit()
-                    editor.putInt("stars", totalStars - cost)
-                    editor.apply()
-
-                    // TODO: Add code to apply the selected item
-
-                    // Update the UI to reflect the new number of stars
-                    starsTextView.text = "Stars: ${totalStars - cost}"
+                    starsTextView.text = "${totalStars - cost}"
                 }
                 builder.setNegativeButton("No") { _, _ ->
                     // Do nothing

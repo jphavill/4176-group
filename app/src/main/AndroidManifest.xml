@@ -11,9 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CSCI4176GroupProject"
         tools:targetApi="31">
-        <activity
-            android:name=".StoreListView"
-            android:exported="false" />
+
         <activity
             android:name=".Store"
             android:exported="false"

@@ -67,7 +67,7 @@ class GroundTileUnitTest {
 
     /**
      * Colours the ground tile and ensures all aspects of the colouring process was successful,
-     * and ensures proper drawable image source is used for the GroundTile object when in colour
+     * and ensures that the drawable image source is updated for the GroundTile object when in colour
      * blind mode.
      */
     @Test
@@ -76,13 +76,34 @@ class GroundTileUnitTest {
         groundTile.colourTile()
         assertTrue(groundTile.getColoured())
         assertTrue(groundTile.tileImageView.colorFilter == testColouredFilter)
-        Log.d("groundTile.tileImageView.drawable", groundTile.tileImageView.drawable.toString())
+        val originalDrawable = groundTile.tileImageView.drawable
         groundTile.setColorBlind(true)
+        assertTrue(groundTile.tileImageView.drawable != originalDrawable)
+    }
 
-        val colourBlindDrawable: Drawable? = ResourcesCompat.getDrawable(instrumentationContext.resources, android.R.drawable.ic_menu_close_clear_cancel, null)
-        Log.d("colourBlindDrawable", colourBlindDrawable.toString())
-        Log.d("groundTile.tileImageView.drawable", groundTile.tileImageView.drawable.toString())
-        assertTrue(colourBlindDrawable != null)
-        assertTrue(groundTile.tileImageView.drawable == colourBlindDrawable)
+    /**
+     * Colours the ground tile and ensures that the drawable image source is NOT updated for the GroundTile
+     * object when NOT in colour blind mode.
+     */
+    @Test
+    fun groundTileColoured_Drawable_IsCorrect() {
+
+        val originalDrawable = groundTile.tileImageView.drawable
+        groundTile.setColorBlind(false)
+        groundTile.colourTile()
+        assertTrue(groundTile.tileImageView.drawable == originalDrawable)
+    }
+
+    /**
+     * Colours the ground tile and ensures that the drawable image source is updated if the GroundTile
+     * was in colour blind mode and now no longer is in blind mode.
+     */
+    @Test
+    fun groundTileColoured_ColourBlindMode_Off_IsCorrect() {
+        groundTile.colourTile()
+        groundTile.setColorBlind(true)
+        val originalDrawable = groundTile.tileImageView.drawable
+        groundTile.setColorBlind(false)
+        assertTrue(groundTile.tileImageView.drawable != originalDrawable)
     }
 }

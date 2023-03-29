@@ -466,7 +466,8 @@
                 android:backgroundTint="#C6BCBC"
                 android:scaleType="fitCenter"
                 app:srcCompat="@android:drawable/ic_popup_sync"
-                app:tint="#000000" />
+                app:tint="#000000"
+                android:contentDescription="Level Reset Button" />
 
             <Space
                 android:layout_width="wrap_content"

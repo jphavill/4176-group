@@ -16,68 +16,76 @@
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
-
-
-
-
-        <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="@style/Widget.Theme.CSCI4176GroupProject.ButtonBar.Fullscreen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-        </LinearLayout>
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:gravity="end"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
 
             <ImageButton
                 android:id="@+id/SettingsButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginLeft="315sp"
-                android:layout_marginTop="22sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/settingsicon" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="45sp"
-                android:textSize="45sp"
-                android:textColor="@color/black"
-                android:textStyle="bold|italic"
                 android:fontFamily="serif-monospace"
-                android:text="Colour Slide" />
+                android:text="Colour Slide"
+                android:textColor="@color/black"
+                android:textSize="45sp"
+                android:textStyle="bold|italic" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/shoppingcartButton"
                 android:layout_width="68dp"
                 android:layout_height="64dp"
-                android:color="#FFFFFF"
-                android:layout_marginTop="300sp"
-                android:layout_marginLeft="115sp"
-                android:background="@drawable/shoppingcart"/>
-
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/shoppingcart"
+                android:color="#FFFFFF" />
 
             <ImageButton
                 android:id="@+id/menuButton"
                 android:layout_width="68dp"
                 android:layout_height="64dp"
-                android:layout_marginTop="-63sp"
-                android:layout_marginLeft="225sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:background="@drawable/menuselect"
                 android:color="#FFFFFF" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/playButton"
@@ -87,19 +95,11 @@
                 android:layout_marginTop="40dp"
                 android:color="@color/lightSky_blue"
                 android:text="Play"
+                android:textSize="34sp"
                 android:textStyle="bold|italic"
-                android:typeface="serif"
-                android:textSize="34sp" />
-
+                android:typeface="serif" />
         </LinearLayout>
 
+    </LinearLayout>
 
-
-
-
-
-
-
-
-    </FrameLayout>
 </FrameLayout>

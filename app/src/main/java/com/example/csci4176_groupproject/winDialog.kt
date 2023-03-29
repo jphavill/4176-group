@@ -69,7 +69,7 @@ class winDialog(context: Context) : AlertDialog.Builder(context)  {
 
         val mainMenuView = view.findViewById<Button>(R.id.mainMenuButton)
         mainMenuView.setOnClickListener {
-            val intent = Intent(context, FullscreenActivity::class.java)
+            val intent = Intent(context, MainMenuActivity::class.java)
             context.startActivity(intent)
             builder.dismiss()
         }

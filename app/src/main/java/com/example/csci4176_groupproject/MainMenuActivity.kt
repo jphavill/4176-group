@@ -2,26 +2,19 @@ package com.example.csci4176_groupproject
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.content.SharedPreferences
-import android.view.MotionEvent
-import android.view.View
-import android.view.WindowInsets
 import android.widget.*
-import com.example.csci4176_groupproject.databinding.ActivityFullscreenBinding
+import com.example.csci4176_groupproject.databinding.ActivityMainMenuBinding
 import com.google.gson.Gson
-import androidx.appcompat.app.AppCompatActivity
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-class FullscreenActivity : BaseActivity(), settingsDialogCallback {
-    private lateinit var binding: ActivityFullscreenBinding
+class MainMenuActivity : BaseActivity(), settingsDialogCallback {
+    private lateinit var binding: ActivityMainMenuBinding
 
     override fun settingsDialogCallback(settings: settingsData){
         val changes = settings.changes
@@ -36,7 +29,7 @@ class FullscreenActivity : BaseActivity(), settingsDialogCallback {
         super.onCreate(savedInstanceState)
 
 
-        binding = ActivityFullscreenBinding.inflate(layoutInflater)
+        binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -53,7 +46,7 @@ class FullscreenActivity : BaseActivity(), settingsDialogCallback {
             settingsDialog(context = this).showSettings(this)
         }
 
-        val menuButtonAction = findViewById<ImageButton>(R.id.menuButton)
+        val menuButtonAction = findViewById<ImageButton>(R.id.mainMenuLevelSelectButton)
         menuButtonAction.setOnClickListener {
             val intent = Intent(this, LevelSelect::class.java)
             startActivity(intent)

@@ -41,7 +41,7 @@ class LevelSelect : BaseActivity(), binaryDialogCallback, settingsDialogCallback
         updateButtons()
         val backToHomeButton = findViewById<ImageButton>(R.id.BackToHomeButton)
         backToHomeButton.setOnClickListener {
-            val intent = Intent(this, FullscreenActivity::class.java)
+            val intent = Intent(this, MainMenuActivity::class.java)
             startActivity(intent)
         }
 

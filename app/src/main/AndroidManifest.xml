@@ -15,7 +15,7 @@
             android:name=".LevelSelect"
             android:exported="false" />
         <activity
-            android:name=".FullscreenActivity"
+            android:name=".MainMenuActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
             android:label="@string/app_name"

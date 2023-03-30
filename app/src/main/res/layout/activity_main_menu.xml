@@ -40,7 +40,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.4"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
@@ -48,12 +48,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="serif-monospace"
+                android:fontFamily="@font/margarine"
                 android:text="Colour Slide"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="45sp"
-                android:textStyle="bold|italic" />
+                android:textSize="52sp"
+                android:textStyle="bold|italic"
+                app:autoSizeMaxTextSize="48sp"
+                app:autoSizeMinTextSize="32sp"
+                app:autoSizeTextType="uniform" />
         </LinearLayout>
 
         <LinearLayout
@@ -85,20 +88,21 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.2"
+            android:layout_weight="0.5"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/playButton"
                 android:layout_width="209dp"
-                android:layout_height="60dp"
+                android:layout_height="80dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
-                android:color="@color/lightSky_blue"
-                android:text="Play"
-                android:textSize="34sp"
-                android:textStyle="bold|italic"
+                android:backgroundTint="@color/lightSky_blue"
+                android:fontFamily="@font/luckiest_guy"
+                android:text="@string/play"
+                android:textAlignment="center"
+                android:textSize="48sp"
                 android:typeface="serif" />
         </LinearLayout>
 

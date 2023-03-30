@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/anton</item>
+        <item>@font/bevan</item>
+        <item>@font/days_one</item>
+        <item>@font/galada</item>
+        <item>@font/kavoon</item>
+        <item>@font/luckiest_guy</item>
+        <item>@font/margarine</item>
+    </array>
+</resources>

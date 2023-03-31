@@ -27,52 +27,52 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Level1Activity"
+            android:name=".levels.Level1Activity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
         <activity
-            android:name=".Level2Activity"
+            android:name=".levels.Level2Activity"
             android:exported="false"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
         <activity
-            android:name=".Level3Activity"
+            android:name=".levels.Level3Activity"
             android:exported="false"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
         <activity
-            android:name=".Level4Activity"
+            android:name=".levels.Level4Activity"
             android:exported="false"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
         <activity
-            android:name=".Level5Activity"
+            android:name=".levels.Level5Activity"
             android:exported="false"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
         <activity
-            android:name=".Level6Activity"
+            android:name=".levels.Level6Activity"
             android:exported="false"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
         <activity
-            android:name=".Level7Activity"
+            android:name=".levels.Level7Activity"
             android:exported="false"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
         <activity
-            android:name=".Level8Activity"
+            android:name=".levels.Level8Activity"
             android:exported="false"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
         <activity
-            android:name=".Level9Activity"
+            android:name=".levels.Level9Activity"
             android:exported="false"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
         <activity
-            android:name=".Level10Activity"
+            android:name=".levels.Level10Activity"
             android:exported="false"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />

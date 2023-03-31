@@ -24,7 +24,6 @@ class settingsDialog(context: Context) : AlertDialog.Builder(context)  {
 
         val initialSettings = settingsData(haptics = settingPrefs.getBoolean("haptics", true),
             colourBlindMode = settingPrefs.getBoolean("colorBlind", false),
-            sound = settingPrefs.getBoolean("sound", false),
             playerIcon = settingPrefs.getString("playerIcon", "Default").toString()
         )
         // set the state of the settings
@@ -32,8 +31,6 @@ class settingsDialog(context: Context) : AlertDialog.Builder(context)  {
         colorBlindModeView.isChecked = initialSettings.colourBlindMode
         val hapticsSwitchView = view.findViewById<Switch>(R.id.hapticsSwitch)
         hapticsSwitchView.isChecked = initialSettings.haptics
-        val soundView = view.findViewById<ToggleButton>(R.id.soundToggle)
-        soundView.isChecked = initialSettings.sound
 
         val playerIcons = mutableListOf<String>()
 
@@ -69,21 +66,18 @@ class settingsDialog(context: Context) : AlertDialog.Builder(context)  {
         applyButton.setOnClickListener {
             val updatedSettings = settingsData(haptics = hapticsSwitchView.isChecked,
                 colourBlindMode = colorBlindModeView.isChecked,
-                sound = soundView.isChecked,
                 playerIcon = playerIconView.selectedItem.toString())
             updatedSettings.changes = mapOf(
                 "haptics" to (initialSettings.haptics != updatedSettings.haptics),
                 "colourBlindMode" to (initialSettings.colourBlindMode != updatedSettings.colourBlindMode),
                 "playerIcon" to (initialSettings.playerIcon != updatedSettings.playerIcon),
                 "levelTheme" to (initialSettings.levelTheme != updatedSettings.levelTheme),
-                "sound" to (initialSettings.sound != updatedSettings.sound)
             )
             callback.settingsDialogCallback(updatedSettings)
             // save state of settings
             val editor: SharedPreferences.Editor = settingPrefs.edit()
             editor.putBoolean("colorBlind", updatedSettings.colourBlindMode)
             editor.putBoolean("haptics", updatedSettings.haptics)
-            editor.putBoolean("sound", updatedSettings.sound)
             editor.putString("playerIcon", updatedSettings.playerIcon)
             editor.apply()
 

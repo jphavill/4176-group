@@ -7,14 +7,15 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.content.ContextCompat
 import com.example.csci4176_groupproject.databinding.ActivityLevelSelectBinding
+import com.example.csci4176_groupproject.levels.levelActivities
 import com.google.gson.Gson
 
 class LevelSelect : BaseActivity(), binaryDialogCallback, settingsDialogCallback {
     private lateinit var binding: ActivityLevelSelectBinding
     private var pageNumber: Int = 0
     private val perPage: Int = 6
+    private var replace: Boolean = false;
 
 
     override fun binaryDialogCallback(result: Boolean){
@@ -79,89 +80,21 @@ class LevelSelect : BaseActivity(), binaryDialogCallback, settingsDialogCallback
         val fullScreenView: ViewGroup = findViewById(R.id.LevelSelectFullscreenContent)
         val levelButtons = getViewsByTag(fullScreenView, "levelButton")
         val levelStars = getViewsByTag(fullScreenView, "levelStar")
-        val levels = levelActivities().levels
         var buttonIndex = pageNumber*perPage
         for (b in levelButtons){
-            val button = b as Button
-            if (buttonIndex >= levels.size) {
-                button.visibility = View.INVISIBLE
-                button.isEnabled = false
-                button.isClickable = false
-
-                val tempLevel =  levelData(id=buttonIndex, locked = pageNumber != 0)
-                updateStars(levelStars, buttonIndex, tempLevel, hide=true)
-
-            } else {
-
-                // the last level on the first page, and all subsequent levels, are locked by default
-                val tempLevel =  levelData(id=buttonIndex, locked = buttonIndex > perPage-1)
-
-                val gson = Gson()
-                val level: levelData = gson.fromJson(settingPrefs.getString(String.format("level%d", buttonIndex+1), gson.toJson(tempLevel)), levelData::class.java)
-
-                button.visibility = View.VISIBLE
-                button.isEnabled = true
-                button.isClickable = true
-
-                updateStars(levelStars, buttonIndex, level)
-
-                val displayIndex = buttonIndex+1
-                val intentIndex = buttonIndex
-                if (level.locked){
-                    button.text = ""
-                    button.setBackgroundResource(R.drawable.lock)
-                    button.background.setTint(ContextCompat.getColor(this, R.color.black))
-                    button.setOnClickListener {
-                        unlockLevel(level.id)
-                        updateButtons()
-                    }
-                } else {
-                    button.text = String.format("Level %d", displayIndex)
-                    button.setBackgroundResource(android.R.drawable.btn_default)
-                    if (level.tried){
-                        if (level.time < 0){
-                            button.background.setTintList(ContextCompat.getColorStateList(this, R.color.red))
-                        } else {
-                            button.background.setTintList(ContextCompat.getColorStateList(this, R.color.green))
-                        }
-                    } else {
-                        button.background.setTintList(ContextCompat.getColorStateList(this, R.color.light_grey))
-                    }
-                    button.setOnClickListener {
-                        level.tried = true
-                        val editor: SharedPreferences.Editor = settingPrefs.edit()
-                        editor.putString(String.format("level%d", level.id), gson.toJson(level))
-                        editor.apply()
-                        val intent = Intent(this, levels[intentIndex])
-                        startActivity(intent)
-                    }
-                }
+            val viewreplace = b
+            val frag = levelButton()
+            val args = Bundle()
+            args.putInt("buttonIndex",buttonIndex)
+            frag.arguments = args
+            if (replace){
+                supportFragmentManager.beginTransaction().replace(viewreplace.id, frag).commit()
+            } else{
+                supportFragmentManager.beginTransaction().add(viewreplace.id, frag).commit()
             }
             buttonIndex += 1
         }
-    }
-
-    private fun updateStars(levelStars: List<View>, buttonIndex: Int, level: levelData, hide: Boolean = false) {
-        val starCountView = findViewById<TextView>(R.id.starCount)
-        starCountView.text = settingPrefs.getInt("stars", 0).toString()
-
-        val firstStar = (buttonIndex%perPage) * 3
-        val stars = levelStars.subList(firstStar, firstStar+3)
-
-        var starIndex = 0
-        for (s in stars){
-            val star = s as ImageView
-            if (!hide && starIndex < level.starsEarned) {
-                star.visibility = View.VISIBLE
-                star.setImageResource(android.R.drawable.btn_star_big_on)
-            } else if (!hide && !level.locked){
-                star.visibility = View.VISIBLE
-                star.setImageResource(android.R.drawable.btn_star_big_off)
-            } else {
-                star.visibility = View.INVISIBLE
-            }
-            starIndex += 1
-        }
+        replace = true
     }
 
     private fun updateNavButtons(){
@@ -188,7 +121,5 @@ class LevelSelect : BaseActivity(), binaryDialogCallback, settingsDialogCallback
         }
     }
 
-    private fun unlockLevel(levelId: Int){
-        unlockDialog(context = this).showUnlock(levelId, this)
-    }
+
 }

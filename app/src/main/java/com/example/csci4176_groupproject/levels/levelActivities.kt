@@ -1,9 +1,10 @@
-package com.example.csci4176_groupproject
+package com.example.csci4176_groupproject.levels
 
 import androidx.appcompat.app.AppCompatActivity
 
 data class levelActivities(
-    val levels: List<Class<out AppCompatActivity>> = listOf(Level1Activity::class.java,
+    val levels: List<Class<out AppCompatActivity>> = listOf(
+        Level1Activity::class.java,
         Level2Activity::class.java,
         Level3Activity::class.java,
         Level4Activity::class.java,

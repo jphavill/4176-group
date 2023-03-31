@@ -82,6 +82,7 @@ class Store : AppCompatActivity() {
 
                     // Update the UI to reflect the new number of stars
                     starsTextView.text = "${totalStars - cost}"
+                    //save the newly updated adapter
                     adapter.notifyDataSetChanged()
                 }
                 builder.setNegativeButton("No") { _, _ ->

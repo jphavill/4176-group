@@ -39,9 +39,9 @@ class Store : AppCompatActivity() {
         val itemList = mutableListOf(
 
             Model("Red Ball", "Normal Skin (Cost:3)", R.drawable.locked_redball, 3),
-            Model("Blue Ball", "Normal Skin (cost:3)", R.drawable.locked_blueball, 3),
-            Model("Devil Ball", "Unique Skin (cost:7)", R.drawable.locked_devilball, 7),
-            Model("Sun Ball", "Unique Skin (cost:7)", R.drawable.locked_sunball, 7),
+            Model("Blue Ball", "Normal Skin (Cost:3)", R.drawable.locked_blueball, 3),
+            Model("Devil Ball", "Unique Skin (Cost:7)", R.drawable.locked_devilball, 7),
+            Model("Sun Ball", "Unique Skin (Cost:7)", R.drawable.locked_sunball, 7),
         )
 
         // Create an adapter to display the list of items in a list view
@@ -75,7 +75,9 @@ class Store : AppCompatActivity() {
                         R.drawable.locked_sunball -> selectedItem.img = R.drawable.sun
                     }
 
-
+                    // Update the item description to indicate that it's been sold
+                    selectedItem.isSold = true
+                    selectedItem.description = "Sold"
 
 
                     // Update the UI to reflect the new number of stars

@@ -6,12 +6,9 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import com.example.csci4176_groupproject.databinding.ActivityFullscreenBinding
+import com.example.csci4176_groupproject.levels.levelActivities
 import com.google.gson.Gson
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
 class FullscreenActivity : BaseActivity() {
     private lateinit var binding: ActivityFullscreenBinding
 

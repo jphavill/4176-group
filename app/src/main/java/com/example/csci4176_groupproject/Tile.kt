@@ -1,8 +1,6 @@
 package com.example.csci4176_groupproject
 
-import android.graphics.Color
 import android.widget.ImageView
-import android.widget.Toast
 
 abstract class Tile(val tileImageView: ImageView) {
     private var xPos = 0

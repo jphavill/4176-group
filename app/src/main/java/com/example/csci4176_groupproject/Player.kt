@@ -1,6 +1,5 @@
 package com.example.csci4176_groupproject
 
-import android.os.Build
 import android.widget.ImageView
 
 class Player(private val playerImageView: ImageView, private var playerPosX: Int, private var playerPosY: Int, private var playerGroundTile: Tile) {

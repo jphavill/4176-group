@@ -1,11 +1,13 @@
 package com.example.csci4176_groupproject
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ListView
 import android.widget.TextView
+import android.widget.ImageButton
 
 class Store : AppCompatActivity() {
 
@@ -15,6 +17,13 @@ class Store : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_store)
+
+        //Set the back button to go back to main menu
+        val backButton = findViewById<ImageButton>(R.id.back)
+        backButton.setOnClickListener{
+            val intent = Intent(this, FullscreenActivity::class.java)
+            startActivity(intent)
+        }
 
         // Get the reference to the stars text view
         starsTextView = findViewById(R.id.starsTextView)
@@ -29,10 +38,10 @@ class Store : AppCompatActivity() {
         // Create the list of items to display in the store
         val itemList = mutableListOf(
 
-            Model("Red Ball", "Normal Skin", R.drawable.redball, 3),
-            Model("Blue Ball", "Normal Skin", R.drawable.blueball, 3),
-            Model("Devil Ball", "Unique Skin", R.drawable.devil, 7),
-            Model("Sun Ball", "Unique Skin", R.drawable.sun, 7),
+            Model("Red Ball", "Normal Skin (Cost:3)", R.drawable.locked_redball, 3),
+            Model("Blue Ball", "Normal Skin (cost:3)", R.drawable.locked_blueball, 3),
+            Model("Devil Ball", "Unique Skin (cost:7)", R.drawable.locked_devilball, 7),
+            Model("Sun Ball", "Unique Skin (cost:7)", R.drawable.locked_sunball, 7),
         )
 
         // Create an adapter to display the list of items in a list view
@@ -47,7 +56,7 @@ class Store : AppCompatActivity() {
 
             // Check if the player has enough stars to purchase the selected item
             val totalStars = settingPrefs.getInt("stars", 0)
-            if (cost > 0 && totalStars >= cost) {
+            if (cost >= 0 && totalStars >= cost) {
                 // Show a confirmation dialog to the player
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle("Purchase Item")
@@ -58,10 +67,20 @@ class Store : AppCompatActivity() {
                     editor.putInt("stars", totalStars - cost)
                     editor.apply()
 
-                    // TODO: Add code to apply the selected item
+                    // Apply the selected item by updating its image resource ID
+                    when (selectedItem.img) {
+                        R.drawable.locked_redball -> selectedItem.img = R.drawable.redball
+                        R.drawable.locked_blueball -> selectedItem.img = R.drawable.blueball
+                        R.drawable.locked_devilball -> selectedItem.img = R.drawable.devil
+                        R.drawable.locked_sunball -> selectedItem.img = R.drawable.sun
+                    }
+
+
+
 
                     // Update the UI to reflect the new number of stars
                     starsTextView.text = "${totalStars - cost}"
+                    adapter.notifyDataSetChanged()
                 }
                 builder.setNegativeButton("No") { _, _ ->
                     // Do nothing

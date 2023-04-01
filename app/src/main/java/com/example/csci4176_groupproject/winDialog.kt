@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.content.res.AppCompatResources
+import com.example.csci4176_groupproject.levels.levelActivities
 import com.google.gson.Gson
 
 class winDialog(context: Context) : AlertDialog.Builder(context)  {

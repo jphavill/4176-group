@@ -1,9 +1,11 @@
-package com.example.csci4176_groupproject
+package com.example.csci4176_groupproject.levels
 
 import android.os.Build
 import android.os.Bundle
 import android.widget.*
 import androidx.annotation.RequiresApi
+import com.example.csci4176_groupproject.BaseLevel
+import com.example.csci4176_groupproject.R
 import com.example.csci4176_groupproject.databinding.ActivityLevel3Binding
 
 

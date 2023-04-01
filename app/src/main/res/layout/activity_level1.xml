@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="?attr/fullscreenBackgroundColor"
     android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
-    tools:context=".FullscreenActivity">
+    tools:context=".MainMenuActivity">
 
     <RelativeLayout
         android:id="@+id/SwipeContainer"
@@ -44,9 +44,11 @@
 
             <ImageButton
                 android:id="@+id/SettingsButton"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@android:drawable/ic_menu_preferences" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/settingsicon" />
+
 
         </TableRow>
 
@@ -463,7 +465,8 @@
                 android:backgroundTint="#C6BCBC"
                 android:scaleType="fitCenter"
                 app:srcCompat="@android:drawable/ic_popup_sync"
-                app:tint="#000000" />
+                app:tint="#000000"
+                android:contentDescription="Level Reset Button" />
 
             <Space
                 android:layout_width="wrap_content"

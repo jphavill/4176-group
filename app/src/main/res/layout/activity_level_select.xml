@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="?attr/fullscreenBackgroundColor"
     android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
-    tools:context=".FullscreenActivity">
+    tools:context=".MainMenuActivity">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -36,9 +36,11 @@
 
             <ImageButton
                 android:id="@+id/SettingsButton"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@android:drawable/ic_menu_preferences" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="33dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/settingsicon" />
 
         </TableRow>
 

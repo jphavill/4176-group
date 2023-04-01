@@ -2,22 +2,35 @@ package com.example.csci4176_groupproject
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.widget.Button
-import com.example.csci4176_groupproject.databinding.ActivityFullscreenBinding
+import android.util.Log
+import android.content.SharedPreferences
+import android.widget.*
+import com.example.csci4176_groupproject.databinding.ActivityMainMenuBinding
 import com.example.csci4176_groupproject.levels.levelActivities
 import com.google.gson.Gson
 
-class FullscreenActivity : BaseActivity() {
-    private lateinit var binding: ActivityFullscreenBinding
+/**
+ * An example full-screen activity that shows and hides the system UI (i.e.
+ * status bar and navigation/system bar) with user interaction.
+ */
+class MainMenuActivity : BaseActivity(), settingsDialogCallback {
+    private lateinit var binding: ActivityMainMenuBinding
+
+    override fun settingsDialogCallback(settings: settingsData){
+        val changes = settings.changes
+        if (changes["playerIcon"]!!){
+            Log.d("seting change", "changing player icon setting")
+        }
+
+    }
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
 
-        binding = ActivityFullscreenBinding.inflate(layoutInflater)
+        binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -27,13 +40,19 @@ class FullscreenActivity : BaseActivity() {
         // Set up the user interaction to manually show or hide the system UI.
         fullscreenContent = binding.MainFullscreenContent
 
-        val testLevelButton = findViewById<Button>(R.id.ToLevelTest)
-        testLevelButton.setOnClickListener {
 
 
+        val settingsButton = findViewById<ImageButton>(R.id.SettingsButton)
+        settingsButton.setOnClickListener {
+            settingsDialog(context = this).showSettings(this)
+        }
+
+        val menuButtonAction = findViewById<ImageButton>(R.id.mainMenuLevelSelectButton)
+        menuButtonAction.setOnClickListener {
             val intent = Intent(this, LevelSelect::class.java)
             startActivity(intent)
         }
+        hideAndroidUI()
 
         val playTestButton = findViewById<Button>(R.id.playButton)
         playTestButton.setOnClickListener{

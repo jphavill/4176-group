@@ -20,7 +20,7 @@ class Store : AppCompatActivity() {
 
         //Set the back button to go back to main menu
         val backButton = findViewById<ImageButton>(R.id.back)
-        backButton.setOnClickListener{
+        backButton.setOnClickListener {
             val intent = Intent(this, FullscreenActivity::class.java)
             startActivity(intent)
         }
@@ -38,7 +38,7 @@ class Store : AppCompatActivity() {
         // Create the list of items to display in the store
         val itemList = mutableListOf(
 
-            Model("Red Ball", "Normal Skin (Cost:3)", R.drawable.locked_redball, 3),
+            Model("Red Ball", "Normal Skin (Cost:3)", R.drawable.locked_redball, 0),
             Model("Blue Ball", "Normal Skin (Cost:3)", R.drawable.locked_blueball, 3),
             Model("Devil Ball", "Unique Skin (Cost:7)", R.drawable.locked_devilball, 7),
             Model("Sun Ball", "Unique Skin (Cost:7)", R.drawable.locked_sunball, 7),
@@ -53,54 +53,63 @@ class Store : AppCompatActivity() {
         listView.setOnItemClickListener { parent, view, position, id ->
             val selectedItem = itemList[position]
             val cost = selectedItem.cost
-
-            // Check if the player has enough stars to purchase the selected item
-            val totalStars = settingPrefs.getInt("stars", 0)
-            if (cost >= 0 && totalStars >= cost) {
-                // Show a confirmation dialog to the player
+            // Check if the item has already been sold
+            if (selectedItem.isSold) {
+                // Show a message to the player indicating that the item has already been sold
                 val builder = AlertDialog.Builder(this)
-                builder.setTitle("Purchase Item")
-                builder.setMessage("Are you sure you want to purchase ${selectedItem.title} for $cost stars?")
-                builder.setPositiveButton("Yes") { _, _ ->
-                    // Subtract the cost of the item from the total number of stars
-                    val editor = settingPrefs.edit()
-                    editor.putInt("stars", totalStars - cost)
-                    editor.apply()
-
-                    // Apply the selected item by updating its image resource ID
-                    when (selectedItem.img) {
-                        R.drawable.locked_redball -> selectedItem.img = R.drawable.redball
-                        R.drawable.locked_blueball -> selectedItem.img = R.drawable.blueball
-                        R.drawable.locked_devilball -> selectedItem.img = R.drawable.devil
-                        R.drawable.locked_sunball -> selectedItem.img = R.drawable.sun
-                    }
-
-                    // Update the item description to indicate that it's been sold
-                    selectedItem.isSold = true
-                    selectedItem.description = "Sold"
-
-
-                    // Update the UI to reflect the new number of stars
-                    starsTextView.text = "${totalStars - cost}"
-                    //save the newly updated adapter
-                    adapter.notifyDataSetChanged()
-                }
-                builder.setNegativeButton("No") { _, _ ->
-                    // Do nothing
-                }
-                builder.show()
-            }
-
-
-            else {
-                // Show an error message to the player
-                val builder = AlertDialog.Builder(this)
-                builder.setTitle("Not Enough Stars")
-                builder.setMessage("You do not have enough stars to purchase ${selectedItem.title}.")
+                builder.setTitle("Item Already Purchased")
+                builder.setMessage("This is the skin item you already have purchased.")
                 builder.setPositiveButton("OK") { _, _ ->
                     // Do nothing
                 }
                 builder.show()
+            } else {
+                // Check if the player has enough stars to purchase the selected item
+
+                val totalStars = settingPrefs.getInt("stars", 0)
+                if (cost >= 0 && totalStars >= cost) {
+                    // Show a confirmation dialog to the player
+                    val builder = AlertDialog.Builder(this)
+                    builder.setTitle("Purchase Item")
+                    builder.setMessage("Are you sure you want to purchase ${selectedItem.title} for $cost stars?")
+                    builder.setPositiveButton("Yes") { _, _ ->
+                        // Subtract the cost of the item from the total number of stars
+                        val editor = settingPrefs.edit()
+                        editor.putInt("stars", totalStars - cost)
+                        editor.apply()
+
+                        // Apply the selected item by updating its image resource ID
+                        when (selectedItem.img) {
+                            R.drawable.locked_redball -> selectedItem.img = R.drawable.redball
+                            R.drawable.locked_blueball -> selectedItem.img = R.drawable.blueball
+                            R.drawable.locked_devilball -> selectedItem.img = R.drawable.devil
+                            R.drawable.locked_sunball -> selectedItem.img = R.drawable.sun
+                        }
+
+                        // Update the item description to indicate that it's been sold
+                        selectedItem.isSold = true
+                        selectedItem.description = "Sold"
+
+
+                        // Update the UI to reflect the new number of stars
+                        starsTextView.text = "${totalStars - cost}"
+                        //save the newly updated adapter
+                        adapter.notifyDataSetChanged()
+                    }
+                    builder.setNegativeButton("No") { _, _ ->
+                        // Do nothing
+                    }
+                    builder.show()
+                } else {
+                    // Show an error message to the player
+                    val builder = AlertDialog.Builder(this)
+                    builder.setTitle("Not Enough Stars")
+                    builder.setMessage("You do not have enough stars to purchase ${selectedItem.title}.")
+                    builder.setPositiveButton("OK") { _, _ ->
+                        // Do nothing
+                    }
+                    builder.show()
+                }
             }
         }
     }

@@ -9,10 +9,12 @@ import android.widget.ListView
 import android.widget.TextView
 import android.widget.ImageButton
 
+
 class Store : AppCompatActivity() {
 
     private lateinit var settingPrefs: SharedPreferences
     private lateinit var starsTextView: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +40,7 @@ class Store : AppCompatActivity() {
         // Create the list of items to display in the store
         val itemList = mutableListOf(
 
-            Model("Red Ball", "Normal Skin (Cost:3)", R.drawable.locked_redball, 0),
+            Model("Red Ball", "Normal Skin (Cost:3)", R.drawable.locked_redball, 3),
             Model("Blue Ball", "Normal Skin (Cost:3)", R.drawable.locked_blueball, 3),
             Model("Devil Ball", "Unique Skin (Cost:7)", R.drawable.locked_devilball, 7),
             Model("Sun Ball", "Unique Skin (Cost:7)", R.drawable.locked_sunball, 7),
@@ -48,6 +50,23 @@ class Store : AppCompatActivity() {
         val adapter = MyAdapter(this, R.layout.row, itemList)
         val listView = findViewById<ListView>(R.id.listView)
         listView.adapter = adapter
+        // Get the reference to the shared preferences object for skins
+        val skinPrefs = applicationContext.getSharedPreferences("skinPrefs", 0)
+        // Load the state of each skin from the shared preferences and update the model objects
+        for (item in itemList) {
+            val isSold = skinPrefs.getBoolean(item.title, false)
+            if (isSold) {
+                item.isSold = true
+                item.description = "Sold"
+                // Update the image resource ID based on the purchased skin
+                when (item.img) {
+                    R.drawable.locked_redball -> item.img = R.drawable.redball
+                    R.drawable.locked_blueball -> item.img = R.drawable.blueball
+                    R.drawable.locked_devilball -> item.img = R.drawable.devil
+                    R.drawable.locked_sunball -> item.img = R.drawable.sun
+                }
+            }
+        }
 
         // Set up the click listener for the list view items
         listView.setOnItemClickListener { parent, view, position, id ->
@@ -78,6 +97,8 @@ class Store : AppCompatActivity() {
                         editor.putInt("stars", totalStars - cost)
                         editor.apply()
 
+
+
                         // Apply the selected item by updating its image resource ID
                         when (selectedItem.img) {
                             R.drawable.locked_redball -> selectedItem.img = R.drawable.redball
@@ -93,6 +114,25 @@ class Store : AppCompatActivity() {
 
                         // Update the UI to reflect the new number of stars
                         starsTextView.text = "${totalStars - cost}"
+
+                        for (item in itemList) {
+                            val isSold = skinPrefs.getBoolean(item.title, false)
+                            if (isSold) {
+                                item.isSold = true
+                                item.description = "Sold"
+                                // Update the image resource ID based on the purchased skin
+                                when (item.img) {
+                                    R.drawable.locked_redball -> item.img = R.drawable.redball
+                                    R.drawable.locked_blueball -> item.img = R.drawable.blueball
+                                    R.drawable.locked_devilball -> item.img = R.drawable.devil
+                                    R.drawable.locked_sunball -> item.img = R.drawable.sun
+                                }
+                            }
+                            // Save the updated state for the skin item
+                            skinPrefs.edit().putBoolean(item.title, item.isSold).apply()
+                        }
+
+
                         //save the newly updated adapter
                         adapter.notifyDataSetChanged()
                     }
@@ -111,6 +151,13 @@ class Store : AppCompatActivity() {
                     builder.show()
                 }
             }
+
+        }
+
         }
     }
-}
+
+
+
+
+

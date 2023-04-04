@@ -23,7 +23,7 @@ class Store : AppCompatActivity() {
         //Set the back button to go back to main menu
         val backButton = findViewById<ImageButton>(R.id.BackToHomeButton)
         backButton.setOnClickListener {
-            val intent = Intent(this, FullscreenActivity::class.java)
+            val intent = Intent(this, MainMenuActivity::class.java)
             startActivity(intent)
         }
 

@@ -1,23 +1,12 @@
-package com.example.csci4176_groupproject
+package com.example.csci4176_groupproject.levels
 
-import android.annotation.SuppressLint
-import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
-import android.view.GestureDetector.SimpleOnGestureListener
-import android.view.MotionEvent
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowInsets
 import android.widget.*
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.GestureDetectorCompat
+import com.example.csci4176_groupproject.BaseLevel
+import com.example.csci4176_groupproject.R
 import com.example.csci4176_groupproject.databinding.ActivityLevel10Binding
-import com.example.csci4176_groupproject.databinding.ActivityLevel2Binding
-import kotlin.math.abs
 
 
 class Level10Activity : BaseLevel() {

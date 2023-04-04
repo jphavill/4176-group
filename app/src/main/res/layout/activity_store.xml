@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="?attr/fullscreenBackgroundColor"
     android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
-    tools:context=".FullscreenActivity">
+    tools:context=".MainMenuActivity">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -35,9 +35,10 @@
 
             <ImageButton
                 android:id="@+id/SettingsButton"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@android:drawable/ic_menu_preferences" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/settingsicon" />
 
         </TableRow>
 
@@ -71,6 +72,60 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <TableLayout
+                android:layout_width="0dp"
+                android:layout_height="573dp"
+                android:layout_weight="1">
+
+                <!--             Each row will have level button fragments-->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal">
+                    <!--                Frame layouts are used as placeholders for the fragments-->
+                    <FrameLayout
+                        android:id="@+id/button1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:tag="levelButton">
+                    </FrameLayout>
+                    <FrameLayout
+                        android:id="@+id/button2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:tag="levelButton">
+                    </FrameLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal">
+
+                    <FrameLayout
+                        android:id="@+id/button3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:tag="levelButton">
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/button4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:tag="levelButton">
+                    </FrameLayout>
+
+                </TableRow>
+
+            </TableLayout>
 
         </TableRow>
     </TableLayout>

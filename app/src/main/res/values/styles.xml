@@ -11,10 +11,7 @@
     <style name="SettingsDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowBackground">@drawable/settings_background</item>
     </style>
-    <style name="Divider">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">3dp</item>
-        <item name="android:background">?android:attr/listDivider</item>
-        <item name="android:alpha">100</item>
+    <style name="spinnerStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+        <item name="android:spinnerItemStyle">@color/black</item>
     </style>
 </resources>

@@ -21,6 +21,7 @@ class BuyDialog(context: Context) : AlertDialog.Builder(context) {
         val builder = AlertDialog.Builder(context, R.style.SettingsDialog).create()
         val li = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = li.inflate(R.layout.buy_dialog, null)
+        view.isHapticFeedbackEnabled = settingPrefs.getBoolean("haptics", true)
         builder.setView(view)
 
         var totalStars = settingPrefs.getInt("stars", 0)
@@ -34,6 +35,7 @@ class BuyDialog(context: Context) : AlertDialog.Builder(context) {
         if (cost <= totalStars){
             unlockButton.setOnClickListener {
                 val editor: SharedPreferences.Editor = settingPrefs.edit()
+                view.performHapticFeedback(16)
                 editor.putInt("stars", totalStars - cost)
                 editor.apply()
                 callback.binaryDialogCallback(true)
@@ -47,6 +49,7 @@ class BuyDialog(context: Context) : AlertDialog.Builder(context) {
         val cancelButton = view.findViewById<Button>(R.id.cancelPurchase)
         cancelButton.setOnClickListener {
             // if the cancel button is hit, don't save settings and exit
+            view.performHapticFeedback(17)
             builder.cancel()
             callback.binaryDialogCallback(false)
         }

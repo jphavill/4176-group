@@ -18,7 +18,7 @@ import com.example.csci4176_groupproject.Models.*
 import java.time.LocalDateTime
 import kotlin.math.abs
 
-abstract class BaseLevelActivity: BaseActivity(), SettingsDialogCallback {
+abstract class BaseLevelActivity: BaseActivity() {
     abstract val levelId: Int
     private lateinit var player: Player
     private var colouredTileCount = 0
@@ -198,6 +198,7 @@ abstract class BaseLevelActivity: BaseActivity(), SettingsDialogCallback {
                 levelStarted = true
                 startTime = LocalDateTime.now()
             }
+            window.decorView.rootView.performHapticFeedback(12):aq
             // Check for horizontal or vertical swipe.
             return if(abs(deltaX) > abs(deltaY)) {
                 if(abs(deltaX) > swipeThreshold && abs(velocityX) > swipeVelocityThreshold) {

@@ -19,12 +19,8 @@ import com.google.gson.Gson
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-class MainMenuActivity : BaseActivity(), SettingsDialogCallback {
+class MainMenuActivity : BaseActivity(){
     private lateinit var binding: ActivityMainMenuBinding
-
-    override fun settingsDialogCallback(settings: Settings){
-        val changes = settings.changes
-    }
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {

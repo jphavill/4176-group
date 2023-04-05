@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
-import android.util.Log
 import android.widget.*
 import com.example.csci4176_groupproject.databinding.ActivityMainMenuBinding
 import com.example.csci4176_groupproject.levels.levelActivities
@@ -20,10 +19,6 @@ class MainMenuActivity : BaseActivity(), settingsDialogCallback {
 
     override fun settingsDialogCallback(settings: settingsData){
         val changes = settings.changes
-        if (changes["playerIcon"]!!){
-            Log.d("seting change", "changing player icon setting")
-        }
-
     }
 
     @SuppressLint("ClickableViewAccessibility")

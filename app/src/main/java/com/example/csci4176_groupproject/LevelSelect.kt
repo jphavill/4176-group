@@ -3,10 +3,10 @@ package com.example.csci4176_groupproject
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.activity.viewModels
 import com.example.csci4176_groupproject.databinding.ActivityLevelSelectBinding
 import com.example.csci4176_groupproject.levels.levelActivities
 import com.google.gson.Gson
@@ -15,7 +15,8 @@ class LevelSelect : BaseActivity(), binaryDialogCallback, settingsDialogCallback
     private lateinit var binding: ActivityLevelSelectBinding
     private var pageNumber: Int = 0
     private val perPage: Int = 6
-    private var replace: Boolean = false;
+    private var replace: Boolean = false
+    private val starCount: StarCountViewModel by viewModels()
 
 
     override fun binaryDialogCallback(result: Boolean){
@@ -26,9 +27,6 @@ class LevelSelect : BaseActivity(), binaryDialogCallback, settingsDialogCallback
 
     override fun settingsDialogCallback(settings: settingsData){
         val changes = settings.changes
-        if (changes["playerIcon"]!!){
-            Log.d("seting change", "changing player icon setting")
-        }
 
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +55,10 @@ class LevelSelect : BaseActivity(), binaryDialogCallback, settingsDialogCallback
             settingsDialog(context = this).showSettings(this)
         }
 
+        starCount.starCount.observe(this) {
+            updateStars()
+        }
+
         hideAndroidUI()
     }
 
@@ -76,10 +78,10 @@ class LevelSelect : BaseActivity(), binaryDialogCallback, settingsDialogCallback
     }
 
     private fun updateButtons() {
+        updateStars()
         updateNavButtons()
         val fullScreenView: ViewGroup = findViewById(R.id.LevelSelectFullscreenContent)
         val levelButtons = getViewsByTag(fullScreenView, "levelButton")
-        val levelStars = getViewsByTag(fullScreenView, "levelStar")
         var buttonIndex = pageNumber*perPage
         for (b in levelButtons){
             val viewreplace = b
@@ -95,6 +97,11 @@ class LevelSelect : BaseActivity(), binaryDialogCallback, settingsDialogCallback
             buttonIndex += 1
         }
         replace = true
+    }
+
+    fun updateStars() {
+        val starCountView = findViewById<TextView>(R.id.starCount)
+        starCountView.text = settingPrefs.getInt("stars", 0).toString()
     }
 
     private fun updateNavButtons(){

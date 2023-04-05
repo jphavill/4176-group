@@ -7,7 +7,6 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.Switch
-import android.widget.ToggleButton
 import androidx.appcompat.app.AlertDialog
 import com.google.gson.Gson
 
@@ -24,7 +23,7 @@ class settingsDialog(context: Context) : AlertDialog.Builder(context)  {
 
         val initialSettings = settingsData(haptics = settingPrefs.getBoolean("haptics", true),
             colourBlindMode = settingPrefs.getBoolean("colorBlind", false),
-            playerIcon = settingPrefs.getString("playerIcon", "Default").toString()
+            playerSkin = settingPrefs.getInt("playerSkin", CosmeticList().itemList[0].img)
         )
         // set the state of the settings
         val colorBlindModeView = view.findViewById<Switch>(R.id.colorBlindSwitch)
@@ -32,18 +31,17 @@ class settingsDialog(context: Context) : AlertDialog.Builder(context)  {
         val hapticsSwitchView = view.findViewById<Switch>(R.id.hapticsSwitch)
         hapticsSwitchView.isChecked = initialSettings.haptics
 
-        val playerIcons = mutableListOf<String>()
+        val skinNames = mutableListOf<String>()
+        val skinIcons = mutableListOf<Int>()
 
-        for (player in PLAYER_ICONS){
+        for (i in 0 until CosmeticList().itemList.size){
+            val gson = Gson()
+            val cosmetic = gson.fromJson(settingPrefs.getString(String.format("cosmetic%d", i), gson.toJson(CosmeticList().itemList[i])), Cosmetic::class.java)
+            // only add the other icons that are also unlocked (purchased)
             // default player icon is always in the list
-            if (player.name == "Default") {
-                playerIcons.add(player.name)
-                continue
-            }
-            // only add the other icons that are also enabled (purchased)
-            // CHANGE BACK AFTER STORE ADDED TO DEFAULT TO FALSE
-            if (settingPrefs.getBoolean(String.format("playerEnabled%d", player.iconResource), true)){
-                    playerIcons.add(player.name)
+            if (!cosmetic.locked || cosmetic.title == "Default"){
+                skinNames.add(cosmetic.title)
+                skinIcons.add(cosmetic.img)
             }
         }
 
@@ -51,7 +49,7 @@ class settingsDialog(context: Context) : AlertDialog.Builder(context)  {
         val arrayAdapter = ArrayAdapter(
             context,
             android.R.layout.simple_spinner_item,
-            playerIcons
+            skinNames
         ).also { adapter ->
             // Specify the layout to use when the list of choices appears
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -59,27 +57,26 @@ class settingsDialog(context: Context) : AlertDialog.Builder(context)  {
             playerIconView.adapter = adapter
         }
 
-
-        playerIconView.setSelection(arrayAdapter.getPosition(settingPrefs.getString("playerIcon", "Default")))
+        playerIconView.setSelection(skinIcons.indexOf(settingPrefs.getInt("playerSkin", CosmeticList().itemList[0].img)))
 
         val applyButton = view.findViewById<Button>(R.id.mainMenuButton)
         applyButton.setOnClickListener {
             val updatedSettings = settingsData(haptics = hapticsSwitchView.isChecked,
                 colourBlindMode = colorBlindModeView.isChecked,
-                playerIcon = playerIconView.selectedItem.toString())
+                playerSkin = skinIcons[playerIconView.selectedItemPosition])
             updatedSettings.changes = mapOf(
                 "haptics" to (initialSettings.haptics != updatedSettings.haptics),
                 "colourBlindMode" to (initialSettings.colourBlindMode != updatedSettings.colourBlindMode),
-                "playerIcon" to (initialSettings.playerIcon != updatedSettings.playerIcon),
-                "levelTheme" to (initialSettings.levelTheme != updatedSettings.levelTheme),
+                "playerSkin" to (initialSettings.playerSkin != updatedSettings.playerSkin),
             )
-            callback.settingsDialogCallback(updatedSettings)
+
             // save state of settings
             val editor: SharedPreferences.Editor = settingPrefs.edit()
             editor.putBoolean("colorBlind", updatedSettings.colourBlindMode)
             editor.putBoolean("haptics", updatedSettings.haptics)
-            editor.putString("playerIcon", updatedSettings.playerIcon)
+            editor.putInt("playerSkin", updatedSettings.playerSkin)
             editor.apply()
+            callback.settingsDialogCallback(updatedSettings)
 
             builder.dismiss()
         }

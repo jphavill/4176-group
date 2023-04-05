@@ -94,13 +94,13 @@
                         android:id="@+id/button1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="levelButton">
+                        android:tag="cosmeticButton">
                     </FrameLayout>
                     <FrameLayout
                         android:id="@+id/button2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="levelButton">
+                        android:tag="cosmeticButton">
                     </FrameLayout>
                 </TableRow>
 
@@ -113,20 +113,34 @@
                         android:id="@+id/button3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="levelButton">
+                        android:tag="cosmeticButton">
                     </FrameLayout>
 
                     <FrameLayout
                         android:id="@+id/button4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="levelButton">
+                        android:tag="cosmeticButton">
                     </FrameLayout>
 
                 </TableRow>
 
             </TableLayout>
 
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/resetLevels"
+                android:layout_width="69dp"
+                android:layout_height="wrap_content"
+                android:text="TESTING reset levels" />
         </TableRow>
     </TableLayout>
 

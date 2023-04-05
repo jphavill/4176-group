@@ -35,6 +35,7 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun levelSetup(){
+        updatePlayerSkin()
         detector = GestureDetectorCompat(this, GestureListener())
 
         val backToLevelSelectButton = findViewById<ImageButton>(R.id.BackToHomeButton)
@@ -139,10 +140,6 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
                     tileMap.add(Pair(groundTile.getYPos(), ArrayList()))
                     tileMap[0].second.add(groundTile)
                 }
-
-                val playerImageView = findViewById<ImageView>(R.id.playerImageView)
-                val currentPlayerIcon = PLAYER_ICONS[PLAYER_ICONS_MAP[settingPrefs.getString("playerIcon", "Default").toString()]!!]
-                playerImageView.setImageResource(currentPlayerIcon.iconResource)
                 val playerLocation = IntArray(2)
                 groundTile.tileImageView.getLocationInWindow(playerLocation)
                 if(groundTile.tileImageView.tag.toString() == "groundTileStart"){
@@ -350,13 +347,16 @@ abstract class BaseLevel: BaseActivity(), settingsDialogCallback {
         if (changes["colourBlindMode"]!!){
             resetColorBlind(settings.colourBlindMode)
         }
-        if (changes["playerIcon"]!!){
-            val playerImageView = findViewById<ImageView>(R.id.playerImageView)
-            val currentPlayerIcon = PLAYER_ICONS[PLAYER_ICONS_MAP[settings.playerIcon]!!]
-            playerImageView.setImageResource(currentPlayerIcon.iconResource)
-
+        if (changes["playerSkin"]!!){
+            updatePlayerSkin()
         }
 
+    }
+
+    private fun updatePlayerSkin(){
+        val playerImageView = findViewById<ImageView>(R.id.playerImageView)
+        val currentPlayerSkin = settingPrefs.getInt("playerSkin", CosmeticList().itemList[0].img)
+        playerImageView.setImageResource(currentPlayerSkin)
     }
 
     private fun resetColorBlind(colorBlindMode: Boolean){

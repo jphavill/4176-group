@@ -8,8 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import com.example.csci4176_groupproject.databinding.FragmentLevelButtonBinding
 import com.example.csci4176_groupproject.levels.levelActivities
 import com.google.gson.Gson
@@ -24,10 +27,12 @@ class levelButton: Fragment(), binaryDialogCallback {
     // first 5 levels are unlocked by default
     lateinit var level: levelData
     lateinit var settingPrefs: SharedPreferences
+    private val starCount: StarCountViewModel by activityViewModels()
 
 
     override fun binaryDialogCallback(result: Boolean){
         if (result){
+            starCount.setCount(1)
             update()
         }
     }

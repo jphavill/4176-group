@@ -198,7 +198,7 @@ abstract class BaseLevelActivity: BaseActivity() {
                 levelStarted = true
                 startTime = LocalDateTime.now()
             }
-            window.decorView.rootView.performHapticFeedback(12):aq
+            window.decorView.rootView.performHapticFeedback(12)
             // Check for horizontal or vertical swipe.
             return if(abs(deltaX) > abs(deltaY)) {
                 if(abs(deltaX) > swipeThreshold && abs(velocityX) > swipeVelocityThreshold) {

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.*
 import com.example.csci4176_groupproject.R
@@ -26,8 +27,8 @@ class MainMenuActivity : BaseActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
+        fullscreenContent = binding.MainFullscreenContent
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -79,5 +80,6 @@ class MainMenuActivity : BaseActivity(){
             val intent = Intent(this, StoreActivity::class.java)
             startActivity(intent)
         }
+//        Log.d("Test", "Testttttttttttttttt")
     }
 }

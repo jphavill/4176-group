@@ -41,7 +41,7 @@ class StoreActivity : BaseActivity(), BuyDialogCallback, SettingsDialogCallback 
         binding = ActivityStoreBinding.inflate(layoutInflater)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         isFullscreen = true
-        fullscreenContent = binding.LevelSelectFullscreenContent
+        fullscreenContent = binding.storeFullscreenContent
         setContentView(binding.root)
         val backToHomeButton = findViewById<ImageButton>(R.id.BackToHomeButton)
         backToHomeButton.setOnClickListener {
@@ -68,11 +68,12 @@ class StoreActivity : BaseActivity(), BuyDialogCallback, SettingsDialogCallback 
             updateStars()
         }
         updateButtons()
+        hideAndroidUI()
     }
 
     private fun updateButtons() {
         updateStars()
-        val fullScreenView: ViewGroup = findViewById(R.id.LevelSelectFullscreenContent)
+        val fullScreenView: ViewGroup = findViewById(R.id.storeFullscreenContent)
         val cosmeticButtons = getViewsByTag(fullScreenView, "cosmeticButton")
         // start at 1 since 0 index is the default skin which is not in the store
         var buttonIndex = 1

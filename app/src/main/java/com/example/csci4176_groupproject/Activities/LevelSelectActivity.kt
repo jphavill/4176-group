@@ -14,9 +14,7 @@ import com.example.csci4176_groupproject.StarCountViewModel
 import com.example.csci4176_groupproject.databinding.ActivityLevelSelectBinding
 import com.example.csci4176_groupproject.Dialogs.BuyDialogCallback
 import com.example.csci4176_groupproject.Dialogs.SettingsDialog
-import com.example.csci4176_groupproject.Dialogs.SettingsDialogCallback
 import com.example.csci4176_groupproject.Models.Level
-import com.example.csci4176_groupproject.Models.Settings
 import com.google.gson.Gson
 
 class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
@@ -25,7 +23,6 @@ class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
     private val perPage: Int = 6
     private var replace: Boolean = false
     private val starCount: StarCountViewModel by viewModels()
-
 
     override fun binaryDialogCallback(result: Boolean){
         if (result){
@@ -39,7 +36,7 @@ class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         isFullscreen = true
-        fullscreenContent = binding.LevelSelectFullscreenContent
+        fullscreenContent = binding.levelSelectFullscreenContent
 
         updateButtons()
         val backToHomeButton = findViewById<ImageButton>(R.id.BackToHomeButton)
@@ -84,7 +81,7 @@ class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
     private fun updateButtons() {
         updateStars()
         updateNavButtons()
-        val fullScreenView: ViewGroup = findViewById(R.id.LevelSelectFullscreenContent)
+        val fullScreenView: ViewGroup = findViewById(R.id.levelSelectFullscreenContent)
         val levelButtons = getViewsByTag(fullScreenView, "levelButton")
         var buttonIndex = pageNumber*perPage
         for (b in levelButtons){

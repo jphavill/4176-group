@@ -43,7 +43,6 @@ class StoreActivity : BaseActivity(), BuyDialogCallback, SettingsDialogCallback 
         isFullscreen = true
         fullscreenContent = binding.LevelSelectFullscreenContent
         setContentView(binding.root)
-
         val backToHomeButton = findViewById<ImageButton>(R.id.BackToHomeButton)
         backToHomeButton.setOnClickListener {
             val intent = Intent(this, MainMenuActivity::class.java)
@@ -101,7 +100,7 @@ class StoreActivity : BaseActivity(), BuyDialogCallback, SettingsDialogCallback 
     private fun resetStore(){
         val gson = Gson()
         val editor: SharedPreferences.Editor = settingPrefs.edit()
-        for (id in 0 until 4){
+        for (id in 0 until CosmeticList().itemList.size){
             val tempCosmetic = CosmeticList().itemList[id]
             editor.putString(String.format("cosmetic%d", id), gson.toJson(tempCosmetic))
         }

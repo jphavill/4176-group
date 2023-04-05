@@ -50,7 +50,6 @@ class CosmeticButtonFragment : Fragment(), BuyDialogCallback {
         binding.description.text = if (cosmetic.locked) cosmetic.description else "Sold"
         binding.title.text = cosmetic.title
         val button = binding.cosmeticImage
-
         button.setBackgroundResource(cosmetic.img)
         button.text = ""
         if (cosmetic.locked){

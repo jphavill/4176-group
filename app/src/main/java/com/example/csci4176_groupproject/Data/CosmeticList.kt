@@ -16,7 +16,7 @@ data class CosmeticList(
         R.drawable.ic_launcher_foreground,
         R.drawable.redball,
         R.drawable.blueball,
-        R.drawable.devil,
-        R.drawable.sun
+        R.drawable.devilball,
+        R.drawable.sunball
     )
 )

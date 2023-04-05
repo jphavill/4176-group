@@ -80,6 +80,5 @@ class MainMenuActivity : BaseActivity(){
             val intent = Intent(this, StoreActivity::class.java)
             startActivity(intent)
         }
-//        Log.d("Test", "Testttttttttttttttt")
     }
 }

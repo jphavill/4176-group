@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="?attr/fullscreenBackgroundColor"
     android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
-    tools:context=".MainMenuActivity">
+    tools:context=".Activities.MainMenuActivity">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -74,6 +74,7 @@
             </LinearLayout>
 
         </TableRow>
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -94,14 +95,13 @@
                         android:id="@+id/button1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="cosmeticButton">
-                    </FrameLayout>
+                        android:tag="cosmeticButton"></FrameLayout>
+
                     <FrameLayout
                         android:id="@+id/button2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="cosmeticButton">
-                    </FrameLayout>
+                        android:tag="cosmeticButton"></FrameLayout>
                 </TableRow>
 
                 <TableRow
@@ -113,21 +113,20 @@
                         android:id="@+id/button3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="cosmeticButton">
-                    </FrameLayout>
+                        android:tag="cosmeticButton"></FrameLayout>
 
                     <FrameLayout
                         android:id="@+id/button4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="cosmeticButton">
-                    </FrameLayout>
+                        android:tag="cosmeticButton"></FrameLayout>
 
                 </TableRow>
 
             </TableLayout>
 
         </TableRow>
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">

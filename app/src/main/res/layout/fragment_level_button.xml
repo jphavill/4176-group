@@ -8,7 +8,7 @@
     android:layout_marginTop="30dp"
     android:layout_marginRight="25dp"
     android:orientation="vertical"
-    tools:context=".levelButton">
+    tools:context=".Fragments.LevelButtonFragment">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"

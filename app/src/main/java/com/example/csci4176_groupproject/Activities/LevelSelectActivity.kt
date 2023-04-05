@@ -19,7 +19,7 @@ import com.example.csci4176_groupproject.Models.Level
 import com.example.csci4176_groupproject.Models.Settings
 import com.google.gson.Gson
 
-class LevelSelectActivity : BaseActivity(), BuyDialogCallback, SettingsDialogCallback {
+class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
     private lateinit var binding: ActivityLevelSelectBinding
     private var pageNumber: Int = 0
     private val perPage: Int = 6
@@ -33,10 +33,6 @@ class LevelSelectActivity : BaseActivity(), BuyDialogCallback, SettingsDialogCal
         }
     }
 
-    override fun settingsDialogCallback(settings: Settings){
-        val changes = settings.changes
-
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLevelSelectBinding.inflate(layoutInflater)

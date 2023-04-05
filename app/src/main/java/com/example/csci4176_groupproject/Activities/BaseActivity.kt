@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import android.view.WindowInsets
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.example.csci4176_groupproject.Dialogs.SettingsDialogCallback
+import com.example.csci4176_groupproject.Models.Settings
 
-abstract class BaseActivity: AppCompatActivity() {
+abstract class BaseActivity: AppCompatActivity(), SettingsDialogCallback {
     var isFullscreen: Boolean = true
     lateinit var fullscreenContent: FrameLayout
     lateinit var settingPrefs: SharedPreferences
@@ -17,6 +19,15 @@ abstract class BaseActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         settingPrefs = this.applicationContext.getSharedPreferences("settingsPrefs", 0)
+        updateHaptics()
+    }
+
+    override fun settingsDialogCallback(settings: Settings){
+        updateHaptics()
+    }
+
+    private fun updateHaptics(){
+        window.decorView.rootView.isHapticFeedbackEnabled = settingPrefs.getBoolean("haptics", true)
     }
 
     fun hideAndroidUI() {

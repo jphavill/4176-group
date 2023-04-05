@@ -31,11 +31,6 @@ class StoreActivity : BaseActivity(), BuyDialogCallback, SettingsDialogCallback 
         }
     }
 
-    override fun settingsDialogCallback(settings: Settings){
-        val changes = settings.changes
-    }
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStoreBinding.inflate(layoutInflater)

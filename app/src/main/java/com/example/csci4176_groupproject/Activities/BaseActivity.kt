@@ -7,27 +7,41 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowInsets
 import android.widget.FrameLayout
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.csci4176_groupproject.Dialogs.SettingsDialogCallback
-import com.example.csci4176_groupproject.Models.Settings
+import com.example.csci4176_groupproject.Fragments.TopBarFragment
+import com.example.csci4176_groupproject.R
+import com.example.csci4176_groupproject.SettingsViewModel
 
-abstract class BaseActivity: AppCompatActivity(), SettingsDialogCallback {
+abstract class BaseActivity: AppCompatActivity(){
     var isFullscreen: Boolean = true
     lateinit var fullscreenContent: FrameLayout
     lateinit var settingPrefs: SharedPreferences
+    private val settingsViewModel: SettingsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        hideAndroidUI()
+
         settingPrefs = this.applicationContext.getSharedPreferences("settingsPrefs", 0)
-        updateHaptics()
+        updateHaptics(settingPrefs.getBoolean("haptics", true))
+
+        settingsViewModel.haptics.observe(this) {state ->
+            updateHaptics(state)
+        }
     }
 
-    override fun settingsDialogCallback(settings: Settings){
-        updateHaptics()
+    private fun updateHaptics(state: Boolean){
+        window.decorView.rootView.isHapticFeedbackEnabled = state
     }
 
-    private fun updateHaptics(){
-        window.decorView.rootView.isHapticFeedbackEnabled = settingPrefs.getBoolean("haptics", true)
+    fun addTopBar(title: String, backActivity: String){
+        val topBar = TopBarFragment()
+        val args = Bundle()
+        args.putString("title", title)
+        args.putString("backActivity", backActivity)
+        topBar.arguments = args
+        supportFragmentManager.beginTransaction().add(R.id.topBar, topBar).commit()
     }
 
     fun hideAndroidUI() {

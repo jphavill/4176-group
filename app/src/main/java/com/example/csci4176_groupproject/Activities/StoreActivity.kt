@@ -16,11 +16,12 @@ import com.example.csci4176_groupproject.databinding.ActivityStoreBinding
 import com.example.csci4176_groupproject.Dialogs.BuyDialogCallback
 import com.example.csci4176_groupproject.Dialogs.SettingsDialog
 import com.example.csci4176_groupproject.Dialogs.SettingsDialogCallback
+import com.example.csci4176_groupproject.Fragments.TopBarFragment
 import com.example.csci4176_groupproject.Models.Settings
 import com.google.gson.Gson
 
 
-class StoreActivity : BaseActivity(), BuyDialogCallback, SettingsDialogCallback {
+class StoreActivity : BaseActivity(), BuyDialogCallback {
     private lateinit var binding: ActivityStoreBinding
     private lateinit var starsTextView: TextView
     private var replace: Boolean = false
@@ -38,22 +39,16 @@ class StoreActivity : BaseActivity(), BuyDialogCallback, SettingsDialogCallback 
         isFullscreen = true
         fullscreenContent = binding.storeFullscreenContent
         setContentView(binding.root)
-        val backToHomeButton = findViewById<ImageButton>(R.id.BackToHomeButton)
-        backToHomeButton.setOnClickListener {
-            val intent = Intent(this, MainMenuActivity::class.java)
-            startActivity(intent)
-        }
 
+        super.addTopBar("Store", "MainMenuActivity")
+
+        // used for development testing
         val resetLevelData = findViewById<Button>(R.id.resetLevels)
         resetLevelData.setOnClickListener {
             resetStore()
             updateButtons()
         }
 
-        val settingsButton = findViewById<ImageButton>(R.id.SettingsButton)
-        settingsButton.setOnClickListener {
-            SettingsDialog(context = this).showSettings(this)
-        }
 
         starsTextView = findViewById(R.id.starCount)
 
@@ -63,7 +58,6 @@ class StoreActivity : BaseActivity(), BuyDialogCallback, SettingsDialogCallback 
             updateStars()
         }
         updateButtons()
-        hideAndroidUI()
     }
 
     private fun updateButtons() {

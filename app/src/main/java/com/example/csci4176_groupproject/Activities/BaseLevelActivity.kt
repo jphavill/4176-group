@@ -7,14 +7,15 @@ import android.os.Bundle
 import android.view.*
 import android.widget.ImageButton
 import android.widget.ImageView
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.core.view.GestureDetectorCompat
 import com.example.csci4176_groupproject.Data.CosmeticList
 import com.example.csci4176_groupproject.R
 import com.example.csci4176_groupproject.Dialogs.SettingsDialog
-import com.example.csci4176_groupproject.Dialogs.SettingsDialogCallback
 import com.example.csci4176_groupproject.Dialogs.WinDialog
 import com.example.csci4176_groupproject.Models.*
+import com.example.csci4176_groupproject.SettingsViewModel
 import java.time.LocalDateTime
 import kotlin.math.abs
 
@@ -28,38 +29,46 @@ abstract class BaseLevelActivity: BaseActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private lateinit var startTime: LocalDateTime
     private var levelStarted = false
-
     private lateinit var detector: GestureDetectorCompat
-
     lateinit var fullScreenView: ViewGroup
+
+    private val settingsViewModel: SettingsViewModel by viewModels()
 
     @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        settingsViewModel.colorBlindMode.observe(this) { state ->
+            updateColorBlindMode(state)
+        }
+        settingsViewModel.playerSkin.observe(this) { skin ->
+            updatePlayerSkin(skin)
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun levelSetup(){
-        updatePlayerSkin()
+        val currentPlayerSkin = settingPrefs.getInt("playerSkin", CosmeticList().itemList[0].img)
+        updatePlayerSkin(currentPlayerSkin)
         detector = GestureDetectorCompat(this, GestureListener())
 
-        val backToLevelSelectButton = findViewById<ImageButton>(R.id.BackToHomeButton)
-        backToLevelSelectButton.setOnClickListener {
-            val intent = Intent(this, LevelSelectActivity::class.java)
-            startActivity(intent)
-        }
-
-        val settingsButton = findViewById<ImageButton>(R.id.SettingsButton)
-        settingsButton.setOnClickListener {
-            SettingsDialog(context = this).showSettings(this)
-        }
+        super.addTopBar("Level $levelId", "LevelSelectActivity")
 
         val resetButton = findViewById<ImageButton>(R.id.resetLevelsButton)
         resetButton.setOnClickListener{
             resetLevel()
         }
 
+
+
+        setupWalls()
+        setupGround()
+
+
+    }
+
+    fun setupWalls(){
         // Setup wall tiles
         val wallTilesImageViews =
             getViewsByTag(fullScreenView, "wallTile")
@@ -103,7 +112,10 @@ abstract class BaseLevelActivity: BaseActivity() {
                 }
             }
         }
+    }
 
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun setupGround(){
         // Setup ground tiles
         val groundTilesImageViews =
             getViewsByTag(fullScreenView, "groundTile")
@@ -153,8 +165,6 @@ abstract class BaseLevelActivity: BaseActivity() {
                 }
             }
         }
-
-        hideAndroidUI()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -349,24 +359,12 @@ abstract class BaseLevelActivity: BaseActivity() {
         return ms
     }
 
-    override fun settingsDialogCallback(settings: Settings){
-        val changes = settings.changes
-        if (changes["colourBlindMode"]!!){
-            resetColorBlind(settings.colourBlindMode)
-        }
-        if (changes["playerSkin"]!!){
-            updatePlayerSkin()
-        }
-
-    }
-
-    private fun updatePlayerSkin(){
+    private fun updatePlayerSkin(currentPlayerSkin: Int){
         val playerImageView = findViewById<ImageView>(R.id.playerImageView)
-        val currentPlayerSkin = settingPrefs.getInt("playerSkin", CosmeticList().itemList[0].img)
         playerImageView.setImageResource(currentPlayerSkin)
     }
 
-    private fun resetColorBlind(colorBlindMode: Boolean){
+    private fun updateColorBlindMode(colorBlindMode: Boolean){
         for (tile in groundTiles ){
             if ((tile as GroundTile).getColoured())
                 tile.setColorBlind(colorBlindMode)

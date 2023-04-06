@@ -27,27 +27,11 @@
             android:layout_height="match_parent"
             android:gravity="center_horizontal">
 
-            <ImageButton
-                android:id="@+id/BackToHomeButton"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="?attr/homeAsUpIndicator" />
-
-            <TextView
-                android:id="@+id/LevelHeaderTextView"
-                android:layout_width="220dp"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Level 3"
-                android:textAlignment="center"
-                android:textSize="34sp" />
-
-            <ImageButton
-                android:id="@+id/SettingsButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/settingsicon" />
+            <!-- used as a placeholder for the top bar holding the back button, title and settings-->
+            <FrameLayout
+                android:id="@+id/topBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
         </TableRow>
 
@@ -450,25 +434,18 @@
             android:layout_height="88dp"
             android:gravity="center_horizontal">
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
             <ImageButton
                 android:id="@+id/resetLevelsButton"
-                android:layout_width="68dp"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:adjustViewBounds="true"
                 android:backgroundTint="#C6BCBC"
+                android:contentDescription="Level Reset Button"
                 android:scaleType="fitCenter"
                 app:srcCompat="@android:drawable/ic_popup_sync"
                 app:tint="#000000" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
 
         </TableRow>
     </TableLayout>
@@ -481,8 +458,8 @@
             android:id="@+id/playerImageView"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:translationX="636px"
-            android:translationY="1158px"
+            android:translationX="636dp"
+            android:translationY="1158dp"
             app:srcCompat="@drawable/ic_launcher_foreground" />
     </RelativeLayout>
 

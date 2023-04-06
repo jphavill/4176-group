@@ -18,29 +18,11 @@
             android:layout_height="match_parent"
             android:gravity="center_horizontal">
 
-            <ImageButton
-                android:id="@+id/BackToHomeButton"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="?attr/homeAsUpIndicator" />
-
-            <TextView
-                android:id="@+id/LevelHeaderTextView"
-                android:layout_width="220dp"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Level Select"
-                android:textAlignment="center"
-                android:textSize="34sp"
-                tools:ignore="RtlCompat" />
-
-            <ImageButton
-                android:id="@+id/SettingsButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="33dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/settingsicon" />
+            <!-- used as a placeholder for the top bar holding the back button, title and settings-->
+            <FrameLayout
+                android:id="@+id/topBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
         </TableRow>
 
@@ -48,17 +30,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:gravity="center"
-                android:orientation="horizontal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -66,13 +42,14 @@
                     android:id="@+id/imageView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/btn_star_big_on" />
+                    app:srcCompat="@android:drawable/btn_star_big_on"
+                    android:contentDescription="@string/stars" />
 
                 <TextView
                     android:id="@+id/starCount"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text=": 5"
+                    android:text="@string/default_star_count"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -99,13 +76,13 @@
                         android:id="@+id/button1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="levelButton"></FrameLayout>
+                        android:tag="levelButton" />
 
                     <FrameLayout
                         android:id="@+id/button2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="levelButton"></FrameLayout>
+                        android:tag="levelButton" />
                 </TableRow>
 
                 <TableRow
@@ -117,13 +94,13 @@
                         android:id="@+id/button3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="levelButton"></FrameLayout>
+                        android:tag="levelButton" />
 
                     <FrameLayout
                         android:id="@+id/button4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="levelButton"></FrameLayout>
+                        android:tag="levelButton" />
 
                 </TableRow>
 
@@ -136,13 +113,13 @@
                         android:id="@+id/button5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="levelButton"></FrameLayout>
+                        android:tag="levelButton" />
 
                     <FrameLayout
                         android:id="@+id/button6"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="levelButton"></FrameLayout>
+                        android:tag="levelButton" />
                 </TableRow>
 
                 <TableRow
@@ -157,7 +134,7 @@
                         android:id="@+id/resetLevels"
                         android:layout_width="69dp"
                         android:layout_height="wrap_content"
-                        android:text="TESTING reset levels" />
+                        android:text="@string/testing_reset_levels" />
                 </TableRow>
 
             </TableLayout>
@@ -188,7 +165,5 @@
                 app:srcCompat="@android:drawable/arrow_up_float" />
 
         </TableRow>
-
     </TableLayout>
-
 </FrameLayout>

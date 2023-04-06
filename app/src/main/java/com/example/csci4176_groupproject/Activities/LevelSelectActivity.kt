@@ -39,11 +39,8 @@ class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
         fullscreenContent = binding.levelSelectFullscreenContent
 
         updateButtons()
-        val backToHomeButton = findViewById<ImageButton>(R.id.BackToHomeButton)
-        backToHomeButton.setOnClickListener {
-            val intent = Intent(this, MainMenuActivity::class.java)
-            startActivity(intent)
-        }
+
+        super.addTopBar("Level Select", "MainMenuActivity")
 
         val resetLevelData = findViewById<Button>(R.id.resetLevels)
         resetLevelData.setOnClickListener {
@@ -51,16 +48,10 @@ class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
             updateButtons()
         }
 
-        val settingsButton = findViewById<ImageButton>(R.id.SettingsButton)
-        settingsButton.setOnClickListener {
-            SettingsDialog(context = this).showSettings(this)
-        }
 
         starCount.starCount.observe(this) {
             updateStars()
         }
-
-        hideAndroidUI()
     }
 
     private fun resetLevels(){

@@ -4,14 +4,13 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.*
 import com.example.csci4176_groupproject.R
 import com.example.csci4176_groupproject.databinding.ActivityMainMenuBinding
 import com.example.csci4176_groupproject.Dialogs.SettingsDialog
-import com.example.csci4176_groupproject.Dialogs.SettingsDialogCallback
 import com.example.csci4176_groupproject.Data.levelActivities
+import com.example.csci4176_groupproject.Dialogs.SettingsDialogCallback
 import com.example.csci4176_groupproject.Models.Level
 import com.example.csci4176_groupproject.Models.Settings
 import com.google.gson.Gson
@@ -20,7 +19,7 @@ import com.google.gson.Gson
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-class MainMenuActivity : BaseActivity(){
+class MainMenuActivity : BaseActivity(), SettingsDialogCallback{
     private lateinit var binding: ActivityMainMenuBinding
 
     @SuppressLint("ClickableViewAccessibility")
@@ -47,10 +46,9 @@ class MainMenuActivity : BaseActivity(){
             val intent = Intent(this, LevelSelectActivity::class.java)
             startActivity(intent)
         }
-        hideAndroidUI()
 
-        val playTestButton = findViewById<Button>(R.id.playButton)
-        playTestButton.setOnClickListener{
+        val playButton = findViewById<Button>(R.id.playButton)
+        playButton.setOnClickListener{
             val gson = Gson()
             val levels = levelActivities().levels
             var found = false
@@ -73,12 +71,18 @@ class MainMenuActivity : BaseActivity(){
                 startActivity(intent)
             }
         }
-        hideAndroidUI()
         val storeButton = findViewById<ImageButton>(R.id.shoppingcartButton)
 
         storeButton.setOnClickListener {
             val intent = Intent(this, StoreActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    override fun settingsDialogCallback(settings: Settings) {
+        val changes = settings.changes
+        if (changes["haptics"]!!){
+            window.decorView.rootView.isHapticFeedbackEnabled = settings.haptics
         }
     }
 }

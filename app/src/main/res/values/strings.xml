@@ -5,4 +5,11 @@
     <string name="play">Play</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="level_reset_button">Level Reset Button</string>
+    <string name="back_button">Back Button</string>
+    <string name="settings_button_description">Settings Button</string>
+    <string name="default_title">Title</string>
+    <string name="default_star_count">: 5</string>
+    <string name="stars">Stars</string>
+    <string name="testing_reset_levels">TESTING reset levels</string>
 </resources>

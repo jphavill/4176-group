@@ -18,29 +18,11 @@
             android:layout_height="match_parent"
             android:gravity="center_horizontal">
 
-            <ImageButton
-                android:id="@+id/BackToHomeButton"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="?attr/homeAsUpIndicator" />
-
-            <TextView
-                android:id="@+id/LevelHeaderTextView"
-                android:layout_width="220dp"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Store"
-                android:textAlignment="center"
-                android:textColor="@android:color/secondary_text_light"
-                android:textSize="34sp" />
-
-            <ImageButton
-                android:id="@+id/SettingsButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/settingsicon" />
+            <!-- used as a placeholder for the top bar holding the back button, title and settings-->
+            <FrameLayout
+                android:id="@+id/topBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
         </TableRow>
 
@@ -97,12 +79,12 @@
                 android:layout_height="573dp"
                 android:layout_weight="1">
 
-                <!--             Each row will have level button fragments-->
+                <!-- Each row will have level button fragments-->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_horizontal">
-                    <!--                Frame layouts are used as placeholders for the fragments-->
+                    <!-- Frame layouts are used as placeholders for the fragments-->
                     <FrameLayout
                         android:id="@+id/button1"
                         android:layout_width="match_parent"

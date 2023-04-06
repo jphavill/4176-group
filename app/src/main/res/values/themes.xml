@@ -32,7 +32,4 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.CSCI4176GroupProject.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.CSCI4176GroupProject.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

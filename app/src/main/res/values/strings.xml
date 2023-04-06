@@ -1,10 +1,6 @@
 <resources>
     <string name="app_name">CSCI4176-GroupProject</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="play">Play</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="level_reset_button">Level Reset Button</string>
     <string name="back_button">Back Button</string>
     <string name="settings_button_description">Settings Button</string>
@@ -12,4 +8,20 @@
     <string name="default_star_count">: 5</string>
     <string name="stars">Stars</string>
     <string name="testing_reset_levels">TESTING reset levels</string>
+    <string name="wall_tile">Wall Tile</string>
+    <string name="ground_tile">Ground Tile</string>
+    <string name="level_selection_scroll_back">Level selection scroll back</string>
+    <string name="level_selection_scroll_forward">Level selection scroll forward</string>
+    <string name="settings">Settings</string>
+    <string name="store">Store</string>
+    <string name="level_select">Level select</string>
+    <string name="level_star_number_1">level star number 1</string>
+    <string name="level_star_number_2">level star number 2</string>
+    <string name="level_star_number_3">level star number 3</string>
+    <string name="cancel">Cancel</string>
+    <string name="unlock">Unlock</string>
+    <string name="unlock_level_x_for_1_star">Unlock Level X for 1 Star?</string>
+    <string name="time">Time:</string>
+    <string name="next_level">Next Level</string>
+    <string name="main_menu">Main Menu</string>
 </resources>

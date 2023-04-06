@@ -34,6 +34,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
+                android:contentDescription="@string/settings"
                 android:background="@drawable/settings_icon" />
         </LinearLayout>
 
@@ -44,7 +45,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -72,6 +72,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/shoppingcart"
+                android:contentDescription="@string/store"
                 android:color="#FFFFFF" />
 
             <ImageButton
@@ -81,6 +82,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/menuselect"
+                android:contentDescription="@string/level_select"
                 android:color="#FFFFFF" />
         </LinearLayout>
 

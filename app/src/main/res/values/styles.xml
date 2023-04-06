@@ -11,7 +11,4 @@
     <style name="SettingsDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowBackground">@drawable/settings_background</item>
     </style>
-    <style name="spinnerStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
-        <item name="android:spinnerItemStyle">@color/black</item>
-    </style>
 </resources>

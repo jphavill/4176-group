@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/green"
+                android:backgroundTint="@android:color/holo_green_light"
                 android:text="Unlock" />
 
             <Space

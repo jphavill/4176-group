@@ -31,6 +31,7 @@
                 android:gravity="center_vertical"
                 android:text="Store"
                 android:textAlignment="center"
+                android:textColor="@android:color/secondary_text_light"
                 android:textSize="34sp" />
 
             <ImageButton
@@ -73,6 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text=": 5"
+                    android:textColor="@android:color/secondary_text_light"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -105,13 +107,13 @@
                         android:id="@+id/button1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="cosmeticButton"></FrameLayout>
+                        android:tag="cosmeticButton" />
 
                     <FrameLayout
                         android:id="@+id/button2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="cosmeticButton"></FrameLayout>
+                        android:tag="cosmeticButton" />
                 </TableRow>
 
                 <TableRow
@@ -123,13 +125,13 @@
                         android:id="@+id/button3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="cosmeticButton"></FrameLayout>
+                        android:tag="cosmeticButton" />
 
                     <FrameLayout
                         android:id="@+id/button4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="cosmeticButton"></FrameLayout>
+                        android:tag="cosmeticButton" />
 
                 </TableRow>
 

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/light_blue_600">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,28 +14,30 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Settings"
-            android:textColor="@color/black"
-            android:textSize="24sp" />
+            android:textAlignment="center"
+            android:textColor="@android:color/secondary_text_light"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/colorBlindSwitch"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Color Blind Mode"
             android:textAlignment="viewStart"
-            android:textColor="@color/black"
+            android:textColor="@android:color/secondary_text_light"
             android:textSize="16sp" />
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/hapticsSwitch"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:checked="true"
             android:text="Haptics"
-            android:textColor="@color/black"
+            android:textColor="@android:color/secondary_text_light"
             android:textSize="16sp" />
 
         <LinearLayout
@@ -47,18 +50,18 @@
                 android:id="@+id/playerIconText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="0dp"
                 android:layout_weight="1"
                 android:text="Player Icon"
                 android:textAlignment="gravity"
-                android:textColor="@color/black"
+                android:textColor="@android:color/secondary_text_light"
                 android:textSize="16sp" />
 
             <Spinner
                 android:id="@+id/playerIconSelect"
                 android:layout_width="158dp"
-                android:textColor="@color/black"
-                android:layout_height="50dp" />
+                android:layout_height="50dp"
+                android:textColor="@android:color/black"/>
 
         </LinearLayout>
 
@@ -72,6 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/red"
                 android:text="Cancel" />
 
             <Space
@@ -84,6 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@android:color/holo_green_light"
                 android:text="Apply" />
 
         </LinearLayout>

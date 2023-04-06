@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
-import android.widget.Switch
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.SwitchCompat
 import com.example.csci4176_groupproject.Models.Cosmetic
 import com.example.csci4176_groupproject.Data.CosmeticList
 import com.example.csci4176_groupproject.R
@@ -30,9 +30,9 @@ class SettingsDialog(context: Context) : AlertDialog.Builder(context)  {
             playerSkin = settingPrefs.getInt("playerSkin", CosmeticList().itemList[0].img)
         )
         // set the state of the settings
-        val colorBlindModeView = view.findViewById<Switch>(R.id.colorBlindSwitch)
+        val colorBlindModeView = view.findViewById<SwitchCompat>(R.id.colorBlindSwitch)
         colorBlindModeView.isChecked = initialSettings.colourBlindMode
-        val hapticsSwitchView = view.findViewById<Switch>(R.id.hapticsSwitch)
+        val hapticsSwitchView = view.findViewById<SwitchCompat>(R.id.hapticsSwitch)
         hapticsSwitchView.isChecked = initialSettings.haptics
 
         val skinNames = mutableListOf<String>()
@@ -53,11 +53,11 @@ class SettingsDialog(context: Context) : AlertDialog.Builder(context)  {
         val playerIconView = view.findViewById<Spinner>(R.id.playerIconSelect)
         val arrayAdapter = ArrayAdapter(
             context,
-            android.R.layout.simple_spinner_item,
+            R.layout.skin_list,
             skinNames
         ).also { adapter ->
             // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            adapter.setDropDownViewResource(R.layout.skin_list)
             // Apply the adapter to the spinner
             playerIconView.adapter = adapter
         }

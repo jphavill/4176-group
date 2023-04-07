@@ -712,10 +712,10 @@
 
         <!-- used as a placeholder for the restart button fragment-->
         <TableRow
+            android:id="@+id/restartButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:id="@+id/restartButton"/>
+            android:gravity="center_horizontal" />
 
     </TableLayout>
 

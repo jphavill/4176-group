@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.view.*
-import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
@@ -13,10 +12,8 @@ import com.example.csci4176_groupproject.R
 import com.example.csci4176_groupproject.data.CosmeticList
 import com.example.csci4176_groupproject.dialogs.WinDialog
 import com.example.csci4176_groupproject.fragments.RestartButtonFragment
-import com.example.csci4176_groupproject.fragments.TopBarFragment
 import com.example.csci4176_groupproject.models.*
 import com.example.csci4176_groupproject.viewModel.RestartLevelViewModel
-import com.example.csci4176_groupproject.viewModel.SettingsViewModel
 import java.time.LocalDateTime
 import kotlin.math.abs
 
@@ -48,7 +45,7 @@ abstract class BaseLevelActivity : BaseActivity() {
         settingsViewModel.playerSkin.observe(this) { skin ->
             updatePlayerSkin(skin)
         }
-        restartLevelViewModel.restartLevel.observe(this){
+        restartLevelViewModel.restartLevel.observe(this) {
             resetLevel()
         }
     }
@@ -61,7 +58,8 @@ abstract class BaseLevelActivity : BaseActivity() {
 
         super.addTopBar("Level $levelId", "LevelSelectActivity")
 
-        supportFragmentManager.beginTransaction().add(R.id.restartButton, RestartButtonFragment()).commit()
+        supportFragmentManager.beginTransaction().add(R.id.restartButton, RestartButtonFragment())
+            .commit()
 
         setupWalls()
         setupGround()

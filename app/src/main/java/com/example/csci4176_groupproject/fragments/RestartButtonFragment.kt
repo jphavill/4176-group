@@ -1,18 +1,13 @@
 package com.example.csci4176_groupproject.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.example.csci4176_groupproject.R
-import com.example.csci4176_groupproject.data.LevelActivities
-import com.example.csci4176_groupproject.databinding.FragmentLevelButtonBinding
 import com.example.csci4176_groupproject.databinding.FragmentRestartButtonBinding
-import com.example.csci4176_groupproject.models.Level
 import com.example.csci4176_groupproject.viewModel.RestartLevelViewModel
-import com.example.csci4176_groupproject.viewModel.StarCountViewModel
 
 
 class RestartButtonFragment : Fragment() {
@@ -26,7 +21,7 @@ class RestartButtonFragment : Fragment() {
     ): View {
         _binding = FragmentRestartButtonBinding.inflate(inflater, container, false)
 
-        binding.resetLevelsButton.setOnClickListener{
+        binding.resetLevelsButton.setOnClickListener {
             restartLevel.setRestartLevel(true)
         }
 

@@ -42,16 +42,15 @@ class WinDialog(context: Context) : AlertDialog.Builder(context) {
         // set the seconds
         val timeView = view.findViewById<TextView>(R.id.timeText)
         timeView.text = String.format("Time: %.2fs", milliseconds.toFloat() / 1000)
-        
+
         // If it's a new best time congragulate the player, otherwise show best time
         // set the seconds
         val bestTimeView = view.findViewById<TextView>(R.id.bestTimeText)
-        if (level.time != -1 && level.time < milliseconds){
+        if (level.time != -1 && level.time < milliseconds) {
             bestTimeView.text = String.format("Best Time: %.2fs", level.time.toFloat() / 1000)
         } else {
             bestTimeView.text = context.getString(R.string.new_best_time)
         }
-        
 
 
         // update level data stored in persistent memory

@@ -1,6 +1,5 @@
 package com.example.csci4176_groupproject.activities
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -12,9 +11,7 @@ import com.example.csci4176_groupproject.data.LevelActivities
 import com.example.csci4176_groupproject.databinding.ActivityLevelSelectBinding
 import com.example.csci4176_groupproject.fragments.LevelButtonFragment
 import com.example.csci4176_groupproject.interfaces.BuyDialogCallback
-import com.example.csci4176_groupproject.models.Level
 import com.example.csci4176_groupproject.viewModel.StarCountViewModel
-import com.google.gson.Gson
 
 class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
     private lateinit var binding: ActivityLevelSelectBinding

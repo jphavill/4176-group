@@ -1,17 +1,14 @@
 package com.example.csci4176_groupproject.activities
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.viewModels
 import com.example.csci4176_groupproject.R
-import com.example.csci4176_groupproject.data.CosmeticList
 import com.example.csci4176_groupproject.databinding.ActivityStoreBinding
 import com.example.csci4176_groupproject.fragments.CosmeticButtonFragment
 import com.example.csci4176_groupproject.interfaces.BuyDialogCallback
 import com.example.csci4176_groupproject.viewModel.StarCountViewModel
-import com.google.gson.Gson
 
 
 class StoreActivity : BaseActivity(), BuyDialogCallback {

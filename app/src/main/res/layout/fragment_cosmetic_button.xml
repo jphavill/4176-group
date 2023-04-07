@@ -7,7 +7,8 @@
     android:layout_marginLeft="25dp"
     android:layout_marginTop="30dp"
     android:layout_marginRight="25dp"
-    tools:context=".fragments.CosmeticButtonFragment">
+    tools:context=".fragments.CosmeticButtonFragment"
+    tools:keep="@layout/fragment_cosmetic_button">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/cosmeticImage"

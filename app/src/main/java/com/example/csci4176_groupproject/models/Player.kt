@@ -4,7 +4,7 @@ import android.widget.ImageView
 
 class Player(private val playerImageView: ImageView, private var playerPosX: Int, private var playerPosY: Int, private var playerGroundTile: Tile) {
     var playerIsMoving: Boolean = false
-    // Getters
+
     fun getPlayerGroundTile(): Tile {
         return playerGroundTile
     }
@@ -16,7 +16,6 @@ class Player(private val playerImageView: ImageView, private var playerPosX: Int
         return playerPosY
     }
 
-    // Setters
     private fun setPlayerPosX(newPlayerPosX: Int) {
         playerPosX = newPlayerPosX
     }

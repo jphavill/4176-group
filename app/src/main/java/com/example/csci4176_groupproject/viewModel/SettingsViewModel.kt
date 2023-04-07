@@ -11,6 +11,12 @@ class SettingsViewModel: ViewModel() {
     val haptics: LiveData<Boolean> get() = mutableHaptics
     private val mutableColorBlindMode = MutableLiveData<Boolean>()
     val colorBlindMode: LiveData<Boolean> get() = mutableColorBlindMode
+    private val mutableResetLevels = MutableLiveData<Boolean>()
+    // developer settings
+    val resetLevels: LiveData<Boolean> get() = mutableResetLevels
+    private val mutableResetStore = MutableLiveData<Boolean>()
+    val resetStore: LiveData<Boolean> get() = mutableResetStore
+
 
     fun setPlayerSkin(skin: Int) {
         mutablePlayerSkin.value = skin
@@ -22,5 +28,13 @@ class SettingsViewModel: ViewModel() {
 
     fun setColorBlindMode(state: Boolean) {
         mutableColorBlindMode.value = state
+    }
+
+    fun setResetLevels(state: Boolean) {
+        mutableResetLevels.value = state
+    }
+
+    fun setResetStore(state: Boolean) {
+        mutableResetStore.value = state
     }
 }

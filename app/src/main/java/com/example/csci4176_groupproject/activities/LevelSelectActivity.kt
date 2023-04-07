@@ -13,6 +13,7 @@ import com.example.csci4176_groupproject.viewModel.StarCountViewModel
 import com.example.csci4176_groupproject.databinding.ActivityLevelSelectBinding
 import com.example.csci4176_groupproject.interfaces.BuyDialogCallback
 import com.example.csci4176_groupproject.models.Level
+import com.example.csci4176_groupproject.viewModel.SettingsViewModel
 import com.google.gson.Gson
 
 class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
@@ -40,30 +41,12 @@ class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
 
         super.addTopBar("Level Select", "MainMenuActivity")
 
-        val resetLevelData = findViewById<Button>(R.id.resetLevels)
-        resetLevelData.setOnClickListener {
+        settingsViewModel.resetLevels.observe(this){
             resetLevels()
             updateButtons()
         }
-
-
         starCount.starCount.observe(this) {
             updateStars()
-        }
-    }
-
-    private fun resetLevels(){
-        for (id in 1 until 11){
-            // the last level on the first page, and all subsequent levels, are locked by default
-            val tempLevel = Level(id=id, locked = id > perPage-1)
-            val gson = Gson()
-            val editor: SharedPreferences.Editor = settingPrefs.edit()
-            tempLevel.starsEarned = 0
-            tempLevel.time = -1
-            tempLevel.tried = false
-            editor.putString(String.format("level%d", id), gson.toJson(tempLevel))
-            editor.putInt("stars", 0)
-            editor.apply()
         }
     }
 
@@ -117,5 +100,19 @@ class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
         }
     }
 
+    private fun resetLevels(){
+        for (id in 1 until 11){
+            // the last level on the first page, and all subsequent levels, are locked by default
+            val tempLevel = Level(id=id, locked = id > 5)
+            val gson = Gson()
+            val editor: SharedPreferences.Editor = settingPrefs.edit()
+            tempLevel.starsEarned = 0
+            tempLevel.time = -1
+            tempLevel.tried = false
+            editor.putString(String.format("level%d", id), gson.toJson(tempLevel))
+            editor.putInt("stars", 0)
+            editor.apply()
+        }
+    }
 
 }

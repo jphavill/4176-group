@@ -11,6 +11,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
+        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
@@ -60,9 +61,64 @@
                 android:id="@+id/playerIconSelect"
                 android:layout_width="158dp"
                 android:layout_height="50dp"
-                android:textColor="@android:color/black"/>
+                android:contentDescription="@string/select_your_player_skin"
+                android:textColor="@android:color/black" />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/developerTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/developer_settings"
+            android:textAlignment="center"
+            android:textColor="@android:color/secondary_text_light"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ToggleButton
+                android:id="@+id/resetLevelsButton"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/don_t_reset_levels"
+                android:textOff="@string/don_t_reset_levels"
+                android:textOn="@string/level_reset" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ToggleButton
+                android:id="@+id/resetStoreButton"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/don_t_reset_store"
+                android:textOff="@string/don_t_reset_store"
+                android:textOn="@string/store_reset" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -70,7 +126,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/nextLevelButton"
+                android:id="@+id/cancelButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -83,7 +139,7 @@
                 android:layout_weight="1" />
 
             <Button
-                android:id="@+id/mainMenuButton"
+                android:id="@+id/applyButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -91,6 +147,7 @@
                 android:text="@string/apply" />
 
         </LinearLayout>
+
 
     </LinearLayout>
 </RelativeLayout>

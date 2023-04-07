@@ -12,6 +12,7 @@ import com.example.csci4176_groupproject.R
 import com.example.csci4176_groupproject.viewModel.StarCountViewModel
 import com.example.csci4176_groupproject.databinding.ActivityStoreBinding
 import com.example.csci4176_groupproject.interfaces.BuyDialogCallback
+import com.example.csci4176_groupproject.viewModel.SettingsViewModel
 import com.google.gson.Gson
 
 
@@ -36,20 +37,20 @@ class StoreActivity : BaseActivity(), BuyDialogCallback {
 
         super.addTopBar("Store", "MainMenuActivity")
 
-        // used for development testing
-        val resetLevelData = findViewById<Button>(R.id.resetLevels)
-        resetLevelData.setOnClickListener {
-            resetStore()
-            updateButtons()
-        }
-
-
         starsTextView = findViewById(R.id.starCount)
 
         settingPrefs = applicationContext.getSharedPreferences("settingsPrefs", 0)
 
         starCount.starCount.observe(this) {
             updateStars()
+        }
+        starCount.starCount.observe(this) {
+            updateStars()
+        }
+
+        settingsViewModel.resetStore.observe(this) {
+            resetStore()
+            updateButtons()
         }
         updateButtons()
     }

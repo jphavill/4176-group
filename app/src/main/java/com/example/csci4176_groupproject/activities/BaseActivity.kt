@@ -17,7 +17,7 @@ abstract class BaseActivity: AppCompatActivity(){
     var isFullscreen: Boolean = true
     lateinit var fullscreenContent: FrameLayout
     lateinit var settingPrefs: SharedPreferences
-    private val settingsViewModel: SettingsViewModel by viewModels()
+    val settingsViewModel: SettingsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

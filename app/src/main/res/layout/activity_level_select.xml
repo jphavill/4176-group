@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:background="?attr/fullscreenBackgroundColor"
     android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
-    tools:context=".activities.MainMenuActivity">
+    tools:context=".activities.MainMenuActivity"
+    tools:keep="@layout/activity_level_select">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -133,21 +134,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:tag="levelButton" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <Button
-                        android:id="@+id/resetLevels"
-                        android:layout_width="69dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/testing_reset_levels" />
                 </TableRow>
 
             </TableLayout>

@@ -7,7 +7,8 @@
     android:background="@color/white"
     android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
     tools:context=".activities.MainMenuActivity"
-    android:id="@+id/MainFullscreenContent">
+    android:id="@+id/MainFullscreenContent"
+    tools:keep="@layout/activity_main_menu">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,

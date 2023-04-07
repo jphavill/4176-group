@@ -12,6 +12,7 @@ import com.example.csci4176_groupproject.dialogs.SettingsDialog
 import com.example.csci4176_groupproject.data.LevelActivities
 import com.example.csci4176_groupproject.interfaces.SettingsDialogCallback
 import com.example.csci4176_groupproject.models.Level
+import com.example.csci4176_groupproject.models.SettingChange
 import com.example.csci4176_groupproject.models.Settings
 import com.google.gson.Gson
 
@@ -81,8 +82,14 @@ class MainMenuActivity : BaseActivity(), SettingsDialogCallback {
 
     override fun settingsDialogCallback(settings: Settings) {
         val changes = settings.changes
-        if (changes["haptics"]!!){
+        if (changes[SettingChange.Haptics]!!){
             window.decorView.rootView.isHapticFeedbackEnabled = settings.haptics
+        }
+        if (changes[SettingChange.ResetLevels]!!){
+            settingsViewModel.setResetLevels(settings.resetLevels)
+        }
+        if (changes[SettingChange.ResetStore]!!){
+            settingsViewModel.setResetStore(settings.resetStore)
         }
     }
 }

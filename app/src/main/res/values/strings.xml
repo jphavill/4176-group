@@ -35,4 +35,10 @@
     <string name="apply">Apply</string>
     <string name="level_complete">Level Complete!</string>
     <string name="player_character">Player character</string>
+    <string name="developer_settings">Developer Settings</string>
+    <string name="select_your_player_skin">Select your player skin</string>
+    <string name="level_reset">Level Reset On</string>
+    <string name="don_t_reset_levels">Reset Levels Off</string>
+    <string name="store_reset">Store Reset On</string>
+    <string name="don_t_reset_store">Reset Store Off</string>
 </resources>

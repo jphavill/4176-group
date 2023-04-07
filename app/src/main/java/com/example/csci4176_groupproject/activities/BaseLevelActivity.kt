@@ -30,8 +30,6 @@ abstract class BaseLevelActivity: BaseActivity() {
     private lateinit var detector: GestureDetectorCompat
     lateinit var fullScreenView: ViewGroup
 
-    private val settingsViewModel: SettingsViewModel by viewModels()
-
     @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,8 +55,6 @@ abstract class BaseLevelActivity: BaseActivity() {
         resetButton.setOnClickListener{
             resetLevel()
         }
-
-
 
         setupWalls()
         setupGround()

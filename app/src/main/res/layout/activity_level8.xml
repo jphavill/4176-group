@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:background="?attr/fullscreenBackgroundColor"
     android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
-    tools:context=".activities.MainMenuActivity">
+    tools:context=".activities.MainMenuActivity"
+    tools:keep="@layout/activity_level8">
 
     <TableLayout
         android:layout_width="match_parent"

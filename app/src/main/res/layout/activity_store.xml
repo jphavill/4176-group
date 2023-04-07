@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:background="?attr/fullscreenBackgroundColor"
     android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
-    tools:context=".activities.MainMenuActivity">
+    tools:context=".activities.MainMenuActivity"
+    tools:keep="@layout/activity_store">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -106,11 +107,5 @@
             </TableLayout>
 
         </TableRow>
-        <Button
-            android:id="@+id/resetLevels"
-            android:layout_width="69dp"
-            android:layout_height="wrap_content"
-            android:text="@string/testing_reset_levels" />
-
     </TableLayout>
 </FrameLayout>

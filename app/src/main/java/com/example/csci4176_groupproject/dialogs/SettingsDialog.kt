@@ -6,13 +6,16 @@ import android.view.LayoutInflater
 import android.view.WindowManager
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.AppCompatToggleButton
 import androidx.appcompat.widget.SwitchCompat
 import com.example.csci4176_groupproject.avoidDropdownFocus
 import com.example.csci4176_groupproject.models.Cosmetic
 import com.example.csci4176_groupproject.data.CosmeticList
 import com.example.csci4176_groupproject.R
 import com.example.csci4176_groupproject.interfaces.SettingsDialogCallback
+import com.example.csci4176_groupproject.models.Level
 import com.example.csci4176_groupproject.models.Settings
+import com.example.csci4176_groupproject.models.SettingChange
 import com.google.gson.Gson
 
 class SettingsDialog(context: Context) : AlertDialog.Builder(context)  {
@@ -35,6 +38,12 @@ class SettingsDialog(context: Context) : AlertDialog.Builder(context)  {
         colorBlindModeView.isChecked = initialSettings.colourBlindMode
         val hapticsSwitchView = view.findViewById<SwitchCompat>(R.id.hapticsSwitch)
         hapticsSwitchView.isChecked = initialSettings.haptics
+
+        // used for development testing
+        val resetLevelToggle = view.findViewById<ToggleButton>(R.id.resetLevelsButton)
+
+        val resetStoreToggle = view.findViewById<ToggleButton>(R.id.resetStoreButton)
+
 
         val skinNames = mutableListOf<String>()
         val skinIcons = mutableListOf<Int>()
@@ -65,15 +74,17 @@ class SettingsDialog(context: Context) : AlertDialog.Builder(context)  {
 
         playerIconView.setSelection(skinIcons.indexOf(settingPrefs.getInt("playerSkin", CosmeticList().itemList[0].img)))
 
-        val applyButton = view.findViewById<Button>(R.id.mainMenuButton)
+        val applyButton = view.findViewById<Button>(R.id.applyButton)
         applyButton.setOnClickListener {
             val updatedSettings = Settings(haptics = hapticsSwitchView.isChecked,
                 colourBlindMode = colorBlindModeView.isChecked,
                 playerSkin = skinIcons[playerIconView.selectedItemPosition])
             updatedSettings.changes = mapOf(
-                "haptics" to (initialSettings.haptics != updatedSettings.haptics),
-                "colourBlindMode" to (initialSettings.colourBlindMode != updatedSettings.colourBlindMode),
-                "playerSkin" to (initialSettings.playerSkin != updatedSettings.playerSkin),
+                SettingChange.Haptics to (initialSettings.haptics != updatedSettings.haptics),
+                SettingChange.ColourBlindMode to (initialSettings.colourBlindMode != updatedSettings.colourBlindMode),
+                SettingChange.PlayerSkin to (initialSettings.playerSkin != updatedSettings.playerSkin),
+                SettingChange.ResetLevels to resetLevelToggle.isChecked,
+                SettingChange.ResetStore to resetStoreToggle.isChecked,
             )
 
             // save state of settings
@@ -86,13 +97,16 @@ class SettingsDialog(context: Context) : AlertDialog.Builder(context)  {
 
             builder.dismiss()
         }
-        val cancelButton = view.findViewById<Button>(R.id.nextLevelButton)
+
+
+        val cancelButton = view.findViewById<Button>(R.id.cancelButton)
         cancelButton.setOnClickListener {
-    //              if the cancel button is hit, don't save settings and exit
+    //  if the cancel button is hit, don't save settings and exit
             builder.cancel()
         }
-    //          the user must hit either the cancel or apply button to close the dialog
+    //  the user must hit either the cancel or apply button to close the dialog
         builder.setCanceledOnTouchOutside(false)
+//      keeps the android status bar from appearing when the dialog is open
         builder.window?.setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
         builder.show()
     }

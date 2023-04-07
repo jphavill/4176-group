@@ -125,7 +125,7 @@ class WinDialog(context: Context) : AlertDialog.Builder(context) {
 
     // calculate how many stars the user earned
     private fun calcStars(userTime: Int, lID: Int): Int {
-        val starTime = 8000 + (lID * 1000)
+        val starTime = 5500 + (lID * 1750)
         val perStarTime = 2000
         var tempStar = kotlin.math.floor((starTime - userTime).toDouble() / perStarTime)
         tempStar = if (tempStar < 0) 0.0 else tempStar

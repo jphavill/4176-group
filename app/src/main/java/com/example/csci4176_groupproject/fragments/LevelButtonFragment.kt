@@ -16,7 +16,7 @@ import com.example.csci4176_groupproject.databinding.FragmentLevelButtonBinding
 import com.example.csci4176_groupproject.dialogs.BuyDialog
 import com.example.csci4176_groupproject.interfaces.BuyDialogCallback
 import com.example.csci4176_groupproject.models.Level
-import com.example.csci4176_groupproject.viewModel.StarCountViewModel
+import com.example.csci4176_groupproject.viewModels.StarCountViewModel
 import com.google.gson.Gson
 
 

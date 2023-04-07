@@ -12,7 +12,7 @@ import com.example.csci4176_groupproject.databinding.FragmentCosmeticButtonBindi
 import com.example.csci4176_groupproject.dialogs.BuyDialog
 import com.example.csci4176_groupproject.interfaces.BuyDialogCallback
 import com.example.csci4176_groupproject.models.Cosmetic
-import com.example.csci4176_groupproject.viewModel.StarCountViewModel
+import com.example.csci4176_groupproject.viewModels.StarCountViewModel
 import com.google.gson.Gson
 
 

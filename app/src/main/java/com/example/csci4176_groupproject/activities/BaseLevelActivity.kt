@@ -13,7 +13,7 @@ import com.example.csci4176_groupproject.data.CosmeticList
 import com.example.csci4176_groupproject.dialogs.WinDialog
 import com.example.csci4176_groupproject.fragments.RestartButtonFragment
 import com.example.csci4176_groupproject.models.*
-import com.example.csci4176_groupproject.viewModel.RestartLevelViewModel
+import com.example.csci4176_groupproject.viewModels.RestartLevelViewModel
 import java.time.LocalDateTime
 import kotlin.math.abs
 

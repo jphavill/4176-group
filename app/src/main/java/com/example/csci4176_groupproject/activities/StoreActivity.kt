@@ -8,7 +8,7 @@ import com.example.csci4176_groupproject.R
 import com.example.csci4176_groupproject.databinding.ActivityStoreBinding
 import com.example.csci4176_groupproject.fragments.CosmeticButtonFragment
 import com.example.csci4176_groupproject.interfaces.BuyDialogCallback
-import com.example.csci4176_groupproject.viewModel.StarCountViewModel
+import com.example.csci4176_groupproject.viewModels.StarCountViewModel
 
 
 class StoreActivity : BaseActivity(), BuyDialogCallback {

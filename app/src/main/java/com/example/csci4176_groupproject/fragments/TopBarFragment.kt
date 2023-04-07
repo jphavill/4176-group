@@ -15,7 +15,7 @@ import com.example.csci4176_groupproject.dialogs.SettingsDialog
 import com.example.csci4176_groupproject.interfaces.SettingsDialogCallback
 import com.example.csci4176_groupproject.models.SettingChange
 import com.example.csci4176_groupproject.models.Settings
-import com.example.csci4176_groupproject.viewModel.SettingsViewModel
+import com.example.csci4176_groupproject.viewModels.SettingsViewModel
 
 class TopBarFragment : Fragment(), SettingsDialogCallback {
     private var _binding: FragmentTopBarBinding? = null

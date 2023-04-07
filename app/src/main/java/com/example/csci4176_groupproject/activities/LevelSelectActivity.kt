@@ -11,7 +11,7 @@ import com.example.csci4176_groupproject.data.LevelActivities
 import com.example.csci4176_groupproject.databinding.ActivityLevelSelectBinding
 import com.example.csci4176_groupproject.fragments.LevelButtonFragment
 import com.example.csci4176_groupproject.interfaces.BuyDialogCallback
-import com.example.csci4176_groupproject.viewModel.StarCountViewModel
+import com.example.csci4176_groupproject.viewModels.StarCountViewModel
 
 class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
     private lateinit var binding: ActivityLevelSelectBinding

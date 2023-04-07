@@ -1,4 +1,4 @@
-package com.example.csci4176_groupproject.viewModel
+package com.example.csci4176_groupproject.viewModels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

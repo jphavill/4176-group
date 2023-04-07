@@ -13,7 +13,7 @@ import com.example.csci4176_groupproject.R
 import com.example.csci4176_groupproject.data.CosmeticList
 import com.example.csci4176_groupproject.fragments.TopBarFragment
 import com.example.csci4176_groupproject.models.Level
-import com.example.csci4176_groupproject.viewModel.SettingsViewModel
+import com.example.csci4176_groupproject.viewModels.SettingsViewModel
 import com.google.gson.Gson
 
 abstract class BaseActivity : AppCompatActivity() {

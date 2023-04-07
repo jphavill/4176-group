@@ -7,7 +7,6 @@
     <string name="default_title">Title</string>
     <string name="default_star_count">: 5</string>
     <string name="stars">Stars</string>
-    <string name="testing_reset_levels">TESTING reset levels</string>
     <string name="wall_tile">Wall Tile</string>
     <string name="ground_tile">Ground Tile</string>
     <string name="level_selection_scroll_back">Level selection scroll back</string>

@@ -4,16 +4,16 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.ImageButton
+import android.widget.TextView
 import androidx.activity.viewModels
-import com.example.csci4176_groupproject.data.LevelActivities
-import com.example.csci4176_groupproject.fragments.LevelButtonFragment
 import com.example.csci4176_groupproject.R
-import com.example.csci4176_groupproject.viewModel.StarCountViewModel
+import com.example.csci4176_groupproject.data.LevelActivities
 import com.example.csci4176_groupproject.databinding.ActivityLevelSelectBinding
+import com.example.csci4176_groupproject.fragments.LevelButtonFragment
 import com.example.csci4176_groupproject.interfaces.BuyDialogCallback
 import com.example.csci4176_groupproject.models.Level
-import com.example.csci4176_groupproject.viewModel.SettingsViewModel
+import com.example.csci4176_groupproject.viewModel.StarCountViewModel
 import com.google.gson.Gson
 
 class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
@@ -23,8 +23,8 @@ class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
     private var replace: Boolean = false
     private val starCount: StarCountViewModel by viewModels()
 
-    override fun binaryDialogCallback(result: Boolean){
-        if (result){
+    override fun binaryDialogCallback(result: Boolean) {
+        if (result) {
             updateButtons()
         }
     }
@@ -41,12 +41,11 @@ class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
 
         super.addTopBar("Level Select", "MainMenuActivity")
 
-        settingsViewModel.resetLevels.observe(this){
-            resetLevels()
-            updateButtons()
-        }
         starCount.starCount.observe(this) {
             updateStars()
+        }
+        settingsViewModel.resetLevels.observe(this) {
+            updateButtons()
         }
     }
 
@@ -55,15 +54,15 @@ class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
         updateNavButtons()
         val fullScreenView: ViewGroup = findViewById(R.id.levelSelectFullscreenContent)
         val levelButtons = getViewsByTag(fullScreenView, "levelButton")
-        var buttonIndex = pageNumber*perPage
-        for (b in levelButtons){
+        var buttonIndex = pageNumber * perPage
+        for (b in levelButtons) {
             val frag = LevelButtonFragment()
             val args = Bundle()
-            args.putInt("buttonIndex",buttonIndex)
+            args.putInt("buttonIndex", buttonIndex)
             frag.arguments = args
-            if (replace){
+            if (replace) {
                 supportFragmentManager.beginTransaction().replace(b.id, frag).commit()
-            } else{
+            } else {
                 supportFragmentManager.beginTransaction().add(b.id, frag).commit()
             }
             buttonIndex += 1
@@ -76,7 +75,7 @@ class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
         starCountView.text = settingPrefs.getInt("stars", 0).toString()
     }
 
-    private fun updateNavButtons(){
+    private fun updateNavButtons() {
         val levels = LevelActivities().levels
         val nextView = findViewById<ImageButton>(R.id.levelsNextButton)
         if (pageNumber < kotlin.math.floor(levels.size / perPage.toDouble())) {
@@ -92,26 +91,12 @@ class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
         if (pageNumber > 0) {
             backView.setOnClickListener {
                 pageNumber--
-                updateButtons()}
+                updateButtons()
+            }
             backView.visibility = View.VISIBLE
 
         } else {
             backView.visibility = View.INVISIBLE
-        }
-    }
-
-    private fun resetLevels(){
-        for (id in 1 until 11){
-            // the last level on the first page, and all subsequent levels, are locked by default
-            val tempLevel = Level(id=id, locked = id > 5)
-            val gson = Gson()
-            val editor: SharedPreferences.Editor = settingPrefs.edit()
-            tempLevel.starsEarned = 0
-            tempLevel.time = -1
-            tempLevel.tried = false
-            editor.putString(String.format("level%d", id), gson.toJson(tempLevel))
-            editor.putInt("stars", 0)
-            editor.apply()
         }
     }
 

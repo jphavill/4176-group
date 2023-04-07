@@ -57,18 +57,18 @@
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
         <activity
             android:name=".activities.levels.Level6Activity"
-            android:exported="false"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
         <activity
             android:name=".activities.levels.Level7Activity"
-            android:exported="false"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
         <activity
             android:name=".activities.levels.Level8Activity"
-            android:exported="false"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
         <activity
             android:name=".activities.levels.Level9Activity"

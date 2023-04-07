@@ -29,8 +29,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:tag="levelStar"
             android:contentDescription="@string/level_star_number_1"
+            android:tag="levelStar"
             app:srcCompat="@android:drawable/btn_star_big_on" />
 
         <ImageView
@@ -38,8 +38,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:tag="levelStar"
             android:contentDescription="@string/level_star_number_2"
+            android:tag="levelStar"
             app:srcCompat="@android:drawable/btn_star_big_on" />
 
         <ImageView
@@ -47,8 +47,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:tag="levelStar"
             android:contentDescription="@string/level_star_number_3"
+            android:tag="levelStar"
             app:srcCompat="@android:drawable/btn_star_big_on" />
 
     </LinearLayout>

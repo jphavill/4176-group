@@ -23,1119 +23,1107 @@
             <FrameLayout
                 android:id="@+id/topBar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
 
         </TableRow>
-
 
         <TableLayout
-                android:layout_width="0dp"
-                android:layout_height="600dp"
-                android:gravity="center_horizontal"
-                android:layout_weight="1">
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal">
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal">
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal">
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:adjustViewBounds="false"
-                        android:cropToPadding="false"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal">
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal">
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal">
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:layout_weight="0"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal">
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal">
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal">
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTileStart"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal">
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal">
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal">
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal">
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="groundTile"
-                        android:contentDescription="@string/ground_tile"
-                        app:srcCompat="@drawable/ground_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal">
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                    <ImageView
-                        android:layout_width="39dp"
-                        android:layout_height="39dp"
-                        android:tag="wallTile"
-                        android:contentDescription="@string/wall_tile"
-                        app:srcCompat="@drawable/wall_tile_foreground" />
-
-                </TableRow>
-            </TableLayout>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="88dp"
+            android:layout_width="0dp"
+            android:layout_height="600dp"
+            android:layout_weight="1"
             android:gravity="center_horizontal">
 
-            <ImageButton
-                android:id="@+id/resetLevelsButton"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="15dp"
-                android:adjustViewBounds="true"
-                android:backgroundTint="#C6BCBC"
-                android:contentDescription="@string/level_reset_button"
-                android:scaleType="fitCenter"
-                app:srcCompat="@android:drawable/ic_popup_sync"
-                app:tint="#000000" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
 
-        </TableRow>
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/wall_tile"
+                    android:cropToPadding="false"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/wall_tile"
+                    android:cropToPadding="false"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/wall_tile"
+                    android:cropToPadding="false"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/wall_tile"
+                    android:cropToPadding="false"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/wall_tile"
+                    android:cropToPadding="false"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/wall_tile"
+                    android:cropToPadding="false"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/wall_tile"
+                    android:cropToPadding="false"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/wall_tile"
+                    android:cropToPadding="false"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/wall_tile"
+                    android:cropToPadding="false"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/wall_tile"
+                    android:cropToPadding="false"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/ground_tile"
+                    android:cropToPadding="false"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/ground_tile"
+                    android:cropToPadding="false"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/ground_tile"
+                    android:cropToPadding="false"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/wall_tile"
+                    android:cropToPadding="false"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/ground_tile"
+                    android:cropToPadding="false"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/ground_tile"
+                    android:cropToPadding="false"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/wall_tile"
+                    android:cropToPadding="false"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/wall_tile"
+                    android:cropToPadding="false"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/wall_tile"
+                    android:cropToPadding="false"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/wall_tile"
+                    android:cropToPadding="false"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/ground_tile"
+                    android:cropToPadding="false"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/ground_tile"
+                    android:cropToPadding="false"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/ground_tile"
+                    android:cropToPadding="false"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/ground_tile"
+                    android:cropToPadding="false"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/ground_tile"
+                    android:cropToPadding="false"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/ground_tile"
+                    android:cropToPadding="false"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/wall_tile"
+                    android:cropToPadding="false"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTileStart"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/ground_tile"
+                    android:tag="groundTile"
+                    app:srcCompat="@drawable/ground_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:contentDescription="@string/wall_tile"
+                    android:tag="wallTile"
+                    app:srcCompat="@drawable/wall_tile_foreground" />
+
+            </TableRow>
+        </TableLayout>
+
+        <!-- used as a placeholder for the restart button fragment-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:id="@+id/restartButton"/>
+
     </TableLayout>
 
     <RelativeLayout
@@ -1144,9 +1132,9 @@
 
         <ImageView
             android:id="@+id/playerImageView"
-            android:contentDescription="@string/player_character"
             android:layout_width="39dp"
             android:layout_height="39dp"
+            android:contentDescription="@string/player_character"
             android:translationY="700dp"
             app:srcCompat="@drawable/ic_launcher_foreground" />
     </RelativeLayout>

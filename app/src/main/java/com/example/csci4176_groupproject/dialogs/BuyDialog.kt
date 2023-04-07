@@ -8,17 +8,19 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import com.example.csci4176_groupproject.interfaces.Buyable
 import com.example.csci4176_groupproject.R
 import com.example.csci4176_groupproject.interfaces.BuyDialogCallback
+import com.example.csci4176_groupproject.interfaces.Buyable
 
-@Suppress("unused", "unused", "unused", "unused", "unused", "unused", "unused", "unused", "unused",
+@Suppress(
+    "unused", "unused", "unused", "unused", "unused", "unused", "unused", "unused", "unused",
     "unused"
 )
 class BuyDialog(context: Context) : AlertDialog.Builder(context) {
-    private val settingPrefs: SharedPreferences = context.applicationContext.getSharedPreferences("settingsPrefs", 0)
+    private val settingPrefs: SharedPreferences =
+        context.applicationContext.getSharedPreferences("settingsPrefs", 0)
 
-    fun showBuy(item: Buyable, callback: BuyDialogCallback){
+    fun showBuy(item: Buyable, callback: BuyDialogCallback) {
         val builder = AlertDialog.Builder(context, R.style.SettingsDialog).create()
         val li = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = li.inflate(R.layout.buy_dialog, null)
@@ -33,7 +35,7 @@ class BuyDialog(context: Context) : AlertDialog.Builder(context) {
         val unlockButton = view.findViewById<Button>(R.id.unlockButton)
         val purchaseText = view.findViewById<TextView>(R.id.purchaseText)
 
-        if (cost <= totalStars){
+        if (cost <= totalStars) {
             unlockButton.setOnClickListener {
                 val editor: SharedPreferences.Editor = settingPrefs.edit()
                 view.performHapticFeedback(16)
@@ -56,7 +58,10 @@ class BuyDialog(context: Context) : AlertDialog.Builder(context) {
         }
 
         builder.setCanceledOnTouchOutside(false)
-        builder.window?.setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
+        builder.window?.setFlags(
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+        )
         builder.show()
     }
 }

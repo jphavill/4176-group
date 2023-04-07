@@ -23,13 +23,14 @@
             <FrameLayout
                 android:id="@+id/topBar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -49,7 +50,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="@string/_5"
-                    android:textColor="@android:color/secondary_text_light"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -73,16 +73,16 @@
                     android:gravity="center_horizontal">
                     <!-- Frame layouts are used as placeholders for the fragments-->
                     <FrameLayout
+                        android:id="@+id/button1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="cosmeticButton"
-                        android:id="@+id/button1"/>
+                        android:tag="cosmeticButton" />
 
                     <FrameLayout
+                        android:id="@+id/button2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="cosmeticButton"
-                        android:id="@+id/button2"/>
+                        android:tag="cosmeticButton" />
                 </TableRow>
 
                 <TableRow
@@ -91,16 +91,16 @@
                     android:gravity="center_horizontal">
 
                     <FrameLayout
+                        android:id="@+id/button3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="cosmeticButton"
-                        android:id="@+id/button3"/>
+                        android:tag="cosmeticButton" />
 
                     <FrameLayout
+                        android:id="@+id/button4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="cosmeticButton"
-                        android:id="@+id/button4"/>
+                        android:tag="cosmeticButton" />
 
                 </TableRow>
 

@@ -10,4 +10,4 @@ data class Level(
     var starsEarned: Int = 0,
     override val cost: Int = 1,
     override val title: String = "Level $id"
-): Buyable
+) : Buyable

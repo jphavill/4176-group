@@ -10,23 +10,29 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.content.res.AppCompatResources
-import com.example.csci4176_groupproject.models.Level
+import com.example.csci4176_groupproject.R
 import com.example.csci4176_groupproject.activities.LevelSelectActivity
 import com.example.csci4176_groupproject.activities.MainMenuActivity
-import com.example.csci4176_groupproject.R
 import com.example.csci4176_groupproject.data.LevelActivities
+import com.example.csci4176_groupproject.models.Level
 import com.google.gson.Gson
 
-class WinDialog(context: Context) : AlertDialog.Builder(context)  {
-    private val settingPrefs: SharedPreferences = context.applicationContext.getSharedPreferences("settingsPrefs", 0)
+class WinDialog(context: Context) : AlertDialog.Builder(context) {
+    private val settingPrefs: SharedPreferences =
+        context.applicationContext.getSharedPreferences("settingsPrefs", 0)
 
     fun showWin(milliseconds: Int, levelId: Int) {
         var starCount = calcStars(milliseconds, levelId)
 
-        val tempLevel = Level(id=levelId, locked = false)
+        val tempLevel = Level(id = levelId, locked = false)
         val gson = Gson()
 
-        var level: Level = gson.fromJson(settingPrefs.getString(String.format("level%d", levelId), gson.toJson(tempLevel)), Level::class.java)
+        var level: Level = gson.fromJson(
+            settingPrefs.getString(
+                String.format("level%d", levelId),
+                gson.toJson(tempLevel)
+            ), Level::class.java
+        )
 
         val builder = AlertDialog.Builder(context, R.style.SettingsDialog).create()
         val li = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -34,9 +40,18 @@ class WinDialog(context: Context) : AlertDialog.Builder(context)  {
         builder.setView(view)
 
         // set the seconds
-        val timeView = view.findViewById<TextView>(R.id.purchaseText)
+        val timeView = view.findViewById<TextView>(R.id.timeText)
         timeView.text = String.format("Time: %.2fs", milliseconds.toFloat() / 1000)
-
+        
+        // If it's a new best time congragulate the player, otherwise show best time
+        // set the seconds
+        val bestTimeView = view.findViewById<TextView>(R.id.bestTimeText)
+        if (level.time != -1 && level.time < milliseconds){
+            bestTimeView.text = String.format("Best Time: %.2fs", level.time.toFloat() / 1000)
+        } else {
+            bestTimeView.text = context.getString(R.string.new_best_time)
+        }
+        
 
 
         // update level data stored in persistent memory
@@ -48,24 +63,38 @@ class WinDialog(context: Context) : AlertDialog.Builder(context)  {
         editor.apply()
 
         // set state of stars
-        val stars: List<ImageView> = listOf(view.findViewById(R.id.star1Image), view.findViewById(R.id.star2Image), view.findViewById(
-            R.id.star3Image
-        ))
-        while(starCount > 0){
+        val stars: List<ImageView> = listOf(
+            view.findViewById(R.id.star1Image),
+            view.findViewById(R.id.star2Image),
+            view.findViewById(
+                R.id.star3Image
+            )
+        )
+        while (starCount > 0) {
             starCount--
-            stars[starCount].setImageDrawable(AppCompatResources.getDrawable(context, android.R.drawable.btn_star_big_on))
+            stars[starCount].setImageDrawable(
+                AppCompatResources.getDrawable(
+                    context,
+                    android.R.drawable.btn_star_big_on
+                )
+            )
         }
 
         val nextLevelView = view.findViewById<Button>(R.id.nextLevelButton)
 
-        val nextLevel: Level = gson.fromJson(settingPrefs.getString(String.format("level%d", levelId+1), gson.toJson((tempLevel))), Level::class.java)
+        val nextLevel: Level = gson.fromJson(
+            settingPrefs.getString(
+                String.format("level%d", levelId + 1),
+                gson.toJson((tempLevel))
+            ), Level::class.java
+        )
         if (levelId >= 10 || nextLevel.locked) {
             nextLevelView.isEnabled = false
             nextLevelView.isClickable = false
         } else {
             nextLevelView.setOnClickListener {
                 nextLevel.tried = true
-                editor.putString(String.format("level%d", levelId+1), gson.toJson(nextLevel))
+                editor.putString(String.format("level%d", levelId + 1), gson.toJson(nextLevel))
                 editor.apply()
                 context.startActivity(Intent(context, LevelActivities().levels[levelId]))
                 builder.dismiss()
@@ -86,9 +115,12 @@ class WinDialog(context: Context) : AlertDialog.Builder(context)  {
             builder.dismiss()
         }
 
-    //  the user must hit either the cancel or apply button to close the dialog
+        //  the user must hit either the cancel or apply button to close the dialog
         builder.setCanceledOnTouchOutside(false)
-        builder.window?.setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
+        builder.window?.setFlags(
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+        )
         builder.show()
     }
 

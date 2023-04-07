@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    tools:context=".fragments.RestartButtonFragment">
+
+    <ImageButton
+        android:id="@+id/resetLevelsButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="15dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="#C6BCBC"
+        android:contentDescription="@string/level_reset_button"
+        android:scaleType="fitCenter"
+        app:srcCompat="@android:drawable/ic_popup_sync"
+        app:tint="#000000" />
+
+</TableRow>

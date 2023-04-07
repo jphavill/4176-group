@@ -3,16 +3,14 @@ package com.example.csci4176_groupproject.activities
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.activity.viewModels
-import com.example.csci4176_groupproject.fragments.CosmeticButtonFragment
-import com.example.csci4176_groupproject.data.CosmeticList
 import com.example.csci4176_groupproject.R
-import com.example.csci4176_groupproject.viewModel.StarCountViewModel
+import com.example.csci4176_groupproject.data.CosmeticList
 import com.example.csci4176_groupproject.databinding.ActivityStoreBinding
+import com.example.csci4176_groupproject.fragments.CosmeticButtonFragment
 import com.example.csci4176_groupproject.interfaces.BuyDialogCallback
-import com.example.csci4176_groupproject.viewModel.SettingsViewModel
+import com.example.csci4176_groupproject.viewModel.StarCountViewModel
 import com.google.gson.Gson
 
 
@@ -21,8 +19,8 @@ class StoreActivity : BaseActivity(), BuyDialogCallback {
     private lateinit var starsTextView: TextView
     private var replace: Boolean = false
     private val starCount: StarCountViewModel by viewModels()
-    override fun binaryDialogCallback(result: Boolean){
-        if (result){
+    override fun binaryDialogCallback(result: Boolean) {
+        if (result) {
             updateButtons()
         }
     }
@@ -44,12 +42,8 @@ class StoreActivity : BaseActivity(), BuyDialogCallback {
         starCount.starCount.observe(this) {
             updateStars()
         }
-        starCount.starCount.observe(this) {
-            updateStars()
-        }
 
         settingsViewModel.resetStore.observe(this) {
-            resetStore()
             updateButtons()
         }
         updateButtons()
@@ -61,14 +55,14 @@ class StoreActivity : BaseActivity(), BuyDialogCallback {
         val cosmeticButtons = getViewsByTag(fullScreenView, "cosmeticButton")
         // start at 1 since 0 index is the default skin which is not in the store
         var buttonIndex = 1
-        for (b in cosmeticButtons){
+        for (b in cosmeticButtons) {
             val frag = CosmeticButtonFragment()
             val args = Bundle()
-            args.putInt("cosmeticId",buttonIndex)
+            args.putInt("cosmeticId", buttonIndex)
             frag.arguments = args
-            if (replace){
+            if (replace) {
                 supportFragmentManager.beginTransaction().replace(b.id, frag).commit()
-            } else{
+            } else {
                 supportFragmentManager.beginTransaction().add(b.id, frag).commit()
             }
             buttonIndex += 1
@@ -79,17 +73,6 @@ class StoreActivity : BaseActivity(), BuyDialogCallback {
     private fun updateStars() {
         val starCountView = findViewById<TextView>(R.id.starCount)
         starCountView.text = settingPrefs.getInt("stars", 0).toString()
-    }
-
-    private fun resetStore(){
-        val gson = Gson()
-        val editor: SharedPreferences.Editor = settingPrefs.edit()
-        for (id in 0 until CosmeticList().itemList.size){
-            val tempCosmetic = CosmeticList().itemList[id]
-            editor.putString(String.format("cosmetic%d", id), gson.toJson(tempCosmetic))
-        }
-        editor.putInt("playerSkin", CosmeticList().itemList[0].img)
-        editor.apply()
     }
 }
 

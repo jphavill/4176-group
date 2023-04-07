@@ -14,15 +14,17 @@ abstract class Tile(val tileImageView: ImageView) {
     fun getXPos(): Int {
         return xPos
     }
+
     fun getYPos(): Int {
         return yPos
     }
 
     // Setters
-    fun setXPos(newXPos: Int){
+    fun setXPos(newXPos: Int) {
         xPos = newXPos
     }
-    fun setYPos(newYPos: Int){
+
+    fun setYPos(newYPos: Int) {
         yPos = newYPos
     }
 }

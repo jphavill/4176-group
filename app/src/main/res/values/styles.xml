@@ -5,6 +5,6 @@
     </style>
 
     <style name="SettingsDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:windowBackground">@drawable/settings_background</item>
+        <item name="android:windowBackground">@drawable/rounded_background</item>
     </style>
 </resources>

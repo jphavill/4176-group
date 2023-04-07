@@ -15,8 +15,8 @@ data class Settings(
         SettingChange.PlayerSkin to false,
         SettingChange.ResetLevels to false,
         SettingChange.ResetStore to false,
-        )
     )
+)
 
 enum class SettingChange {
     Haptics, ColourBlindMode, PlayerSkin, ResetLevels, ResetStore

@@ -8,7 +8,8 @@
     android:layout_marginTop="30dp"
     android:layout_marginRight="25dp"
     android:orientation="vertical"
-    tools:context=".Fragments.LevelButtonFragment">
+    tools:context=".fragments.LevelButtonFragment"
+    tools:keep="@layout/fragment_level_button">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
@@ -16,7 +17,7 @@
         android:layout_height="100dp"
         android:width="50dp"
         android:height="50dp"
-        android:text="Button" />
+        android:text="@string/default_button" />
 
     <LinearLayout
         android:layout_width="100dp"
@@ -29,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:tag="levelStar"
+            android:contentDescription="@string/level_star_number_1"
             app:srcCompat="@android:drawable/btn_star_big_on" />
 
         <ImageView
@@ -37,6 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:tag="levelStar"
+            android:contentDescription="@string/level_star_number_2"
             app:srcCompat="@android:drawable/btn_star_big_on" />
 
         <ImageView
@@ -45,6 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:tag="levelStar"
+            android:contentDescription="@string/level_star_number_3"
             app:srcCompat="@android:drawable/btn_star_big_on" />
 
     </LinearLayout>

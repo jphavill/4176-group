@@ -6,8 +6,9 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
-    tools:context=".Activities.MainMenuActivity"
-    android:id="@+id/MainFullscreenContent">
+    tools:context=".activities.MainMenuActivity"
+    android:id="@+id/MainFullscreenContent"
+    tools:keep="@layout/activity_main_menu">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
@@ -34,7 +35,8 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/settingsicon" />
+                android:contentDescription="@string/settings"
+                android:background="@drawable/settings_icon" />
         </LinearLayout>
 
         <LinearLayout
@@ -44,12 +46,11 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/margarine"
-                android:text="Colour Slide"
+                android:text="@string/app_title"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="52sp"
@@ -66,12 +67,13 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/shoppingcartButton"
+                android:id="@+id/shoppingCartButton"
                 android:layout_width="68dp"
                 android:layout_height="64dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/shoppingcart"
+                android:background="@drawable/shopping_cart"
+                android:contentDescription="@string/store"
                 android:color="#FFFFFF" />
 
             <ImageButton
@@ -80,7 +82,8 @@
                 android:layout_height="64dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/menuselect"
+                android:background="@drawable/menu_select"
+                android:contentDescription="@string/level_select"
                 android:color="#FFFFFF" />
         </LinearLayout>
 

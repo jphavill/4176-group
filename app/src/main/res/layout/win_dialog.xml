@@ -24,7 +24,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Level Complete!"
+                android:text="@string/level_complete"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -34,9 +34,9 @@
         <TextView
             android:id="@+id/purchaseText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="Time:"
+            android:text="@string/time"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="16sp" />
@@ -61,6 +61,7 @@
                 android:layout_width="1dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:contentDescription="@string/level_star_number_1"
                 app:srcCompat="@android:drawable/btn_star_big_off" />
 
             <ImageView
@@ -68,6 +69,7 @@
                 android:layout_width="1dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:contentDescription="@string/level_star_number_2"
                 app:srcCompat="@android:drawable/btn_star_big_off" />
 
             <ImageView
@@ -75,6 +77,7 @@
                 android:layout_width="1dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:contentDescription="@string/level_star_number_3"
                 app:srcCompat="@android:drawable/btn_star_big_off" />
 
             <Space
@@ -103,7 +106,7 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Next Level" />
+                android:text="@string/next_level" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -126,7 +129,7 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Main Menu" />
+                android:text="@string/main_menu" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -150,7 +153,7 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Level Select" />
+                android:text="@string/level_select" />
 
             <Space
                 android:layout_width="wrap_content"

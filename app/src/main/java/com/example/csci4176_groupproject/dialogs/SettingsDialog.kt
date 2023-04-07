@@ -3,6 +3,7 @@ package com.example.csci4176_groupproject.dialogs
 import android.content.Context
 import android.content.SharedPreferences
 import android.view.LayoutInflater
+import android.view.WindowManager
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
@@ -93,6 +94,7 @@ class SettingsDialog(context: Context) : AlertDialog.Builder(context)  {
         }
     //          the user must hit either the cancel or apply button to close the dialog
         builder.setCanceledOnTouchOutside(false)
+        builder.window?.setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
         builder.show()
     }
 }

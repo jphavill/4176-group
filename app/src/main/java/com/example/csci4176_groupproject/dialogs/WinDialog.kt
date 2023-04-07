@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.view.LayoutInflater
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -87,6 +88,7 @@ class WinDialog(context: Context) : AlertDialog.Builder(context)  {
 
     //  the user must hit either the cancel or apply button to close the dialog
         builder.setCanceledOnTouchOutside(false)
+        builder.window?.setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
         builder.show()
     }
 

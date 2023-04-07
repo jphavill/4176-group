@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
@@ -55,6 +56,7 @@ class BuyDialog(context: Context) : AlertDialog.Builder(context) {
         }
 
         builder.setCanceledOnTouchOutside(false)
+        builder.window?.setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
         builder.show()
     }
 }

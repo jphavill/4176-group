@@ -19,10 +19,24 @@
             android:gravity="center_horizontal">
 
             <!-- used as a placeholder for the top bar holding the back button, title and settings-->
-            <FrameLayout
-                android:id="@+id/topBar"
+
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <FrameLayout
+                        android:id="@+id/topBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </FrameLayout>
+                </TableRow>
+
+            </TableLayout>
 
         </TableRow>
 
@@ -41,8 +55,8 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/btn_star_big_on"
-                    android:contentDescription="@string/stars" />
+                    android:contentDescription="@string/stars"
+                    app:srcCompat="@android:drawable/btn_star_big_on" />
 
                 <TextView
                     android:id="@+id/starCount"
@@ -72,16 +86,16 @@
                     android:gravity="center_horizontal">
                     <!--                Frame layouts are used as placeholders for the fragments-->
                     <FrameLayout
+                        android:id="@+id/button1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="levelButton"
-                        android:id="@+id/button1"/>
+                        android:tag="levelButton" />
 
                     <FrameLayout
+                        android:id="@+id/button2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="levelButton"
-                        android:id="@+id/button2"/>
+                        android:tag="levelButton" />
                 </TableRow>
 
                 <TableRow
@@ -90,16 +104,16 @@
                     android:gravity="center_horizontal">
 
                     <FrameLayout
+                        android:id="@+id/button3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="levelButton"
-                        android:id="@+id/button3"/>
+                        android:tag="levelButton" />
 
                     <FrameLayout
+                        android:id="@+id/button4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="levelButton"
-                        android:id="@+id/button4"/>
+                        android:tag="levelButton" />
 
                 </TableRow>
 
@@ -109,16 +123,16 @@
                     android:gravity="center_horizontal">
 
                     <FrameLayout
+                        android:id="@+id/button5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="levelButton"
-                        android:id="@+id/button5"/>
+                        android:tag="levelButton" />
 
                     <FrameLayout
+                        android:id="@+id/button6"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="levelButton"
-                        android:id="@+id/button6"/>
+                        android:tag="levelButton" />
                 </TableRow>
 
                 <TableRow
@@ -145,25 +159,35 @@
             android:layout_height="match_parent"
             android:gravity="center_horizontal">
 
-            <ImageButton
-                android:id="@+id/levelsBackButton"
-                android:layout_width="wrap_content"
-                android:layout_height="70dp"
-                android:rotation="90"
-                android:contentDescription="@string/level_selection_scroll_back"
-                app:srcCompat="@android:drawable/arrow_down_float" />
+            <TableRow
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:gravity="center">
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="61dp" />
+                <ImageButton
+                    android:id="@+id/levelsBackButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/level_selection_scroll_back"
+                    android:rotation="90"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@android:drawable/arrow_down_float" />
 
-            <ImageButton
-                android:id="@+id/levelsNextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="70dp"
-                android:rotation="90"
-                android:contentDescription="@string/level_selection_scroll_forward"
-                app:srcCompat="@android:drawable/arrow_up_float" />
+                <Space
+                    android:layout_width="100dp"
+                    android:layout_height="61dp" />
+
+                <ImageButton
+                    android:id="@+id/levelsNextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/level_selection_scroll_forward"
+                    android:rotation="90"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@android:drawable/arrow_up_float" />
+            </TableRow>
 
         </TableRow>
     </TableLayout>

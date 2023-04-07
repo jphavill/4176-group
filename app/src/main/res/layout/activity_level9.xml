@@ -34,14 +34,11 @@
 
         </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal">
 
-            <TableLayout
+        <TableLayout
                 android:layout_width="0dp"
                 android:layout_height="600dp"
+                android:gravity="center_horizontal"
                 android:layout_weight="1">
 
                 <TableRow
@@ -1127,7 +1124,6 @@
 
                 </TableRow>
             </TableLayout>
-        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
@@ -1138,8 +1134,7 @@
                 android:id="@+id/resetLevelsButton"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"
+                android:layout_margin="15dp"
                 android:adjustViewBounds="true"
                 android:backgroundTint="#C6BCBC"
                 android:contentDescription="@string/level_reset_button"

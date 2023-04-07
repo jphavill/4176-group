@@ -29,7 +29,7 @@ class Player(private val playerImageView: ImageView, private var playerPosX: Int
 
     fun movePlayerPos(crossedTiles: ArrayList<GroundTile>){
         playerIsMoving = true
-        val animationDuration: Long = (1000 / crossedTiles.count()).toLong().coerceAtMost(200)
+        val animationDuration: Long = (700 / crossedTiles.count()).toLong().coerceAtMost(200)
         for (groundTile in crossedTiles){
             playerImageView.animate().apply {
                 duration = animationDuration

@@ -4,11 +4,10 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.WindowManager
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SwitchCompat
+import avoidDropdownFocus
 import com.example.csci4176_groupproject.models.Cosmetic
 import com.example.csci4176_groupproject.data.CosmeticList
 import com.example.csci4176_groupproject.R
@@ -53,16 +52,16 @@ class SettingsDialog(context: Context) : AlertDialog.Builder(context)  {
         }
 
         val playerIconView = view.findViewById<Spinner>(R.id.playerIconSelect)
-        val arrayAdapter = ArrayAdapter(
+        ArrayAdapter(
             context,
             R.layout.skin_list,
             skinNames
         ).also { adapter ->
             // Specify the layout to use when the list of choices appears
             adapter.setDropDownViewResource(R.layout.skin_list)
-            // Apply the adapter to the spinner
             playerIconView.adapter = adapter
         }
+        playerIconView.avoidDropdownFocus()
 
         playerIconView.setSelection(skinIcons.indexOf(settingPrefs.getInt("playerSkin", CosmeticList().itemList[0].img)))
 

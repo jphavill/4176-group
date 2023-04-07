@@ -106,13 +106,11 @@
             </TableLayout>
 
         </TableRow>
-
+        <Button
+            android:id="@+id/resetLevels"
+            android:layout_width="69dp"
+            android:layout_height="wrap_content"
+            android:text="@string/testing_reset_levels" />
 
     </TableLayout>
-    <Button
-        android:id="@+id/resetLevels"
-        android:layout_width="69dp"
-        android:layout_height="wrap_content"
-        android:text="@string/testing_reset_levels" />
-
 </FrameLayout>

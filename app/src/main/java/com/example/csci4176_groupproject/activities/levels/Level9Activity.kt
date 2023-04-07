@@ -16,6 +16,8 @@ class Level9Activity : BaseLevelActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // create the view for this specific level and inflate it
+        // then run the actual setup with levelSetup since that is the same for each level
         binding = ActivityLevel9Binding.inflate(layoutInflater)
         setContentView(binding.root)
         fullscreenContent = binding.Level9FullscreenContent

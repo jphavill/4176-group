@@ -89,7 +89,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-    fun resetLevels() {
+    private fun resetLevels() {
         for (id in 1 until 11) {
             // the last level on the first page, and all subsequent levels, are locked by default
             val tempLevel = Level(id = id, locked = id > 5)
@@ -104,7 +104,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-    fun resetStore() {
+    private fun resetStore() {
         val gson = Gson()
         val editor: SharedPreferences.Editor = settingPrefs.edit()
         for (id in 0 until CosmeticList().itemList.size) {

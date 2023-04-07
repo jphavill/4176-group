@@ -15,6 +15,8 @@ class Level2Activity : BaseLevelActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
+        // create the view for this specific level and inflate it
+        // then run the actual setup with levelSetup since that is the same for each level
         super.onCreate(savedInstanceState)
         binding = ActivityLevel2Binding.inflate(layoutInflater)
         setContentView(binding.root)

@@ -31,10 +31,7 @@ class MainMenuActivity : BaseActivity(), SettingsDialogCallback {
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         isFullscreen = true
-
-        // Set up the user interaction to manually show or hide the system UI.
 
         val settingsButton = findViewById<ImageButton>(R.id.SettingsButton)
         settingsButton.setOnClickListener {
@@ -47,6 +44,10 @@ class MainMenuActivity : BaseActivity(), SettingsDialogCallback {
             startActivity(intent)
         }
 
+        // The play button takes the user to the first unlocked and unfinished level
+        // unfinished means there is no time saved for that level
+        // if there are no more unlocked and unfinished levels to take the user to, it goes to the
+        // first level
         val playButton = findViewById<Button>(R.id.playButton)
         playButton.setOnClickListener {
             val gson = Gson()
@@ -54,14 +55,20 @@ class MainMenuActivity : BaseActivity(), SettingsDialogCallback {
             var found = false
             for (levelIndex in 0..levels.size) {
                 val tempLevel = Level(id = levelIndex, locked = true)
+                // retrieve the level object from persistent storage
                 val level: Level = gson.fromJson(
                     settingPrefs.getString(
+                        // levelIndex + 1 was used for simplicity, so that level 1 has an id of level1
                         String.format("level%d", levelIndex + 1),
                         gson.toJson(tempLevel)
                     ), Level::class.java
                 )
+                // if the time is == -1 then the level has never been finished
                 if (level.time == -1 && !level.locked) {
+                    // when a level is opened, set tried to true. This is used to determine the color
+                    // of the the level in the level select screen.
                     level.tried = true
+                    // store the level object back in persistent storage
                     val editor: SharedPreferences.Editor = settingPrefs.edit()
                     editor.putString(String.format("level%d", levelIndex + 1), gson.toJson(level))
                     editor.apply()
@@ -71,7 +78,9 @@ class MainMenuActivity : BaseActivity(), SettingsDialogCallback {
                     break
                 }
             }
+            // if no unfinished and unlocked level is found, start the first level
             if (!found) {
+                // since the level by definition has already been finished, level.tried is not updated
                 val intent = Intent(this, levels[0])
                 startActivity(intent)
             }
@@ -85,6 +94,9 @@ class MainMenuActivity : BaseActivity(), SettingsDialogCallback {
     }
 
     override fun settingsDialogCallback(settings: Settings) {
+        // the Main Menu activity does not use the topBar fragment to house it's settings button
+        // This is because it does not have a back button, and it's title is in a different postiion
+        // therefore it has it's own settingsDialogCallback within the activity
         val changes = settings.changes
         if (changes[SettingChange.Haptics]!!) {
             window.decorView.rootView.isHapticFeedbackEnabled = settings.haptics

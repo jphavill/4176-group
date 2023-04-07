@@ -7,7 +7,7 @@ import android.view.WindowManager
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SwitchCompat
-import avoidDropdownFocus
+import com.example.csci4176_groupproject.avoidDropdownFocus
 import com.example.csci4176_groupproject.models.Cosmetic
 import com.example.csci4176_groupproject.data.CosmeticList
 import com.example.csci4176_groupproject.R

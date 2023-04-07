@@ -27,7 +27,7 @@ class LevelButtonFragment: Fragment(), BuyDialogCallback {
     lateinit var levels: List<Class<out AppCompatActivity>>
     private var visible: Boolean = true
     // first 5 levels are unlocked by default
-    lateinit var level: Level
+    private lateinit var level: Level
     lateinit var settingPrefs: SharedPreferences
     private val starCount: StarCountViewModel by activityViewModels()
 

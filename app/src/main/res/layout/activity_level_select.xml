@@ -5,9 +5,8 @@
     android:id="@+id/levelSelectFullscreenContent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/fullscreenBackgroundColor"
     android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
-    tools:context=".Activities.MainMenuActivity">
+    tools:context=".activities.MainMenuActivity">
 
     <TableLayout
         android:layout_width="match_parent"

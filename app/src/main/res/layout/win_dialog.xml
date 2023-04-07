@@ -24,7 +24,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Level Complete!"
+                android:text="@string/level_complete"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold" />

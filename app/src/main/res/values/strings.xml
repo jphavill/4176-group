@@ -24,4 +24,15 @@
     <string name="time">Time:</string>
     <string name="next_level">Next Level</string>
     <string name="main_menu">Main Menu</string>
+    <string name="app_title">Colour Slide</string>
+    <string name="_5">: 5</string>
+    <string name="default_button">Button</string>
+    <string name="default_skin_title">Devil Ball</string>
+    <string name="default_content_description">Unique Skin (Cost:7)</string>
+    <string name="color_blind_mode">Color Blind Mode</string>
+    <string name="haptics">Haptics</string>
+    <string name="player_icon">Player Icon</string>
+    <string name="apply">Apply</string>
+    <string name="level_complete">Level Complete!</string>
+    <string name="player_character">Player character</string>
 </resources>

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="?attr/fullscreenBackgroundColor"
     android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
-    tools:context=".Activities.MainMenuActivity">
+    tools:context=".activities.MainMenuActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -578,6 +578,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:tag="groundTileStart"
+                        android:contentDescription="@string/ground_tile"
                         app:srcCompat="@drawable/ground_tile_foreground" />
 
                     <ImageView

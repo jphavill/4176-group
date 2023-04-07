@@ -1,7 +1,7 @@
 <resources>
 
     <style name="Widget.Theme.CSCI4176GroupProject.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
-        <item name="android:background">@color/black_overlay</item>
+        <item name="android:background">?attr/fullscreenBackgroundColor</item>
     </style>
 
     <style name="SettingsDialog" parent="Theme.AppCompat.Light.Dialog.Alert">

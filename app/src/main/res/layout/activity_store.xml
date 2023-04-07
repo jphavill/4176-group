@@ -5,9 +5,8 @@
     android:id="@+id/storeFullscreenContent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/fullscreenBackgroundColor"
     android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
-    tools:context=".Activities.MainMenuActivity">
+    tools:context=".activities.MainMenuActivity">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -34,14 +33,6 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="horizontal">
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -55,17 +46,11 @@
                     android:id="@+id/starCount"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text=": 5"
+                    android:text="@string/_5"
                     android:textColor="@android:color/secondary_text_light"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal" />
 
         </TableRow>
 
@@ -88,12 +73,14 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="cosmeticButton" />
+                        android:tag="cosmeticButton"
+                        android:id="@+id/button1"/>
 
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="cosmeticButton" />
+                        android:tag="cosmeticButton"
+                        android:id="@+id/button2"/>
                 </TableRow>
 
                 <TableRow
@@ -104,12 +91,14 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="cosmeticButton" />
+                        android:tag="cosmeticButton"
+                        android:id="@+id/button3"/>
 
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tag="cosmeticButton" />
+                        android:tag="cosmeticButton"
+                        android:id="@+id/button4"/>
 
                 </TableRow>
 
@@ -129,7 +118,7 @@
                 android:id="@+id/resetLevels"
                 android:layout_width="69dp"
                 android:layout_height="wrap_content"
-                android:text="TESTING reset levels" />
+                android:text="@string/testing_reset_levels" />
         </TableRow>
     </TableLayout>
 

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Contributors: Jason Havill, Justin MacKinnon-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -57,18 +58,18 @@
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
         <activity
             android:name=".activities.levels.Level6Activity"
-            android:exported="false"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
         <activity
             android:name=".activities.levels.Level7Activity"
-            android:exported="false"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
         <activity
             android:name=".activities.levels.Level8Activity"
-            android:exported="false"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
             android:theme="@style/Theme.CSCI4176GroupProject.Fullscreen" />
         <activity
             android:name=".activities.levels.Level9Activity"

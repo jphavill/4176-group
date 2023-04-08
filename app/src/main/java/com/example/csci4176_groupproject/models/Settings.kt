@@ -1,8 +1,10 @@
+//Contributors: Jason Havill
 package com.example.csci4176_groupproject.models
 
 import com.example.csci4176_groupproject.data.CosmeticList
 
 data class Settings(
+    // default settings
     var haptics: Boolean = true,
     var colourBlindMode: Boolean = false,
     val playerSkin: Int = CosmeticList().itemList[0].img,
@@ -15,8 +17,8 @@ data class Settings(
         SettingChange.PlayerSkin to false,
         SettingChange.ResetLevels to false,
         SettingChange.ResetStore to false,
-        )
     )
+)
 
 enum class SettingChange {
     Haptics, ColourBlindMode, PlayerSkin, ResetLevels, ResetStore

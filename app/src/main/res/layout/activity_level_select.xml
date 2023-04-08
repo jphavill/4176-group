@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Contributors: Jason Havill-->
+<!--Frame layout used as the parent so that fullscreenContent is always a FrameLayout and can be handled in Base Activity-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -27,7 +29,7 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
 
                     <FrameLayout
                         android:id="@+id/topBar"
@@ -43,8 +45,8 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -75,12 +77,13 @@
             android:layout_height="match_parent"
             android:gravity="center_horizontal">
 
+            <!-- TableLayout is used to represent the grid of buttons, 6 per page, of level select buttons
+             The buttons are arranged in 3 rows of 2 buttons each-->
             <TableLayout
                 android:layout_width="0dp"
                 android:layout_height="573dp"
                 android:layout_weight="1">
 
-                <!--             Each row will have level button fragments-->
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -140,6 +143,7 @@
 
         </TableRow>
 
+<!--     The bottom navigation buttons, to move between pages of levels-->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"

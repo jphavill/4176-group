@@ -1,4 +1,5 @@
 <resources>
+    <!--Contributors: Jason Havill, Justin MacKinnon-->
     <string name="app_name">CSCI4176-GroupProject</string>
     <string name="play">Play</string>
     <string name="level_reset_button">Level Reset Button</string>
@@ -7,7 +8,6 @@
     <string name="default_title">Title</string>
     <string name="default_star_count">: 5</string>
     <string name="stars">Stars</string>
-    <string name="testing_reset_levels">TESTING reset levels</string>
     <string name="wall_tile">Wall Tile</string>
     <string name="ground_tile">Ground Tile</string>
     <string name="level_selection_scroll_back">Level selection scroll back</string>
@@ -41,4 +41,6 @@
     <string name="don_t_reset_levels">Reset Levels Off</string>
     <string name="store_reset">Store Reset On</string>
     <string name="don_t_reset_store">Reset Store Off</string>
+    <string name="best_time">Best Time:</string>
+    <string name="new_best_time">New Best Time!</string>
 </resources>

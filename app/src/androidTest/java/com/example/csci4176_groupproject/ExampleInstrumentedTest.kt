@@ -1,3 +1,4 @@
+//Contributors: Justin MacKinnon
 package com.example.csci4176_groupproject
 
 import androidx.test.platform.app.InstrumentationRegistry

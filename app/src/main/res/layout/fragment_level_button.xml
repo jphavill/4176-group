@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Contributors: Jason Havill-->
+<!--A button representing a level that a user can use to enter a level-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -19,6 +21,7 @@
         android:height="50dp"
         android:text="@string/default_button" />
 
+<!-- The 3 stars that a user can earn on a level-->
     <LinearLayout
         android:layout_width="100dp"
         android:layout_height="match_parent"
@@ -29,8 +32,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:tag="levelStar"
             android:contentDescription="@string/level_star_number_1"
+            android:tag="levelStar"
             app:srcCompat="@android:drawable/btn_star_big_on" />
 
         <ImageView
@@ -38,8 +41,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:tag="levelStar"
             android:contentDescription="@string/level_star_number_2"
+            android:tag="levelStar"
             app:srcCompat="@android:drawable/btn_star_big_on" />
 
         <ImageView
@@ -47,8 +50,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:tag="levelStar"
             android:contentDescription="@string/level_star_number_3"
+            android:tag="levelStar"
             app:srcCompat="@android:drawable/btn_star_big_on" />
 
     </LinearLayout>

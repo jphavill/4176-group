@@ -116,18 +116,18 @@ abstract class BaseLevelActivity : BaseActivity() {
             // syncs the groundTile object's internal location with the location of the imageView
             val tileLocation = IntArray(2)
             imageView.getLocationInWindow(tileLocation)
-            currTile.setXPos(tileLocation[0])
-            currTile.setYPos(tileLocation[1])
+            currTile.xPos = tileLocation[0]
+            currTile.yPos = tileLocation[1]
 
             var tileAdded = false
             // position the ground tile within the tileMap
             if (tileMap.isNotEmpty()) {
-                val tileRowList = tileMap.filter { p -> p.first == currTile.getYPos() }
+                val tileRowList = tileMap.filter { p -> p.first == currTile.yPos }
                 if (tileRowList.isNotEmpty()) {
                     val tileRow = tileRowList[0]
                     if (tileRow.second.isNotEmpty()) {
                         for (tile in tileRow.second) {
-                            if (currTile.getXPos() < tile.getXPos()) {
+                            if (currTile.xPos < tile.xPos) {
                                 tileAdded = true
                                 tileRow.second.add(tileRow.second.indexOf(tile), currTile)
                                 break
@@ -138,12 +138,12 @@ abstract class BaseLevelActivity : BaseActivity() {
                         }
                     }
                 } else {
-                    tileMap.add(Pair(currTile.getYPos(), ArrayList()))
-                    val tileRow = tileMap.filter { p -> p.first == currTile.getYPos() }[0]
+                    tileMap.add(Pair(currTile.yPos, ArrayList()))
+                    val tileRow = tileMap.filter { p -> p.first == currTile.yPos }[0]
                     tileRow.second.add(currTile)
                 }
             } else {
-                tileMap.add(Pair(currTile.getYPos(), ArrayList()))
+                tileMap.add(Pair(currTile.yPos, ArrayList()))
                 tileMap[0].second.add(currTile)
             }
             // if the tile is the tile where the player starts, set the players location
@@ -163,8 +163,8 @@ abstract class BaseLevelActivity : BaseActivity() {
         val playerLocation = IntArray(2)
         groundTile.tileImageView.getLocationInWindow(playerLocation)
         player = Player(playerImageView, playerLocation[0], playerLocation[1], groundTile)
-        player.getPlayerImageView().translationX = playerLocation[0].toFloat()
-        player.getPlayerImageView().translationY = playerLocation[1].toFloat()
+        player.playerImageView.translationX = playerLocation[0].toFloat()
+        player.playerImageView.translationY = playerLocation[1].toFloat()
         // color the tile since the player is standing on it
         colourTile(groundTile)
     }
@@ -237,9 +237,9 @@ abstract class BaseLevelActivity : BaseActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     fun onSwipeRight() {
         val crossedTiles: ArrayList<GroundTile> = ArrayList()
-        val tileRow = tileMap.filter { p -> p.first == player.getPlayerPosY() }[0]
+        val tileRow = tileMap.filter { p -> p.first == player.playerPosY }[0]
         val tileRowIndex = tileMap.indexOf(tileRow)
-        var columnIndex = tileRow.second.indexOf(player.getPlayerGroundTile())
+        var columnIndex = tileRow.second.indexOf(player.playerGroundTile)
         // -2 because the last tile will be a wall, if the player is in the second last tile then
         // they can't move down into that wall
         if (columnIndex < tileRow.second.count() - 2) {
@@ -257,9 +257,9 @@ abstract class BaseLevelActivity : BaseActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     fun onSwipeLeft() {
         val crossedTiles: ArrayList<GroundTile> = ArrayList()
-        val tileRow = tileMap.filter { p -> p.first == player.getPlayerPosY() }[0]
+        val tileRow = tileMap.filter { p -> p.first == player.playerPosY }[0]
         val tileRowIndex = tileMap.indexOf(tileRow)
-        var columnIndex = tileRow.second.indexOf(player.getPlayerGroundTile())
+        var columnIndex = tileRow.second.indexOf(player.playerGroundTile)
         if (columnIndex > 1) {
             // column-1 to check if the NEXT tile to the left  is a ground tile the player can move to
             while (tileMap[tileRowIndex].second[columnIndex - 1] is GroundTile) {
@@ -275,12 +275,12 @@ abstract class BaseLevelActivity : BaseActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     fun onSwipeDown() {
         val crossedTiles: ArrayList<GroundTile> = ArrayList()
-        val tileRow = tileMap.filter { p -> p.first == player.getPlayerPosY() }[0]
+        val tileRow = tileMap.filter { p -> p.first == player.playerPosY }[0]
         var tileRowIndex = tileMap.indexOf(tileRow)
         // -2 because the last tile will be a wall, if the player is in the second last tile then
         // they can't move down into that wall
         if (tileRowIndex < tileMap.count() - 2) {
-            val columnIndex = tileRow.second.indexOf(player.getPlayerGroundTile())
+            val columnIndex = tileRow.second.indexOf(player.playerGroundTile)
             // row+1 to check if the NEXT tile to the bottom is a ground tile the player can move to
             while (tileMap[tileRowIndex + 1].second[columnIndex] is GroundTile) {
                 tileRowIndex += 1
@@ -295,10 +295,10 @@ abstract class BaseLevelActivity : BaseActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     fun onSwipeUp() {
         val crossedTiles: ArrayList<GroundTile> = ArrayList()
-        val tileRow = tileMap.filter { p -> p.first == player.getPlayerPosY() }[0]
+        val tileRow = tileMap.filter { p -> p.first == player.playerPosY }[0]
         var tileRowIndex = tileMap.indexOf(tileRow)
         if (tileRowIndex > 1) {
-            val columnIndex = tileRow.second.indexOf(player.getPlayerGroundTile())
+            val columnIndex = tileRow.second.indexOf(player.playerGroundTile)
             // row-1 to check if the NEXT tile to the bottom is a ground tile the player can move to
             while (tileMap[tileRowIndex - 1].second[columnIndex] is GroundTile) {
                 tileRowIndex -= 1
@@ -315,7 +315,7 @@ abstract class BaseLevelActivity : BaseActivity() {
         // animates the player across the tiles
         player.movePlayerPos(crossedTiles)
         for (groundTile in crossedTiles) {
-            if (!groundTile.getColoured())
+            if (!groundTile.coloured)
                 colourTile(groundTile)
         }
     }
@@ -371,7 +371,7 @@ abstract class BaseLevelActivity : BaseActivity() {
     private fun updateColorBlindMode(colorBlindMode: Boolean) {
         // set all coloured tiles to colorBlindMode when it changes part way through playing a level
         for (tile in groundTiles) {
-            if ((tile as GroundTile).getColoured())
+            if ((tile as GroundTile).coloured)
                 tile.setColorBlind(colorBlindMode)
         }
     }

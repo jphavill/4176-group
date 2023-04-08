@@ -26,34 +26,45 @@ class BuyDialog(context: Context) : AlertDialog.Builder(context) {
         val totalStars = settingPrefs.getInt("stars", 0)
         val cost = item.cost
         val title = item.title
+        // used to add an s if the cost of and item is 5 star(s) vs 1 star
         val s = if (cost > 1) "s" else ""
 
         val unlockButton = view.findViewById<Button>(R.id.unlockButton)
         val purchaseText = view.findViewById<TextView>(R.id.purchaseText)
 
+
         if (cost <= totalStars) {
+            // if the user has enough stars to purchase, show unlock button
             unlockButton.setOnClickListener {
                 val editor: SharedPreferences.Editor = settingPrefs.edit()
+                // play a "confirmation" haptic feedback
                 view.performHapticFeedback(16)
+                // update the users star count to subtract the price and save it persistently
                 editor.putInt("stars", totalStars - cost)
                 editor.apply()
+                // let the hosting fragment know that the purchase was made
                 callback.binaryDialogCallback(true)
                 builder.dismiss()
             }
             purchaseText.text = String.format("Unlock %s for %d Star%s?", title, cost, s)
         } else {
+            // otherwise remove unlock button
             unlockButton.visibility = View.GONE
             purchaseText.text = String.format("Not enough Stars. Costs %d Star%s.", cost, s)
         }
         val cancelButton = view.findViewById<Button>(R.id.cancelPurchase)
         cancelButton.setOnClickListener {
             // if the cancel button is hit, don't save settings and exit
+            // play a "reject" haptic feedback
             view.performHapticFeedback(17)
             builder.cancel()
+            // let the hosting fragment know that the purchase was canceled
             callback.binaryDialogCallback(false)
         }
 
+        // force the user to use one of the buttons to close the dialog
         builder.setCanceledOnTouchOutside(false)
+        // stop the android status bar from appearing when the dailog is open for consistency
         builder.window?.setFlags(
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE

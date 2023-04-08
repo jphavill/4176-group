@@ -32,6 +32,8 @@ class SettingsDialog(context: Context) : AlertDialog.Builder(context) {
         val view = li.inflate(R.layout.settings_dialog, null)
         builder.setView(view)
 
+        // stores what the state of settings was initially, as well as sets the defaults of
+        // settings when the app is opened for the very first time
         val initialSettings = Settings(
             haptics = settingPrefs.getBoolean("haptics", true),
             colourBlindMode = settingPrefs.getBoolean("colorBlind", false),
@@ -43,7 +45,7 @@ class SettingsDialog(context: Context) : AlertDialog.Builder(context) {
         val hapticsSwitchView = view.findViewById<SwitchCompat>(R.id.hapticsSwitch)
         hapticsSwitchView.isChecked = initialSettings.haptics
 
-        // used for development testing
+        // used for development testing, left in for ease of demonstration
         val resetLevelToggle = view.findViewById<ToggleButton>(R.id.resetLevelsButton)
 
         val resetStoreToggle = view.findViewById<ToggleButton>(R.id.resetStoreButton)
@@ -54,6 +56,7 @@ class SettingsDialog(context: Context) : AlertDialog.Builder(context) {
 
         for (i in 0 until CosmeticList().itemList.size) {
             val gson = Gson()
+            // retrieve cosmetic object from persistent storage
             val cosmetic = gson.fromJson(
                 settingPrefs.getString(
                     String.format("cosmetic%d", i), gson.toJson(
@@ -61,7 +64,7 @@ class SettingsDialog(context: Context) : AlertDialog.Builder(context) {
                     )
                 ), Cosmetic::class.java
             )
-            // only add the other icons that are also unlocked (purchased)
+            // only add the other icons that are unlocked (purchased)
             // default player icon is always in the list
             if (!cosmetic.locked || cosmetic.title == "Default") {
                 skinNames.add(cosmetic.title)
@@ -75,12 +78,14 @@ class SettingsDialog(context: Context) : AlertDialog.Builder(context) {
             R.layout.skin_list,
             skinNames
         ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
+            // use a custom layout for the dropdwon
             adapter.setDropDownViewResource(R.layout.skin_list)
             playerIconView.adapter = adapter
         }
+        // stop the android status bar from appearing when the dropdown is open for consistency
         playerIconView.avoidDropdownFocus()
 
+        // set the player skin dropdown to have the current skin selected
         playerIconView.setSelection(
             skinIcons.indexOf(
                 settingPrefs.getInt(
@@ -97,6 +102,8 @@ class SettingsDialog(context: Context) : AlertDialog.Builder(context) {
                 colourBlindMode = colorBlindModeView.isChecked,
                 playerSkin = skinIcons[playerIconView.selectedItemPosition]
             )
+            // used to track what changed, so that the app doesn't always have to reload
+            // things like the current player skin or colour blind mode
             updatedSettings.changes = mapOf(
                 SettingChange.Haptics to (initialSettings.haptics != updatedSettings.haptics),
                 SettingChange.ColourBlindMode to (initialSettings.colourBlindMode != updatedSettings.colourBlindMode),
@@ -105,12 +112,13 @@ class SettingsDialog(context: Context) : AlertDialog.Builder(context) {
                 SettingChange.ResetStore to resetStoreToggle.isChecked,
             )
 
-            // save state of settings
+            // save state of settings to persistent memory
             val editor: SharedPreferences.Editor = settingPrefs.edit()
             editor.putBoolean("colorBlind", updatedSettings.colourBlindMode)
             editor.putBoolean("haptics", updatedSettings.haptics)
             editor.putInt("playerSkin", updatedSettings.playerSkin)
             editor.apply()
+            // send the new settings to the hosting fragment
             callback.settingsDialogCallback(updatedSettings)
 
             builder.dismiss()
@@ -122,9 +130,9 @@ class SettingsDialog(context: Context) : AlertDialog.Builder(context) {
             //  if the cancel button is hit, don't save settings and exit
             builder.cancel()
         }
-        //  the user must hit either the cancel or apply button to close the dialog
+        // force the user to use one of the buttons to close the dialog
         builder.setCanceledOnTouchOutside(false)
-//      keeps the android status bar from appearing when the dialog is open
+        // stop the android status bar from appearing when the dailog is open for consistency
         builder.window?.setFlags(
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE

@@ -11,6 +11,7 @@ import com.example.csci4176_groupproject.viewModels.RestartLevelViewModel
 
 
 class RestartButtonFragment : Fragment() {
+    // the restart level button at the bottom of each LevelActivity
     private var _binding: FragmentRestartButtonBinding? = null
     private val binding get() = _binding!!
     private val restartLevel: RestartLevelViewModel by activityViewModels()

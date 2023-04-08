@@ -18,6 +18,8 @@ import com.example.csci4176_groupproject.models.Settings
 import com.example.csci4176_groupproject.viewModels.SettingsViewModel
 
 class TopBarFragment : Fragment(), SettingsDialogCallback {
+    // the Back Button, Title, and Settings button at the top of all activities
+    // except the main menu
     private var _binding: FragmentTopBarBinding? = null
     private val binding get() = _binding!!
     lateinit var settingPrefs: SharedPreferences

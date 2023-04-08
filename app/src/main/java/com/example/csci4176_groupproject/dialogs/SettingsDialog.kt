@@ -46,7 +46,7 @@ class SettingsDialog(context: Context) : AlertDialog.Builder(context) {
         val hapticsSwitchView = view.findViewById<SwitchCompat>(R.id.hapticsSwitch)
         hapticsSwitchView.isChecked = initialSettings.haptics
 
-        // used for development testing, left in for ease of demonstration
+        // Developer settings section. This holds buttons used for reseting the persistent storage of the app.
         val resetLevelToggle = view.findViewById<ToggleButton>(R.id.resetLevelsButton)
 
         val resetStoreToggle = view.findViewById<ToggleButton>(R.id.resetStoreButton)

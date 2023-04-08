@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Contributors: Justin MacKinnon, Jason Havill-->
+<!--Frame layout used as the parent so that fullscreenContent is always a FrameLayout and can be handled in Base Activity-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -28,6 +29,9 @@
 
         </TableRow>
 
+        <!-- The map that the player moves over is made up of a grid of tiles represented by imageView.
+        A tablelayout is used to represent this grid-->
+        <!-- 14 X 9 -->
         <TableLayout
             android:layout_width="0dp"
             android:layout_height="600dp"
@@ -39,6 +43,8 @@
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal">
 
+                <!-- ImageViews are tagged as either a wall tile or a ground tile. This is used
+                to create associated ground and wall tile objects when the level activity is created-->
                 <ImageView
                     android:layout_width="39dp"
                     android:layout_height="39dp"
@@ -1127,6 +1133,7 @@
 
     </TableLayout>
 
+    <!-- Used to allow the player character to be moved overtop the rest of the layout-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

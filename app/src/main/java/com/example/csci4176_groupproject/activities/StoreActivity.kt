@@ -1,3 +1,4 @@
+//Contributors: Jason Havill, Dongkyu Kim
 package com.example.csci4176_groupproject.activities
 
 import android.os.Bundle

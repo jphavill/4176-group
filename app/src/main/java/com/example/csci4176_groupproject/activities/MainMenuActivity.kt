@@ -1,3 +1,4 @@
+//Contributors: Jason Havill, Justin Mackinnon, Suraj Patnaikuni
 package com.example.csci4176_groupproject.activities
 
 import android.annotation.SuppressLint

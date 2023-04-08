@@ -1,3 +1,4 @@
+//Contributors: Jason Havill
 package com.example.csci4176_groupproject.viewModels
 
 import androidx.lifecycle.LiveData

@@ -1,3 +1,4 @@
+//Contributors: Justin MacKinnon, Jason Havill
 package com.example.csci4176_groupproject.activities
 
 import android.os.Build

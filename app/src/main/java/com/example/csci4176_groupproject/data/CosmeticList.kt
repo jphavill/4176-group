@@ -1,3 +1,4 @@
+//Contributors: Jason Havill, Dongkyu Kim
 package com.example.csci4176_groupproject.data
 
 import com.example.csci4176_groupproject.R

@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class StarCountViewModel : ViewModel() {
+    // observable to track changes to the users starCount (essentially bank account)
     private val mutableStarCount = MutableLiveData<Int>()
     val starCount: LiveData<Int> get() = mutableStarCount
 

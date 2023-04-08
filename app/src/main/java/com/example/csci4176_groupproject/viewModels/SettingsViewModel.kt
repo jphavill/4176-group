@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class SettingsViewModel : ViewModel() {
+    // observable to track when settings have been updated
     private val mutablePlayerSkin = MutableLiveData<Int>()
     val playerSkin: LiveData<Int> get() = mutablePlayerSkin
     private val mutableHaptics = MutableLiveData<Boolean>()

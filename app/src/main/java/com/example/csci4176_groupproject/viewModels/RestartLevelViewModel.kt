@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class RestartLevelViewModel : ViewModel() {
+    // obeservable to track when a level has been restarted
     private val mutableRestertLevel = MutableLiveData<Boolean>()
     val restartLevel: LiveData<Boolean> get() = mutableRestertLevel
 

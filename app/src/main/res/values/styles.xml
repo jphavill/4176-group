@@ -4,7 +4,8 @@
         <item name="android:background">?attr/fullscreenBackgroundColor</item>
     </style>
 
-    <style name="SettingsDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+<!-- used for rounded corners on all dialogs-->
+    <style name="roundedDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowBackground">@drawable/rounded_background</item>
     </style>
 </resources>

@@ -34,7 +34,7 @@ class WinDialog(context: Context) : AlertDialog.Builder(context) {
             ), Level::class.java
         )
 
-        val builder = AlertDialog.Builder(context, R.style.SettingsDialog).create()
+        val builder = AlertDialog.Builder(context, R.style.roundedDialog).create()
         val li = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = li.inflate(R.layout.win_dialog, null)
         builder.setView(view)

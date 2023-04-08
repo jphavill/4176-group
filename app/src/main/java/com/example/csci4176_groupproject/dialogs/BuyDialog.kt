@@ -12,16 +12,12 @@ import com.example.csci4176_groupproject.R
 import com.example.csci4176_groupproject.interfaces.BuyDialogCallback
 import com.example.csci4176_groupproject.interfaces.Buyable
 
-@Suppress(
-    "unused", "unused", "unused", "unused", "unused", "unused", "unused", "unused", "unused",
-    "unused"
-)
 class BuyDialog(context: Context) : AlertDialog.Builder(context) {
     private val settingPrefs: SharedPreferences =
         context.applicationContext.getSharedPreferences("settingsPrefs", 0)
 
     fun showBuy(item: Buyable, callback: BuyDialogCallback) {
-        val builder = AlertDialog.Builder(context, R.style.SettingsDialog).create()
+        val builder = AlertDialog.Builder(context, R.style.roundedDialog).create()
         val li = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = li.inflate(R.layout.buy_dialog, null)
         view.isHapticFeedbackEnabled = settingPrefs.getBoolean("haptics", true)

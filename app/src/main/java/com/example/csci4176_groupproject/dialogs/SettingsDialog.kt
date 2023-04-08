@@ -24,8 +24,8 @@ class SettingsDialog(context: Context) : AlertDialog.Builder(context) {
         context.applicationContext.getSharedPreferences("settingsPrefs", 0)
 
     fun showSettings(callback: SettingsDialogCallback) {
-        //        get a reference to the fragments viewbinding to set the picture and text
-        val builder = AlertDialog.Builder(context, R.style.SettingsDialog)
+        // get a reference to the fragments viewbinding to set the picture and text
+        val builder = AlertDialog.Builder(context, R.style.roundedDialog)
             .create()
 
         val li = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater

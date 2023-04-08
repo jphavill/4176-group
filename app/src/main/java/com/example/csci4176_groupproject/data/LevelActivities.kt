@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.csci4176_groupproject.activities.levels.*
 
 data class LevelActivities(
+    // list of all the Level intents so that level select buttons can open specific levels given an index
     val levels: List<Class<out AppCompatActivity>> = listOf(
         Level1Activity::class.java,
         Level2Activity::class.java,

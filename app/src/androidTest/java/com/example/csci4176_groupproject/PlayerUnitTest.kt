@@ -46,8 +46,6 @@ class PlayerUnitTest {
      * movement.
      */
     @Test
-    // disabled because animating the player means the test finishes before the play actaully moves
-    @Ignore
     fun movePlayerHorizontal_NewLocation_IsCorrect() {
         val crossedTiles = ArrayList<GroundTile>()
         for(i in 1..5){
@@ -68,8 +66,6 @@ class PlayerUnitTest {
      * to the player objects 'playerGroundTile' instance variable.
      */
     @Test
-    // disabled because animating the player means the test finishes before the play actaully moves
-    @Ignore
     fun playersGroundTile_IsCorrect() {
         assertEquals(startingGroundTile, player.playerGroundTile)
         val crossedTiles = ArrayList<GroundTile>()

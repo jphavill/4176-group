@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
+    tools:context=".activities.MainMenuActivity"
+    android:id="@+id/MainFullscreenContent"
+    tools:keep="@layout/activity_main_menu">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <ImageButton
+                android:id="@+id/SettingsButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:contentDescription="@string/settings"
+                android:background="@drawable/settings_icon" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/margarine"
+                android:text="@string/app_title"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="52sp"
+                android:textStyle="bold|italic"
+                app:autoSizeMaxTextSize="48sp"
+                app:autoSizeMinTextSize="32sp"
+                app:autoSizeTextType="uniform" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/shoppingCartButton"
+                android:layout_width="68dp"
+                android:layout_height="64dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/shopping_cart"
+                android:contentDescription="@string/store"
+                android:color="#FFFFFF" />
+
+            <ImageButton
+                android:id="@+id/mainMenuLevelSelectButton"
+                android:layout_width="68dp"
+                android:layout_height="64dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/menu_select"
+                android:contentDescription="@string/level_select"
+                android:color="#FFFFFF" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/playButton"
+                android:layout_width="209dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/lightSky_blue"
+                android:fontFamily="@font/luckiest_guy"
+                android:text="@string/play"
+                android:textAlignment="center"
+                android:textSize="48sp"
+                android:typeface="serif" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,14 +1,13 @@
+//Contributors: Justin MacKinnon, Jason Havill
 package com.example.csci4176_groupproject
 
 import android.content.Context
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
-import android.graphics.drawable.Drawable
-import android.util.Log
 import android.widget.ImageView
-import androidx.core.content.res.ResourcesCompat
 import androidx.test.core.app.ApplicationProvider
+import com.example.csci4176_groupproject.models.GroundTile
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
@@ -24,8 +23,8 @@ class GroundTileUnitTest {
         instrumentationContext = ApplicationProvider.getApplicationContext()
         groundTileImageView = ImageView(instrumentationContext)
         groundTile = GroundTile(groundTileImageView)
-        groundTile.setXPos(groundTileLocation[0])
-        groundTile.setYPos(groundTileLocation[1])
+        groundTile.xPos = groundTileLocation[0]
+        groundTile.yPos = groundTileLocation[1]
         groundTile.setColorBlind(false)
     }
 
@@ -34,8 +33,8 @@ class GroundTileUnitTest {
      */
     @Test
     fun groundTileLocation_IsCorrect() {
-        assertEquals(groundTileLocation[0], groundTile.getXPos())
-        assertEquals(groundTileLocation[1], groundTile.getYPos())
+        assertEquals(groundTileLocation[0], groundTile.xPos)
+        assertEquals(groundTileLocation[1], groundTile.yPos)
     }
 
     /**
@@ -45,7 +44,7 @@ class GroundTileUnitTest {
     fun groundTileColoured_IsCorrect() {
         val testColouredFilter = PorterDuffColorFilter(Color.argb(80, 225, 68, 19), PorterDuff.Mode.SRC_ATOP)
         groundTile.colourTile()
-        assertTrue(groundTile.getColoured())
+        assertTrue(groundTile.coloured)
         assertTrue(groundTile.tileImageView.colorFilter == testColouredFilter)
     }
 
@@ -58,10 +57,10 @@ class GroundTileUnitTest {
         val testColouredFilter = PorterDuffColorFilter(Color.argb(80, 225, 68, 19), PorterDuff.Mode.SRC_ATOP)
         val testUncolouredFilter = PorterDuffColorFilter(Color.argb(100, 161, 161, 161), PorterDuff.Mode.SRC_ATOP)
         groundTile.colourTile()
-        assertTrue(groundTile.getColoured())
+        assertTrue(groundTile.coloured)
         assertTrue(groundTile.tileImageView.colorFilter == testColouredFilter)
         groundTile.uncolourTile()
-        assertFalse(groundTile.getColoured())
+        assertFalse(groundTile.coloured)
         assertTrue(groundTile.tileImageView.colorFilter == testUncolouredFilter)
     }
 
@@ -74,7 +73,7 @@ class GroundTileUnitTest {
     fun groundTileColoured_ColourBlindMode_IsCorrect() {
         val testColouredFilter = PorterDuffColorFilter(Color.argb(80, 225, 68, 19), PorterDuff.Mode.SRC_ATOP)
         groundTile.colourTile()
-        assertTrue(groundTile.getColoured())
+        assertTrue(groundTile.coloured)
         assertTrue(groundTile.tileImageView.colorFilter == testColouredFilter)
         val originalDrawable = groundTile.tileImageView.drawable
         groundTile.setColorBlind(true)
@@ -87,7 +86,6 @@ class GroundTileUnitTest {
      */
     @Test
     fun groundTileColoured_Drawable_IsCorrect() {
-
         val originalDrawable = groundTile.tileImageView.drawable
         groundTile.setColorBlind(false)
         groundTile.colourTile()

@@ -1,5 +1,5 @@
+//Contributors: Justin MacKinnon, Jason Havill
 package com.example.csci4176_groupproject.activities.levels
-
 
 import android.os.Build
 import android.os.Bundle

@@ -1,3 +1,4 @@
+//Contributors: Justin MacKinnon, Jason Havill
 package com.example.csci4176_groupproject.activities.levels
 
 import android.os.Build
@@ -7,7 +8,6 @@ import androidx.annotation.RequiresApi
 import com.example.csci4176_groupproject.R
 import com.example.csci4176_groupproject.activities.BaseLevelActivity
 import com.example.csci4176_groupproject.databinding.ActivityLevel9Binding
-
 
 class Level9Activity : BaseLevelActivity() {
     override val levelId: Int = 9

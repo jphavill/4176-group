@@ -1,4 +1,4 @@
-//Contributors: Justin MacKinnon, Jason Havill
+//Contributors: Jason Havill, Justin MacKinnon
 package com.example.csci4176_groupproject.activities
 
 import android.os.Build
@@ -13,6 +13,7 @@ import com.example.csci4176_groupproject.data.CosmeticList
 import com.example.csci4176_groupproject.dialogs.WinDialog
 import com.example.csci4176_groupproject.fragments.RestartButtonFragment
 import com.example.csci4176_groupproject.models.*
+import com.example.csci4176_groupproject.utils.TimeCalcs
 import com.example.csci4176_groupproject.viewModels.RestartLevelViewModel
 import java.time.LocalDateTime
 import kotlin.math.abs
@@ -336,33 +337,11 @@ abstract class BaseLevelActivity : BaseActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun levelComplete() {
         val endTime = LocalDateTime.now()
-        val timeToComplete = timeDifference(startTime, endTime)
+        val timeToComplete = TimeCalcs().timeDifference(startTime, endTime)
         WinDialog(context = this).showWin(timeToComplete, levelId)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun timeDifference(startTime: LocalDateTime, endTime: LocalDateTime): Int {
-        // convert time that has passed to millseconds
-        var ms = 0
 
-        if (endTime.dayOfYear != startTime.dayOfYear) {
-            ms += 1000 * 60 * 60 * 24 * (endTime.dayOfYear - startTime.dayOfYear)
-        }
-        if (endTime.hour != startTime.hour) {
-            ms += 1000 * 60 * 60 * (endTime.hour - startTime.hour)
-        }
-        if (endTime.minute != startTime.minute) {
-            ms += 1000 * 60 * (endTime.minute - startTime.minute)
-        }
-        if (endTime.second != startTime.second) {
-            ms += 1000 * (endTime.second - startTime.second)
-        }
-        if (endTime.nano != startTime.nano) {
-            ms += ((endTime.nano - startTime.nano) * 0.000001).toInt()
-        }
-
-        return ms
-    }
 
     private fun updatePlayerSkin(currentPlayerSkin: Int) {
         val playerImageView = findViewById<ImageView>(R.id.playerImageView)

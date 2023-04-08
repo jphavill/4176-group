@@ -28,10 +28,12 @@ class GroundTile(tileImageView: ImageView) : Tile(tileImageView) {
     fun setColorBlind(colorBlindMode: Boolean) {
         // in colour blind mode instead of changing the tint of the background a new image
         // of an X is swapped in to indicate being coloured
-        if (colorBlindMode && coloured) {
-            tileImageView.setImageResource(android.R.drawable.ic_menu_close_clear_cancel)
-        } else {
-            tileImageView.setImageResource(R.drawable.ground_tile_foreground)
+        if (coloured){
+            if(colorBlindMode){
+                tileImageView.setImageResource(android.R.drawable.ic_menu_close_clear_cancel)
+            } else {
+                tileImageView.setImageResource(R.drawable.ground_tile_foreground)
+            }
         }
     }
 }

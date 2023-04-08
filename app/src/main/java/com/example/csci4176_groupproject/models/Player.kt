@@ -16,6 +16,11 @@ class Player(
 
     fun movePlayerPos(crossedTiles: ArrayList<GroundTile>) {
         playerIsMoving = true
+        // set the players position to the last tile it will move to
+        playerPosX = crossedTiles.last().xPos
+        playerPosY = crossedTiles.last().yPos
+        playerGroundTile = crossedTiles.last()
+        // animate the palyer moving through all of the tiles it will cross, and color as it moves
         val animationDuration: Long = (700 / crossedTiles.count()).toLong().coerceAtMost(200)
         for (groundTile in crossedTiles) {
             playerImageView.animate().apply {
@@ -25,9 +30,6 @@ class Player(
             }.withEndAction {
                 if (!groundTile.coloured)
                     groundTile.colourTile()
-                playerPosX = groundTile.xPos
-                playerPosY = groundTile.yPos
-                playerGroundTile = groundTile
                 playerIsMoving = false
             }
         }

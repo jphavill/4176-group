@@ -20,7 +20,7 @@ class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
     private var replace: Boolean = false
     private val starCount: StarCountViewModel by viewModels()
 
-    override fun binaryDialogCallback(result: Boolean) {
+    override fun buyDialogCallback(result: Boolean) {
         if (result) {
             updateButtons()
         }

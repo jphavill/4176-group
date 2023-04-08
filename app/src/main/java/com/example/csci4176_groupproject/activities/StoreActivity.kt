@@ -16,7 +16,7 @@ class StoreActivity : BaseActivity(), BuyDialogCallback {
     private lateinit var starsTextView: TextView
     private var replace: Boolean = false
     private val starCount: StarCountViewModel by viewModels()
-    override fun binaryDialogCallback(result: Boolean) {
+    override fun buyDialogCallback(result: Boolean) {
         if (result) {
             updateButtons()
         }

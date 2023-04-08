@@ -37,13 +37,13 @@ class TopBarFragment : Fragment(), SettingsDialogCallback {
         binding.TitleTextView.text = title
 
         val backToLevelSelectButton = binding.BackToHomeButton
+        // back button can either lead to level select activity or main menu
         backToLevelSelectButton.setOnClickListener {
             val intent = if (backActivity == "LevelSelectActivity") {
                 Intent(context, LevelSelectActivity::class.java)
             } else {
                 Intent(context, MainMenuActivity::class.java)
             }
-
             startActivity(intent)
         }
 
@@ -56,6 +56,7 @@ class TopBarFragment : Fragment(), SettingsDialogCallback {
     }
 
     override fun settingsDialogCallback(settings: Settings) {
+        // for each setting that changes, send out and update on the corresponding observable
         val changes = settings.changes
         if (changes[SettingChange.ColourBlindMode]!!) {
             settingsViewModel.setColorBlindMode(settings.colourBlindMode)

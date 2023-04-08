@@ -50,7 +50,7 @@ class LevelButtonFragment : Fragment(), BuyDialogCallback {
         return binding.root
     }
 
-    override fun binaryDialogCallback(result: Boolean) {
+    override fun buyDialogCallback(result: Boolean) {
         // if the user did unlock the level in the dailog then update the star count and unlock
         if (result) {
             unlock()

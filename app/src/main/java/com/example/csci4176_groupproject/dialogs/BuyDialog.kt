@@ -43,7 +43,7 @@ class BuyDialog(context: Context) : AlertDialog.Builder(context) {
                 editor.putInt("stars", totalStars - cost)
                 editor.apply()
                 // let the hosting fragment know that the purchase was made
-                callback.binaryDialogCallback(true)
+                callback.buyDialogCallback(true)
                 builder.dismiss()
             }
             purchaseText.text = String.format("Unlock %s for %d Star%s?", title, cost, s)
@@ -59,7 +59,7 @@ class BuyDialog(context: Context) : AlertDialog.Builder(context) {
             view.performHapticFeedback(17)
             builder.cancel()
             // let the hosting fragment know that the purchase was canceled
-            callback.binaryDialogCallback(false)
+            callback.buyDialogCallback(false)
         }
 
         // force the user to use one of the buttons to close the dialog

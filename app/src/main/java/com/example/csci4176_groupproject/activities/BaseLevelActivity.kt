@@ -37,8 +37,6 @@ abstract class BaseLevelActivity : BaseActivity() {
     private val restartLevelViewModel: RestartLevelViewModel by viewModels()
 
     @RequiresApi(Build.VERSION_CODES.O)
-    // clickabel View Accessibility suppressed because
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -53,9 +51,18 @@ abstract class BaseLevelActivity : BaseActivity() {
         settingsViewModel.playerSkin.observe(this) { skin ->
             updatePlayerSkin(skin)
         }
+        settingsViewModel.resetStore.observe(this) {
+            // reset the player to the default skin when the store is reset since it will be the only
+            // unlocked skin
+            val currentPlayerSkin = settingPrefs.getInt("playerSkin", CosmeticList().itemList[0].img)
+            updatePlayerSkin(currentPlayerSkin)
+        }
+
         restartLevelViewModel.restartLevel.observe(this) {
             resetLevel()
         }
+
+
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

@@ -30,16 +30,19 @@ class StoreActivity : BaseActivity(), BuyDialogCallback {
         fullscreenContent = binding.storeFullscreenContent
         setContentView(binding.root)
 
+        // the store's back button leads to the MainMenuActivity
         super.addTopBar("Store", "MainMenuActivity")
 
         starsTextView = findViewById(R.id.starCount)
 
-        settingPrefs = applicationContext.getSharedPreferences("settingsPrefs", 0)
-
+        // observor to update the starCount when a user purchases a cosmetic
         starCount.starCount.observe(this) {
             updateStars()
         }
 
+        // this is in addition to the obeservor in BaseActivity that this Activity also inherits
+        // this is because the cosmetic buy buttons must live update to reflect this, without requiring
+        // the activity to be reloaded
         settingsViewModel.resetStore.observe(this) {
             updateButtons()
         }
@@ -57,6 +60,9 @@ class StoreActivity : BaseActivity(), BuyDialogCallback {
             val args = Bundle()
             args.putInt("cosmeticId", buttonIndex)
             frag.arguments = args
+            // if the buttons are being updated after the page has initially been created,
+            // ie when a user resets the levels, then replace the existing fragments instead of
+            // adding new ones
             if (replace) {
                 supportFragmentManager.beginTransaction().replace(b.id, frag).commit()
             } else {
@@ -64,6 +70,7 @@ class StoreActivity : BaseActivity(), BuyDialogCallback {
             }
             buttonIndex += 1
         }
+        // tracks that fragments have now been added and should therefore be replaced in the future
         replace = true
     }
 

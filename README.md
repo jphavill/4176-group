@@ -1,7 +1,8 @@
 # 4176-group
-tower defence kotlin game
+
 [Project Proposal](https://docs.google.com/document/d/1XWPQWC-abh86FrN552MO2idq37ma7OvvlWA92sPzZns/edit?usp=sharing)
 
+Images not taken from Flaticon were created by Dongkyu Kim. Edited and imported by Jason Havill
 
 Reference:
 Flaticon, “Free icons and stickers - millions of images to download,” Flaticon, 2023. [Online]. Available: https://www.flaticon.com/. [Accessed: 24-Mar-2023].

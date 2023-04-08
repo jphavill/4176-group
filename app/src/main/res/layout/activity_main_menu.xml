@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Contributors: Justin MacKinnon, Jason Havill, Suraj Patnaikuni-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,13 +10,6 @@
     android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
     tools:context=".activities.MainMenuActivity"
     tools:keep="@layout/activity_main_menu">
-
-    <!-- The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc. -->
-
-    <!-- This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows. -->
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -1,5 +1,5 @@
 <resources>
-
+    <!--Contributors: Justin MacKinnon, Jason Havill-->
     <style name="Widget.Theme.CSCI4176GroupProject.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
         <item name="android:background">?attr/fullscreenBackgroundColor</item>
     </style>

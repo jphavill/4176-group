@@ -1,4 +1,5 @@
 <resources>
+    <!--Contributors: Jason Havill, Justin MacKinnon-->
     <string name="app_name">CSCI4176-GroupProject</string>
     <string name="play">Play</string>
     <string name="level_reset_button">Level Reset Button</string>

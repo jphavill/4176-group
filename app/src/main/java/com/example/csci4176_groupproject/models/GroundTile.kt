@@ -1,6 +1,7 @@
 package com.example.csci4176_groupproject.models
 
 import android.graphics.Color
+import android.graphics.PorterDuffColorFilter
 import android.widget.ImageView
 import com.example.csci4176_groupproject.R
 
@@ -25,10 +26,12 @@ class GroundTile(tileImageView: ImageView) : Tile(tileImageView){
     }
 
     fun setColorBlind(colorBlindMode: Boolean){
-        if(colorBlindMode && coloured){
-            tileImageView.setImageResource(android.R.drawable.ic_menu_close_clear_cancel)
-        } else {
-            tileImageView.setImageResource(R.drawable.ground_tile_foreground)
+        if (coloured){
+            if(colorBlindMode){
+                tileImageView.setImageResource(android.R.drawable.ic_menu_close_clear_cancel)
+            } else {
+                tileImageView.setImageResource(R.drawable.ground_tile_foreground)
+            }
         }
     }
 }

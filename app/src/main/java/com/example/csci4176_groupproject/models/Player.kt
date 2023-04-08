@@ -28,6 +28,9 @@ class Player(private val playerImageView: ImageView, private var playerPosX: Int
 
     fun movePlayerPos(crossedTiles: ArrayList<GroundTile>){
         playerIsMoving = true
+        setPlayerPosX(crossedTiles.last().getXPos())
+        setPlayerPosY(crossedTiles.last().getYPos())
+        setPlayerGroundTile(crossedTiles.last())
         val animationDuration: Long = (700 / crossedTiles.count()).toLong().coerceAtMost(200)
         for (groundTile in crossedTiles){
             playerImageView.animate().apply {
@@ -37,9 +40,6 @@ class Player(private val playerImageView: ImageView, private var playerPosX: Int
             }.withEndAction {
                 if(!groundTile.getColoured())
                     groundTile.colourTile()
-                setPlayerPosX(groundTile.getXPos())
-                setPlayerPosY(groundTile.getYPos())
-                setPlayerGroundTile(groundTile)
                 playerIsMoving = false
             }
         }

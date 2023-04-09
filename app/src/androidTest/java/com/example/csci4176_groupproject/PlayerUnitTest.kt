@@ -43,7 +43,7 @@ class PlayerUnitTest {
 
     /**
      * Performs player movement test to ensure the player's new location is correctly set after the
-     * movement.
+     * horizontal movement.
      */
     @Test
     fun movePlayerHorizontal_NewLocation_IsCorrect() {
@@ -59,6 +59,26 @@ class PlayerUnitTest {
         player.movePlayerPos(crossedTiles)
         assertEquals(0, player.playerPosX)
         assertEquals(350, player.playerPosY)
+    }
+
+    /**
+     * Performs player movement test to ensure the player's new location is correctly set after the
+     * vertical movement.
+     */
+    @Test
+    fun movePlayerVertical_NewLocation_IsCorrect() {
+        val crossedTiles = ArrayList<GroundTile>()
+        for(i in 1..5){
+            val newGroundTile = GroundTile(ImageView(instrumentationContext))
+            newGroundTile.tileImageView.translationX = 250f
+            newGroundTile.tileImageView.translationY = 350f - (50 * i)
+            newGroundTile.xPos = 250
+            newGroundTile.yPos = (350 - (50 * i))
+            crossedTiles.add(newGroundTile)
+        }
+        player.movePlayerPos(crossedTiles)
+        assertEquals(250, player.playerPosX)
+        assertEquals(100, player.playerPosY)
     }
 
     /**

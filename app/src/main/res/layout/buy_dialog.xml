@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Contributors: Jason Havill-->
+<!--A simple dialog asking the user if they want to unlock something-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="-5dp"
+    android:foregroundTint="#000000"
+    android:foregroundTintMode="add">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/purchaseText"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="-5dp"
+            android:layout_weight="1"
+            android:includeFontPadding="false"
+            android:text="@string/unlock_level_x_for_1_star"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/cancelPurchase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/red"
+                android:text="@string/cancel" />
+
+            <Button
+                android:id="@+id/unlockButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_weight="1"
+                android:backgroundTint="@android:color/holo_green_light"
+                android:text="@string/unlock" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

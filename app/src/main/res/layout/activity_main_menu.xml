@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Contributors: Justin MacKinnon, Jason Havill, Suraj Patnaikuni-->
+<!--Frame layout used as the parent so that fullscreenContent is always a FrameLayout and can be handled in Base Activity-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MainFullscreenContent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:theme="@style/ThemeOverlay.CSCI4176GroupProject.FullscreenContainer"
+    tools:context=".activities.MainMenuActivity"
+    tools:keep="@layout/activity_main_menu">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <ImageButton
+                android:id="@+id/SettingsButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/settings_icon"
+                android:contentDescription="@string/settings" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/margarine"
+                android:text="@string/app_title"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="52sp"
+                android:textStyle="bold|italic"
+                app:autoSizeMaxTextSize="48sp"
+                app:autoSizeMinTextSize="32sp"
+                app:autoSizeTextType="uniform" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/shoppingCartButton"
+                android:layout_width="68dp"
+                android:layout_height="64dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/shopping_cart"
+                android:color="#FFFFFF"
+                android:contentDescription="@string/store" />
+
+            <ImageButton
+                android:id="@+id/mainMenuLevelSelectButton"
+                android:layout_width="68dp"
+                android:layout_height="64dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/menu_select"
+                android:color="#FFFFFF"
+                android:contentDescription="@string/level_select" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/playButton"
+                android:layout_width="209dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/lightSky_blue"
+                android:fontFamily="@font/luckiest_guy"
+                android:text="@string/play"
+                android:textAlignment="center"
+                android:textSize="48sp"
+                android:typeface="serif" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

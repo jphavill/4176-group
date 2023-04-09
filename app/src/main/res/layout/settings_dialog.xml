@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Contributors: Jason Havill-->
+<!--Dialog to change the settings of the app-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/light_blue_600">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,92 +13,114 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
+        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Settings"
-            android:textColor="@color/white"
-            android:textSize="24sp" />
+            android:text="@string/settings"
+            android:textAlignment="center"
+            android:textColor="@android:color/secondary_text_light"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/colorBlindSwitch"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Color Blind Mode"
+            android:text="@string/color_blind_mode"
             android:textAlignment="viewStart"
+            android:textColor="@android:color/secondary_text_light"
             android:textSize="16sp" />
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/hapticsSwitch"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:checked="true"
-            android:text="Haptics"
+            android:text="@string/haptics"
+            android:textColor="@android:color/secondary_text_light"
             android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/playerIconText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="0dp"
                 android:layout_weight="1"
-                android:text="Player Icon"
+                android:text="@string/player_icon"
                 android:textAlignment="gravity"
-                android:textColor="@color/white"
+                android:textColor="@android:color/secondary_text_light"
                 android:textSize="16sp" />
 
             <Spinner
                 android:id="@+id/playerIconSelect"
                 android:layout_width="158dp"
-                android:layout_height="50dp" />
+                android:layout_height="50dp"
+                android:contentDescription="@string/select_your_player_skin"
+                android:textColor="@android:color/black" />
 
         </LinearLayout>
+
+        <!--Developer settings section. This holds buttons used for reseting the persistent storage
+         of the app. -->
+        <TextView
+            android:id="@+id/developerTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/developer_settings"
+            android:textAlignment="center"
+            android:textColor="@android:color/secondary_text_light"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/levelThemeText"
+            <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:layout_weight="1"
-                android:text="Level Theme"
-                android:textAlignment="viewStart"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <Spinner
-                android:id="@+id/levelThemeSelect"
-                android:layout_width="158dp"
-                android:layout_height="50dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal">
+                android:layout_weight="1" />
 
             <ToggleButton
-                android:id="@+id/soundToggle"
-                android:layout_width="181dp"
+                android:id="@+id/resetLevelsButton"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:text="Sound"
-                android:textOff="Sound OFf"
-                android:textOn="Sound On" />
+                android:text="@string/don_t_reset_levels"
+                android:textOff="@string/don_t_reset_levels"
+                android:textOn="@string/level_reset" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ToggleButton
+                android:id="@+id/resetStoreButton"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/don_t_reset_store"
+                android:textOff="@string/don_t_reset_store"
+                android:textOn="@string/store_reset" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -104,11 +129,12 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/nextLevelButton"
+                android:id="@+id/cancelButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Cancel" />
+                android:backgroundTint="@color/red"
+                android:text="@string/cancel" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -116,13 +142,14 @@
                 android:layout_weight="1" />
 
             <Button
-                android:id="@+id/mainMenuButton"
+                android:id="@+id/applyButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Apply" />
+                android:backgroundTint="@android:color/holo_green_light"
+                android:text="@string/apply" />
 
         </LinearLayout>
 
     </LinearLayout>
-    </RelativeLayout>
+</RelativeLayout>

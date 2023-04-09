@@ -92,6 +92,8 @@ class MainMenuActivity : BaseActivity(), SettingsDialogCallback {
             val intent = Intent(this, StoreActivity::class.java)
             startActivity(intent)
         }
+        // hide status bar
+        hideAndroidUI()
     }
 
     override fun settingsDialogCallback(settings: Settings) {

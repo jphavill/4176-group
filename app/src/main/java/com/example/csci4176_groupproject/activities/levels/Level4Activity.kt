@@ -23,5 +23,7 @@ class Level4Activity : BaseLevelActivity() {
         fullscreenContent = binding.Level4FullscreenContent
         fullScreenView = findViewById(R.id.Level4FullscreenContent)
         super.levelSetup()
+        // hide status bar
+        hideAndroidUI()
     }
 }

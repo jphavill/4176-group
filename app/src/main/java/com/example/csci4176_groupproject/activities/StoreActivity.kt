@@ -31,6 +31,9 @@ class StoreActivity : BaseActivity(), BuyDialogCallback {
         fullscreenContent = binding.storeFullscreenContent
         setContentView(binding.root)
 
+        // hide status bar
+        hideAndroidUI()
+
         // the store's back button leads to the MainMenuActivity
         super.addTopBar("Store", "MainMenuActivity")
 

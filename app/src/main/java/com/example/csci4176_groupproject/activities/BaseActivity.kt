@@ -27,9 +27,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // hide status bar
-        hideAndroidUI()
-
         // persistent storage shared by the entire application
         settingPrefs = this.applicationContext.getSharedPreferences("settingsPrefs", 0)
         // haptics are enabled by default, or set to the setting stored in persistent storage
@@ -63,7 +60,7 @@ abstract class BaseActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().add(R.id.topBar, topBar).commit()
     }
 
-    private fun hideAndroidUI() {
+    fun hideAndroidUI() {
         // Hides the android status bar at the top of the screen
         // without doing this, relativeLayouts are offset by the height of the status bar
         // this would make the player character appear in the wrong place

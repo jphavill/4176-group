@@ -35,6 +35,9 @@ class LevelSelectActivity : BaseActivity(), BuyDialogCallback {
         isFullscreen = true
         fullscreenContent = binding.levelSelectFullscreenContent
 
+        // hide status bar
+        hideAndroidUI()
+
         updateButtons()
 
         super.addTopBar("Level Select", "MainMenuActivity")

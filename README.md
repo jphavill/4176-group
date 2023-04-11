@@ -1,6 +1,9 @@
 # 4176-group
 
-[Project Proposal](https://docs.google.com/document/d/1XWPQWC-abh86FrN552MO2idq37ma7OvvlWA92sPzZns/edit?usp=sharing)
+[Project Proposal](https://docs.google.com/document/d/1XWPQWC-abh86FrN552MO2idq37ma7OvvlWA92sPzZns/edit?usp=sharing)'
+
+This android app is a puzzle level style game. Each level is made up of a tiled grid, for example an 11x7 map. Move the character over a level to colour in the grid.
+Once a level is completely covered, you win!
 
 Images not taken from Flaticon were created by Dongkyu Kim. Edited and imported by Jason Havill
 
